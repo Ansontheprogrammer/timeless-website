@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:timeless_app/utils/container_spacer.dart';
 import 'package:timeless_app/utils/custom_section.dart';
 import 'package:timeless_app/utils/custom_text.dart';
-import 'package:timeless_app/views/home/home_view.dart';
+import 'package:timeless_app/widgets/home/recommended/left_column_recommended.dart';
 import 'package:timeless_app/widgets/home/search_bar.dart';
 
 class LandingPageContent extends StatelessWidget {
