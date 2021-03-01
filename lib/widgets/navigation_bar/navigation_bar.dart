@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:timeless_app/utils/custom_text.dart';
+import 'package:timeless_app/widgets/navigation_bar/nav_item.dart';
 
 class NavigationBar extends StatelessWidget {
   const NavigationBar({Key key}) : super(key: key);
@@ -20,33 +20,14 @@ class NavigationBar extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const _NavBarItem('Home'),
-              const _NavBarItem('Search'),
-              const _NavBarItem('About'),
-              const _NavBarItem('Contact'),
+              const NavBarItem('Home'),
+              const NavBarItem('Search'),
+              const NavBarItem('About'),
+              const NavBarItem('Contact'),
             ],
           )
         ],
       ),
-    );
-  }
-}
-
-class _NavBarItem extends StatelessWidget {
-  final String title;
-  const _NavBarItem(this.title);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        CustomTextNormal(
-          text: title,
-        ),
-        SizedBox(
-          width: 20,
-        ),
-      ],
     );
   }
 }
