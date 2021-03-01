@@ -11,17 +11,11 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white10,
-      /* TODO: I dont want to wrap the entire website in the CustomSection widget
-        We don't want this because if we create wrap the entire page then some sections won't look as appealing
-        due to them having background colors and not stretching the full width of the screen
-      */
-      body: CustomSection(
-        child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [NavigationBar(), LandingPageContent(), Footer()]),
-      ),
+      backgroundColor: Colors.white,
+      body: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [NavigationBar(), LandingPageContent()]),
     );
   }
 }
