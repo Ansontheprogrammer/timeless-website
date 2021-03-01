@@ -1,16 +1,20 @@
-# timeless_app
+#  #100DaysOfCode
 
-A new Flutter project.
+I have decided to use this project to complete my #100daysofcodechallenge.
 
-## Getting Started
+# Goal
 
-This project is a starting point for a Flutter application.
+I wanted to use a technology that I have not used before and I thought Flutter Web would be perfect. I have experience with Flutter but Flutter Web seemed very interesting to me and I would love to be competent with using it prior to it being released for production. I'm personally a big fan of many google technologies however this one takes the cake. I could only dream of creating a mobile app that is responsive in the browser. Maybe it's to ambitious but we can try right :-). Depending on the success of this project I may expand this website to also being optimized on a desktop application and mobile application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Primary Objective
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+I want this to be a completed website. This should include: design, SEO, and other small details to make it a website similar to what we are used too. The website should also be responsive on mobile and tablet view
+
+## Secondary Objective
+
+Build the website as a desktop application
+
+## Bonus
+
+Use some conditional logic to have the website also build as a mobile application. This should include many standard things for mobile applications such as App bars, snack bars, etc.
