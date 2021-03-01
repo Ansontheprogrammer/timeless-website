@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:timeless_app/utils/custom_section.dart';
 import 'package:timeless_app/widgets/navigation_bar/nav_item.dart';
@@ -8,6 +9,7 @@ class NavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomSection(
+      color: Colors.black87,
       child: Container(
         height: 50,
         child: Row(

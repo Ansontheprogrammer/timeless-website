@@ -14,7 +14,9 @@ class FooterItem extends StatelessWidget {
           height: 5,
         ),
         FlatButton(
+          onPressed: () {},
           child: CustomTextNormal(
+            color: Colors.white,
             text: title,
           ),
         ),

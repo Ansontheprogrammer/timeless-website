@@ -13,6 +13,7 @@ class NavBarItem extends StatelessWidget {
         FlatButton(
           onPressed: () {},
           child: CustomTextNormal(
+            color: Colors.white,
             text: title,
           ),
         ),

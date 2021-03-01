@@ -10,6 +10,7 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomSection(
+      color: Colors.black87,
       child: Container(
         padding: EdgeInsets.all(8.0),
         child: Row(
@@ -25,6 +26,7 @@ class Footer extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 CustomTextHeadline(
+                  color: Colors.white,
                   text: 'General',
                 ),
                 const FooterItem('Support'),
@@ -34,6 +36,7 @@ class Footer extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 CustomTextHeadline(
+                  color: Colors.white,
                   text: 'Contact Us',
                 ),
                 const FooterItem('Contact'),
