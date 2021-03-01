@@ -1,0 +1,7 @@
+version: "Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)"
+options: "9819e35358cbea03905abe0309fe2cdd"
+build_time: [1614515395, 136289000]
+inputs:
+  "/Users/anson/Desktop/ae/timeless_app/macos/Runner/MainFlutterWindow.swift": [1602186692, 0]
+  "/Users/anson/Desktop/ae/timeless_app/macos/Runner/AppDelegate.swift": [1602186692, 0]
+  "/Users/anson/Desktop/ae/timeless_app/macos/Flutter/GeneratedPluginRegistrant.swift": [1614515352, 93428968]
