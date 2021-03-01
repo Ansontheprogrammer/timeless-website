@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:timeless_app/utils/custom_section.dart';
 import 'package:timeless_app/utils/custom_text.dart';
+import 'package:timeless_app/widgets/footer/footer_item.dart';
 
 class Footer extends StatelessWidget {
   const Footer({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 1,
+    return CustomSection(
       child: Container(
-        height: 10,
         padding: EdgeInsets.all(8.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -27,7 +27,7 @@ class Footer extends StatelessWidget {
                 CustomTextHeadline(
                   text: 'General',
                 ),
-                const _NavBarItem('Support'),
+                const FooterItem('Support'),
               ],
             ),
             Column(
@@ -36,36 +36,12 @@ class Footer extends StatelessWidget {
                 CustomTextHeadline(
                   text: 'Contact Us',
                 ),
-                const _NavBarItem('Contact'),
+                const FooterItem('Contact'),
               ],
             )
           ],
         ),
       ),
-    );
-  }
-}
-
-class _NavBarItem extends StatelessWidget {
-  final String title;
-  const _NavBarItem(this.title);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        SizedBox(
-          height: 5,
-        ),
-        FlatButton(
-          child: CustomTextNormal(
-            text: title,
-          ),
-        ),
-        SizedBox(
-          width: 20,
-        ),
-      ],
     );
   }
 }
