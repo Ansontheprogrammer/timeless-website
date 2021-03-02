@@ -19,46 +19,55 @@ class HomeView extends StatelessWidget {
                   text: 'Timeless on an App', color: Colors.white),
               backgroundColor: Colors.black87,
             )
-          : null,
+          : PreferredSize(
+              child: Container(),
+              preferredSize: Size(
+                0,
+                0,
+              )),
       backgroundColor: Colors.white,
       body: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             kIsWeb ? NavigationBar() : Container(),
-            LandingPageContent()
+            LandingPageContent(),
+            kIsWeb
+                ? Container()
+                : BottomNavigationBar(
+                    type: BottomNavigationBarType.fixed,
+                    backgroundColor: Colors.black87,
+                    selectedItemColor: Colors.white,
+                    unselectedItemColor: Colors.white.withOpacity(.60),
+                    selectedFontSize: 14,
+                    unselectedFontSize: 14,
+                    onTap: (value) {
+                      // Respond to item press.
+                    },
+                    items: [
+                      BottomNavigationBarItem(
+                        activeIcon: Icon(
+                          Icons.home,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                        title: Text('Home'),
+                        icon: Icon(Icons.home),
+                      ),
+                      BottomNavigationBarItem(
+                        title: Text('Search'),
+                        icon: Icon(Icons.search),
+                      ),
+                      BottomNavigationBarItem(
+                        title: Text('About'),
+                        icon: Icon(Icons.location_on),
+                      ),
+                      BottomNavigationBarItem(
+                        title: Text('Contact'),
+                        icon: Icon(Icons.contact_page),
+                      ),
+                    ],
+                  )
           ]),
-      bottomNavigationBar: !kIsWeb
-          ? BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
-              backgroundColor: Colors.black87,
-              selectedItemColor: Colors.white,
-              unselectedItemColor: Colors.white.withOpacity(.60),
-              selectedFontSize: 14,
-              unselectedFontSize: 14,
-              onTap: (value) {
-                // Respond to item press.
-              },
-              items: [
-                BottomNavigationBarItem(
-                  title: Text('Home'),
-                  icon: Icon(Icons.home),
-                ),
-                BottomNavigationBarItem(
-                  title: Text('Search'),
-                  icon: Icon(Icons.search),
-                ),
-                BottomNavigationBarItem(
-                  title: Text('About'),
-                  icon: Icon(Icons.location_on),
-                ),
-                BottomNavigationBarItem(
-                  title: Text('Contact'),
-                  icon: Icon(Icons.contact_page),
-                ),
-              ],
-            )
-          : Container(),
     );
   }
 }

@@ -87,7 +87,7 @@ class LandingPageContent extends StatelessWidget {
                           ),
                         ],
                       )),
-            kIsWeb ? Footer() : Container(),
+            kIsWeb ? Footer() : Container()
           ],
         ));
   }
