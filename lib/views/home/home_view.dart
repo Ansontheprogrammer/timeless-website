@@ -15,18 +15,23 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: !kIsWeb
           ? AppBar(
-              title: CustomTextNormal(text: 'Timeless on an App'),
+              title: CustomTextNormal(
+                  text: 'Timeless on an App', color: Colors.white),
+              backgroundColor: Colors.black87,
             )
           : null,
       backgroundColor: Colors.white,
       body: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [NavigationBar(), LandingPageContent()]),
+          children: [
+            kIsWeb ? NavigationBar() : Container(),
+            LandingPageContent()
+          ]),
       bottomNavigationBar: !kIsWeb
           ? BottomNavigationBar(
               type: BottomNavigationBarType.fixed,
-              backgroundColor: Color(0xFF6200EE),
+              backgroundColor: Colors.black87,
               selectedItemColor: Colors.white,
               unselectedItemColor: Colors.white.withOpacity(.60),
               selectedFontSize: 14,
@@ -36,24 +41,24 @@ class HomeView extends StatelessWidget {
               },
               items: [
                 BottomNavigationBarItem(
-                  title: Text('Favorites'),
-                  icon: Icon(Icons.favorite),
+                  title: Text('Home'),
+                  icon: Icon(Icons.home),
                 ),
                 BottomNavigationBarItem(
-                  title: Text('Music'),
-                  icon: Icon(Icons.music_note),
+                  title: Text('Search'),
+                  icon: Icon(Icons.search),
                 ),
                 BottomNavigationBarItem(
-                  title: Text('Places'),
+                  title: Text('About'),
                   icon: Icon(Icons.location_on),
                 ),
                 BottomNavigationBarItem(
-                  title: Text('News'),
-                  icon: Icon(Icons.library_books),
+                  title: Text('Contact'),
+                  icon: Icon(Icons.contact_page),
                 ),
               ],
             )
-          : null,
+          : Container(),
     );
   }
 }

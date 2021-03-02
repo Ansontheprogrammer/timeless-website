@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:timeless_app/utils/container_spacer.dart';
 import 'package:timeless_app/utils/custom_section.dart';
@@ -86,7 +87,7 @@ class LandingPageContent extends StatelessWidget {
                           ),
                         ],
                       )),
-            Footer(),
+            kIsWeb ? Footer() : Container(),
           ],
         ));
   }
