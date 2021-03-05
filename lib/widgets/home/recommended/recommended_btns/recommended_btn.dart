@@ -29,7 +29,7 @@ class _RecommendedBtnState extends State<RecommendedBtn> {
       child: Padding(
         padding: const EdgeInsets.only(
             left: 16.0, right: 16.0, top: 9.0, bottom: 9.0),
-        child: CustomTextCaption(
+        child: CustomTextBtn(
           fontWeight: FontWeight.w100,
           color: active ? Theme.of(context).primaryColor : Colors.black54,
           text: widget.title,

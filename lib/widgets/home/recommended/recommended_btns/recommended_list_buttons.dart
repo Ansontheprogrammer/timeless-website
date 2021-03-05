@@ -9,17 +9,17 @@ class RecommendedListButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      crossAxisAlignment: WrapCrossAlignment.start,
-      alignment: WrapAlignment.center,
-      direction: Axis.horizontal,
-      runSpacing: 15.0,
-      spacing: 15.0,
-      children: recommendedBtnsOptions.map((option) {
-        return RecommendedBtn(
-          title: option,
-        );
-      }).toList(),
+    return Center(
+      child: Wrap(
+        direction: Axis.horizontal,
+        runSpacing: 15.0,
+        spacing: 15.0,
+        children: recommendedBtnsOptions.map((option) {
+          return RecommendedBtn(
+            title: option,
+          );
+        }).toList(),
+      ),
     );
   }
 }

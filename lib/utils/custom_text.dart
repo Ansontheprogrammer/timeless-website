@@ -5,16 +5,19 @@ class CustomTextNormal extends StatelessWidget {
   final Color color;
   final FontWeight fontWeight;
   final TextAlign textAlign;
+  final int maxLines;
   const CustomTextNormal(
       {@required this.text,
       this.color = Colors.black,
       this.textAlign = TextAlign.start,
-      this.fontWeight = FontWeight.normal});
+      this.fontWeight = FontWeight.normal,
+      this.maxLines = 4});
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
+      maxLines: this.maxLines,
       style: Theme.of(context)
           .textTheme
           .bodyText1

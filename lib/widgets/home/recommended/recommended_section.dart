@@ -23,14 +23,17 @@ class LeftColumnRecommended extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      const CustomTextCaption(
-        text: 'Recommended to you',
-      ),
-      const ContainerSpacer(),
-      RecommendedListButtons(),
-      SizedBox(height: 20),
-      RecommendedListCard()
-    ]);
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        const CustomTextCaption(
+          text: 'Recommended to you',
+        ),
+        const ContainerSpacer(),
+        RecommendedListButtons(),
+        SizedBox(height: 20),
+        RecommendedListCard()
+      ]),
+    );
   }
 }

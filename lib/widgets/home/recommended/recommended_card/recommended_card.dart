@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:timeless_app/utils/container_spacer.dart';
 import 'package:timeless_app/utils/custom_text.dart';
 
 class RecommendedCard extends StatelessWidget {
@@ -37,24 +38,42 @@ class RecommendedCard extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            CustomTextCaption(text: 'Heart Shaker'),
-            CustomTextNormal(text: 'Twice'),
-            ButtonBar(
-              children: <Widget>[
-                FlatButton(
-                  color: Theme.of(context).accentColor,
-                  child:
-                      const Text('Edit', style: TextStyle(color: Colors.white)),
-                  onPressed: () {},
-                ),
-                FlatButton(
-                  color: Theme.of(context).primaryColor,
-                  child: const Text('Delete',
-                      style: TextStyle(color: Colors.white)),
-                  onPressed: () {},
-                ),
-              ],
+            CustomTextBtn(
+              text: 'Heart Shaker',
+              fontWeight: FontWeight.w100,
             ),
+            SizedBox(
+              height: 5,
+            ),
+            CustomTextNormal(
+              text: 'Twice',
+              fontWeight: FontWeight.bold,
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            CustomTextNormal(
+                text:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
+
+            // ButtonBar(
+            //   alignment: MainAxisAlignment.spaceBetween,
+            //   children: <Widget>[
+            //     FlatButton(
+            //       padding: EdgeInsets.all(0),
+            //       color: Theme.of(context).accentColor,
+            //       child:
+            //           const Text('Edit', style: TextStyle(color: Colors.white)),
+            //       onPressed: () {},
+            //     ),
+            //     FlatButton(
+            //       color: Theme.of(context).primaryColor,
+            //       child: const Text('Delete',
+            //           style: TextStyle(color: Colors.white)),
+            //       onPressed: () {},
+            //     ),
+            //   ],
+            // ),
           ],
         ),
       ),
