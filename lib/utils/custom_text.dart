@@ -98,15 +98,23 @@ class CustomTextBtn extends StatelessWidget {
 class CustomTextHeadline extends StatelessWidget {
   final String text;
   final Color color;
-
-  const CustomTextHeadline({@required this.text, this.color = Colors.black});
+  final FontWeight fontWeight;
+  final double fontSize;
+  const CustomTextHeadline(
+      {@required this.text,
+      this.color = Colors.black,
+      this.fontWeight = FontWeight.normal,
+      this.fontSize});
 
   @override
   Widget build(BuildContext context) {
     return Container(
         child: Text(
       text,
-      style: Theme.of(context).textTheme.headline1.copyWith(color: this.color),
+      style: Theme.of(context).textTheme.headline1.copyWith(
+          color: this.color,
+          fontWeight: this.fontWeight,
+          fontSize: this.fontSize),
     ));
   }
 }

@@ -24,7 +24,9 @@ class MyApp extends StatelessWidget {
                   GoogleFonts.lato(fontSize: 24.0, fontWeight: FontWeight.w900),
               button: GoogleFonts.lato(fontSize: 14.0),
               headline1: GoogleFonts.ubuntu(
-                  fontSize: 28.0, fontWeight: FontWeight.bold))),
+                fontSize: 28.0,
+                fontWeight: FontWeight.w100,
+              ))),
       home: HomeView(),
     );
   }

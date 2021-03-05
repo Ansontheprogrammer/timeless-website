@@ -4,6 +4,7 @@ import 'package:timeless_app/utils/container_spacer.dart';
 import 'package:timeless_app/utils/custom_section.dart';
 import 'package:timeless_app/utils/custom_text.dart';
 import 'package:timeless_app/widgets/footer/footer.dart';
+import 'package:timeless_app/widgets/home/hero.dart';
 import 'package:timeless_app/widgets/home/recommended/recommended_section.dart';
 import 'package:timeless_app/widgets/home/search_bar.dart';
 
@@ -21,18 +22,40 @@ class LandingPageContent extends StatelessWidget {
         flex: 5,
         child: ListView(
           children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.1,
-            ),
-            CustomSection(
+            CustomHeroSection(
               child: Container(
-                child: const CustomTextHeadline(
-                  text: 'Let me help you find a good local business',
+                margin: EdgeInsets.only(bottom: 100),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Center(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const CustomTextHeadline(
+                            color: Colors.white,
+                            fontSize: 72.0,
+                            text: 'Let',
+                          ),
+                          const CustomTextHeadline(
+                            color: Colors.white,
+                            text: 'me help you find',
+                          ),
+                          const CustomTextHeadline(
+                            color: Colors.white,
+                            text: 'a good local business',
+                          ),
+                        ],
+                      ),
+                    ),
+                    ContainerSpacer(),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.7,
+                      child: const SearchBar(),
+                    )
+                  ],
                 ),
               ),
-            ),
-            const CustomSection(
-              child: SearchBar(),
             ),
             CustomSection(
               color: Colors.black12,
