@@ -20,6 +20,7 @@ class _RecommendedBtnState extends State<RecommendedBtn> {
         });
       },
       splashColor: Colors.blue,
+      color: Colors.white,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(25.0),
           side: BorderSide(
