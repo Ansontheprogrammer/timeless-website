@@ -4,7 +4,7 @@ class CustomHeroSection extends StatelessWidget {
   final Widget child;
   final Color color;
   const CustomHeroSection(
-      {@required this.child, this.color = Colors.transparent});
+      {required this.child, this.color = Colors.transparent});
 
   @override
   Widget build(BuildContext context) {

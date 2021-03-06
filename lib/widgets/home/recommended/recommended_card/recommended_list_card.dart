@@ -11,20 +11,10 @@ List<RecommendedCard> listOfCards = [
 ];
 
 class RecommendedListCard extends StatelessWidget {
-  const RecommendedListCard({
-    Key key,
-  }) : super(key: key);
+  const RecommendedListCard();
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      alignment: WrapAlignment.spaceEvenly,
-      spacing: 5.0,
-      runSpacing: 5.0,
-      children: [
-        RecommendedCard(),
-        RecommendedCard(),
-      ],
-    );
+    return SliverList(delegate: new SliverChildListDelegate(listOfCards));
   }
 }

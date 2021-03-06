@@ -8,7 +8,7 @@ class NavigationBar extends StatelessWidget {
   final Function openDrawer;
   final Function closeDrawer;
 
-  const NavigationBar({this.openDrawer, this.closeDrawer});
+  const NavigationBar({required this.openDrawer, required this.closeDrawer});
 
   @override
   Widget build(BuildContext context) {

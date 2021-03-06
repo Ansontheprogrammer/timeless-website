@@ -10,9 +10,7 @@ import 'package:timeless_app/widgets/home/recommended/recommended_section.dart';
 import 'package:timeless_app/widgets/home/search_bar.dart';
 
 class LandingPageContent extends StatelessWidget {
-  const LandingPageContent({
-    Key key,
-  }) : super(key: key);
+  const LandingPageContent();
 
   @override
   Widget build(BuildContext context) {

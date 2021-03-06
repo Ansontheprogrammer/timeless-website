@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class CustomTabBar extends StatelessWidget {
-  const CustomTabBar({
-    Key key,
-  }) : super(key: key);
+  const CustomTabBar();
 
-  buildBottomNavBarItem({BuildContext context, String title, IconData icon}) {
+  buildBottomNavBarItem(
+      {required BuildContext context,
+      required String title,
+      required IconData icon}) {
     return BottomNavigationBarItem(
       activeIcon: Icon(
         Icons.home,

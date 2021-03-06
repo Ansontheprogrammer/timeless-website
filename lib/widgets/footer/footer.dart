@@ -5,7 +5,7 @@ import 'package:timeless_app/utils/custom_text.dart';
 import 'package:timeless_app/widgets/footer/footer_item.dart';
 
 class Footer extends StatelessWidget {
-  const Footer({Key key}) : super(key: key);
+  const Footer();
 
   @override
   Widget build(BuildContext context) {

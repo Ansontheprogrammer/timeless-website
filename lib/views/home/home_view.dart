@@ -9,15 +9,15 @@ import 'package:timeless_app/widgets/home/landing_page_content.dart';
 import 'package:timeless_app/widgets/navigation_bar/navigation_bar.dart';
 
 class HomeView extends StatelessWidget {
-  HomeView({Key key}) : super(key: key);
+  HomeView();
   GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   void _openDrawer() {
-    _scaffoldKey.currentState.openDrawer();
+    _scaffoldKey.currentState!.openDrawer();
   }
 
   void _closeDrawer() {
-    _scaffoldKey.currentState.openDrawer();
+    _scaffoldKey.currentState!.openDrawer();
   }
 
   @override

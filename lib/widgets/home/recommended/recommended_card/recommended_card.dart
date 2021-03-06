@@ -3,9 +3,7 @@ import 'package:timeless_app/utils/container_spacer.dart';
 import 'package:timeless_app/utils/custom_text.dart';
 
 class RecommendedCard extends StatelessWidget {
-  const RecommendedCard({
-    Key key,
-  }) : super(key: key);
+  const RecommendedCard();
 
   @override
   Widget build(BuildContext context) {

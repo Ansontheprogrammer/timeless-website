@@ -17,6 +17,12 @@ class MyCustomFormState extends State<MyCustomForm> {
   // Note: This is a GlobalKey<FormState>,
   // not a GlobalKey<MyCustomFormState>.
   final _formKey = GlobalKey<FormState>();
+  String? Function(String? value) Function({required String title}) validator =
+      ({required String title}) {
+    return (String? value) {
+      return value!.isNotEmpty ? title : null;
+    };
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -35,39 +41,18 @@ class MyCustomFormState extends State<MyCustomForm> {
           )),
           TextFormField(
             decoration: InputDecoration(hintText: 'Name'),
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
+            validator: validator(title: 'Name'),
           ),
           TextFormField(
             decoration: InputDecoration(hintText: 'Business'),
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
+            validator: validator(title: 'Business'),
           ),
           TextFormField(
-            decoration: InputDecoration(hintText: 'Location'),
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-          ),
+              decoration: InputDecoration(hintText: 'Location'),
+              validator: validator(title: 'Location')),
           TextFormField(
             decoration: InputDecoration(hintText: 'Website'),
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
+            validator: validator(title: 'Website'),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16.0),
@@ -75,7 +60,7 @@ class MyCustomFormState extends State<MyCustomForm> {
               onPressed: () {
                 // Validate returns true if the form is valid, or false
                 // otherwise.
-                if (_formKey.currentState.validate()) {
+                if (_formKey.currentState!.validate()) {
                   // If the form is valid, display a Snackbar.
                   ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text('Submitting Data Now')));

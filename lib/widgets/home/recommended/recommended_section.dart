@@ -17,9 +17,7 @@ List<String> recommendedBtnsOptions = [
 ];
 
 class LeftColumnRecommended extends StatelessWidget {
-  const LeftColumnRecommended({
-    Key key,
-  }) : super(key: key);
+  const LeftColumnRecommended();
 
   @override
   Widget build(BuildContext context) {

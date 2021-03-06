@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomSection extends StatelessWidget {
   final Widget child;
   final Color color;
-  const CustomSection({@required this.child, this.color = Colors.transparent});
+  const CustomSection({required this.child, this.color = Colors.transparent});
 
   @override
   Widget build(BuildContext context) {

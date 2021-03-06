@@ -7,7 +7,7 @@ class CustomTextNormal extends StatelessWidget {
   final TextAlign textAlign;
   final int maxLines;
   const CustomTextNormal(
-      {@required this.text,
+      {required this.text,
       this.color = Colors.black,
       this.textAlign = TextAlign.start,
       this.fontWeight = FontWeight.normal,
@@ -20,7 +20,7 @@ class CustomTextNormal extends StatelessWidget {
       maxLines: this.maxLines,
       style: Theme.of(context)
           .textTheme
-          .bodyText1
+          .bodyText1!
           .copyWith(color: this.color, fontWeight: this.fontWeight),
     );
   }
@@ -28,12 +28,12 @@ class CustomTextNormal extends StatelessWidget {
 
 class CustomTextLarge extends StatelessWidget {
   final String text;
-  final Color color;
+  final Color? color;
   final TextAlign textAlign;
   final FontWeight fontWeight;
 
   const CustomTextLarge(
-      {@required this.text,
+      {required this.text,
       this.color,
       this.textAlign = TextAlign.start,
       this.fontWeight = FontWeight.normal});
@@ -43,7 +43,7 @@ class CustomTextLarge extends StatelessWidget {
     return Text(
       text,
       textAlign: this.textAlign,
-      style: Theme.of(context).textTheme.bodyText2.copyWith(
+      style: Theme.of(context).textTheme.bodyText2!.copyWith(
             color: this.color,
           ),
     );
@@ -52,13 +52,13 @@ class CustomTextLarge extends StatelessWidget {
 
 class CustomTextCaption extends StatelessWidget {
   final String text;
-  final Color color;
+  final Color? color;
   final FontWeight fontWeight;
 
   final TextAlign textAlign;
 
   const CustomTextCaption(
-      {@required this.text,
+      {required this.text,
       this.color,
       this.textAlign = TextAlign.start,
       this.fontWeight = FontWeight.normal});
@@ -68,19 +68,19 @@ class CustomTextCaption extends StatelessWidget {
     return Text(
       text,
       textAlign: this.textAlign,
-      style: Theme.of(context).textTheme.caption.copyWith(color: this.color),
+      style: Theme.of(context).textTheme.caption!.copyWith(color: this.color),
     );
   }
 }
 
 class CustomTextBtn extends StatelessWidget {
   final String text;
-  final Color color;
+  final Color? color;
   final TextAlign textAlign;
   final FontWeight fontWeight;
 
   const CustomTextBtn(
-      {@required this.text,
+      {required this.text,
       this.color,
       this.textAlign = TextAlign.start,
       this.fontWeight = FontWeight.normal});
@@ -90,7 +90,7 @@ class CustomTextBtn extends StatelessWidget {
     return Text(
       text,
       textAlign: this.textAlign,
-      style: Theme.of(context).textTheme.button.copyWith(color: this.color),
+      style: Theme.of(context).textTheme.button!.copyWith(color: this.color),
     );
   }
 }
@@ -99,9 +99,9 @@ class CustomTextHeadline extends StatelessWidget {
   final String text;
   final Color color;
   final FontWeight fontWeight;
-  final double fontSize;
+  final double? fontSize;
   const CustomTextHeadline(
-      {@required this.text,
+      {required this.text,
       this.color = Colors.black,
       this.fontWeight = FontWeight.normal,
       this.fontSize});
@@ -111,7 +111,7 @@ class CustomTextHeadline extends StatelessWidget {
     return Container(
         child: Text(
       text,
-      style: Theme.of(context).textTheme.headline1.copyWith(
+      style: Theme.of(context).textTheme.headline1!.copyWith(
           color: this.color,
           fontWeight: this.fontWeight,
           fontSize: this.fontSize),

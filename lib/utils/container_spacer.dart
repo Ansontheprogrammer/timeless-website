@@ -1,9 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 class ContainerSpacer extends StatelessWidget {
-  const ContainerSpacer({
-    Key key,
-  }) : super(key: key);
+  const ContainerSpacer();
 
   @override
   Widget build(BuildContext context) {

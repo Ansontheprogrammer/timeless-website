@@ -3,9 +3,7 @@ import 'package:timeless_app/widgets/home/recommended/recommended_section.dart';
 import 'package:timeless_app/widgets/home/recommended/recommended_btns/recommended_btn.dart';
 
 class RecommendedListButtons extends StatelessWidget {
-  const RecommendedListButtons({
-    Key key,
-  }) : super(key: key);
+  const RecommendedListButtons();
 
   @override
   Widget build(BuildContext context) {

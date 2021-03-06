@@ -3,7 +3,7 @@ import 'package:timeless_app/utils/custom_text.dart';
 
 class RecommendedBtn extends StatefulWidget {
   String title;
-  RecommendedBtn({this.title});
+  RecommendedBtn({required this.title});
 
   @override
   _RecommendedBtnState createState() => _RecommendedBtnState();
