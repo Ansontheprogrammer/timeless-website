@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:timeless_app/utils/custom_text.dart';
 
-class SideDrawer extends StatelessWidget {
-  const SideDrawer({
+class DrawerHeaderWidget extends StatelessWidget {
+  const DrawerHeaderWidget({
     Key? key,
   }) : super(key: key);
 

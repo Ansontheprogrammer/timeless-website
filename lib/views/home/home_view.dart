@@ -4,7 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:timeless_app/utils/custom_text.dart';
 import 'package:timeless_app/widgets/footer/custom_tab_bar.dart';
 import 'package:timeless_app/widgets/home/landing_page_content.dart';
-import 'package:timeless_app/widgets/navigation/drawer.dart';
+import 'package:timeless_app/widgets/navigation/drawer/drawer.dart';
+import 'package:timeless_app/widgets/navigation/drawer/drawer_header.dart';
 
 class HomeView extends StatelessWidget {
   HomeView();
@@ -22,30 +23,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            SideDrawer(),
-            ListTile(
-              title: CustomTextNormal(text: 'Home'),
-              onTap: () {},
-            ),
-            ListTile(
-              title: CustomTextNormal(text: 'About'),
-              onTap: () {},
-            ),
-            ListTile(
-              title: CustomTextNormal(text: 'Search'),
-              onTap: () {},
-            ),
-            ListTile(
-              title: Text('Contact'),
-              onTap: () {},
-            ),
-          ],
-        ),
-      ),
+      drawer: CustomDrawer(),
       backgroundColor: Colors.white,
       body: CustomScrollView(
         slivers: [
