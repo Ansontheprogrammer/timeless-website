@@ -6,7 +6,7 @@ import 'package:timeless_app/widgets/navigation/app/custom_tab_bar.dart';
 import 'package:timeless_app/widgets/home/landing_page_content.dart';
 import 'package:timeless_app/widgets/navigation/drawer/drawer.dart';
 import 'package:timeless_app/widgets/navigation/drawer/drawer_header.dart';
-import 'package:timeless_app/widgets/navigation/navigation_bar.dart';
+import 'package:timeless_app/widgets/navigation/nav-bar/navigation_bar.dart';
 
 class HomeView extends StatelessWidget {
   HomeView();
