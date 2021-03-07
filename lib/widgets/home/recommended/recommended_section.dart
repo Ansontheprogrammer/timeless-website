@@ -30,8 +30,21 @@ class LeftColumnRecommended extends StatelessWidget {
         const ContainerSpacer(),
         RecommendedListButtons(),
         SizedBox(height: 20),
-        RecommendedListCard()
+        Container(
+            height: MediaQuery.of(context).size.height * 0.3,
+            child: RecommendedListCard()),
       ]),
     );
   }
 }
+
+// List _buildList(int count) {
+//   List<Widget> listItems = [];
+//   for (int i = 0; i < count; i++) {
+//     listItems.add(new Padding(
+//         padding: new EdgeInsets.all(16.0),
+//         child: new Text('Sliver Item ${i.toString()}',
+//             style: new TextStyle(fontSize: 22.0))));
+//   }
+//   return listItems;
+// }
