@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:timeless_app/utils/custom_text.dart';
 import 'package:timeless_app/widgets/footer/custom_tab_bar.dart';
 import 'package:timeless_app/widgets/home/landing_page_content.dart';
-import 'package:timeless_app/widgets/navigation_bar/navigation_bar.dart';
+import 'package:timeless_app/widgets/navigation/drawer.dart';
 
 class HomeView extends StatelessWidget {
   HomeView();
@@ -26,18 +26,7 @@ class HomeView extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            DrawerHeader(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CustomTextLarge(
-                        text: 'AnsonErvin Inc.', color: Colors.white)
-                  ]),
-              decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
-              ),
-            ),
+            SideDrawer(),
             ListTile(
               title: CustomTextNormal(text: 'Home'),
               onTap: () {},
@@ -61,29 +50,30 @@ class HomeView extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           if (!kIsWeb)
-            SliverAppBar(
-                expandedHeight: 150.0,
-                flexibleSpace: const FlexibleSpaceBar(
-                  title: CustomTextNormal(
-                      text: 'Timeless on an App', color: Colors.white),
-                ))
+            Container()
+          // SliverAppBar(
+          //     expandedHeight: 150.0,
+          //     flexibleSpace: const FlexibleSpaceBar(
+          //       title: CustomTextNormal(
+          //           text: 'Timeless on an App', color: Colors.white),
+          //     ))
           else
             Container(),
-          SliverToBoxAdapter(
-            child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  kIsWeb
-                      ? NavigationBar(
-                          openDrawer: _openDrawer,
-                          closeDrawer: _closeDrawer,
-                        )
-                      : Container(),
-                  LandingPageContent(),
-                  kIsWeb ? Container() : CustomTabBar()
-                ]),
-          ),
+          // SliverToBoxAdapter(
+          //   child: Column(
+          //       mainAxisSize: MainAxisSize.min,
+          //       crossAxisAlignment: CrossAxisAlignment.start,
+          //       children: [
+          //         kIsWeb
+          //             ? NavigationBar(
+          //                 openDrawer: _openDrawer,
+          //                 closeDrawer: _closeDrawer,
+          //               )
+          //             : Container(),
+          //         LandingPageContent(),
+          //         kIsWeb ? Container() : CustomTabBar()
+          //       ]),
+          // ),
         ],
       ),
     );
