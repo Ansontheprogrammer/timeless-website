@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:timeless_app/utils/custom_section.dart';
 import 'package:timeless_app/utils/custom_text.dart';
-import 'package:timeless_app/widgets/footer/footer_item.dart';
+import 'package:timeless_app/widgets/navigation/footer/footer_item.dart';
 
 class Footer extends StatelessWidget {
   const Footer();

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:timeless_app/utils/container_spacer.dart';
 import 'package:timeless_app/utils/custom_section.dart';
 import 'package:timeless_app/utils/custom_text.dart';
-import 'package:timeless_app/widgets/footer/footer.dart';
 import 'package:timeless_app/widgets/home/hero/hero_container.dart';
 import 'package:timeless_app/widgets/home/hero/hero_section.dart';
 import 'package:timeless_app/widgets/home/my_custom_form.dart';
@@ -11,6 +10,7 @@ import 'package:timeless_app/widgets/home/recommended/desktop_recommended_sectio
 import 'package:timeless_app/widgets/home/recommended/mobile_recommended_section.dart';
 import 'package:timeless_app/widgets/home/recommended/recommended_section.dart';
 import 'package:timeless_app/widgets/home/search_bar.dart';
+import 'package:timeless_app/widgets/navigation/footer/footer.dart';
 
 class LandingPageContent extends StatelessWidget {
   const LandingPageContent();
@@ -32,7 +32,7 @@ class LandingPageContent extends StatelessWidget {
                   : MobileRecommendSection(),
             ),
             CustomSection(child: MyCustomForm()),
-            kIsWeb ? Footer() : Container()
+            if (kIsWeb) Footer() else Container()
           ],
         ));
   }
