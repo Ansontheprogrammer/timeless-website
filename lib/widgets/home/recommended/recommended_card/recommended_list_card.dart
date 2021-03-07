@@ -15,6 +15,8 @@ class RecommendedListCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverList(delegate: new SliverChildListDelegate(listOfCards));
+    return Column(
+      children: listOfCards,
+    );
   }
 }

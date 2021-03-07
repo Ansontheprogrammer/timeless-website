@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-class CustomHeroSection extends StatelessWidget {
+class HeroContainer extends StatelessWidget {
   final Widget child;
   final Color color;
-  const CustomHeroSection(
-      {required this.child, this.color = Colors.transparent});
+  const HeroContainer({required this.child, this.color = Colors.transparent});
 
   @override
   Widget build(BuildContext context) {
