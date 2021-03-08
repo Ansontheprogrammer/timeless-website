@@ -39,7 +39,6 @@ class HomeView extends StatelessWidget {
       backgroundColor: Colors.white,
       body: CustomScrollView(
         slivers: [
-          if (!kIsWeb) Container() else Container(),
           SliverToBoxAdapter(
             child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -51,9 +50,8 @@ class HomeView extends StatelessWidget {
                       closeDrawer: _closeDrawer,
                     )
                   else
-                    Container(),
-                  LandingPageContent(),
-                  kIsWeb ? Container() : CustomTabBar()
+                    LandingPageContent(),
+                  if (kIsWeb) Container() else CustomTabBar()
                 ]),
           ),
         ],
