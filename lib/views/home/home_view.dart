@@ -40,19 +40,15 @@ class HomeView extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
-            child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  if (kIsWeb)
-                    NavigationBar(
+              child: kIsWeb
+                  ? NavigationBar(
                       openDrawer: _openDrawer,
                       closeDrawer: _closeDrawer,
                     )
-                  else
-                    LandingPageContent(),
-                  if (kIsWeb) Container() else CustomTabBar()
-                ]),
+                  : Container()),
+          LandingPageContent(),
+          SliverToBoxAdapter(
+            child: !kIsWeb ? CustomTabBar() : Container(),
           ),
         ],
       ),

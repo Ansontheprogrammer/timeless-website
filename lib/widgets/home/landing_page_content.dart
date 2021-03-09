@@ -15,17 +15,20 @@ class LandingPageContent extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     bool displayedOnTabletOrSmaller = screenWidth < 600;
 
-    return SliverList(
-        delegate: SliverChildListDelegate([
-      HeroSection(),
-      CustomSection(
-        color: Colors.white,
-        child: !displayedOnTabletOrSmaller
-            ? DesktopRecommendedSection()
-            : MobileRecommendSection(),
-      ),
-      CustomSection(child: MyCustomForm()),
-      if (kIsWeb) Footer() else Container()
-    ]));
+    List<Widget> _buildWebapp() {
+      return [
+        HeroSection(),
+        CustomSection(
+          color: Colors.white,
+          child: !displayedOnTabletOrSmaller
+              ? DesktopRecommendedSection()
+              : MobileRecommendSection(),
+        ),
+        CustomSection(child: MyCustomForm()),
+        if (kIsWeb) Footer() else Container()
+      ];
+    }
+
+    return SliverList(delegate: SliverChildListDelegate(_buildWebapp()));
   }
 }
