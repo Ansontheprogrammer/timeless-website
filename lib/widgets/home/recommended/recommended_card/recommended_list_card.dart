@@ -5,17 +5,24 @@ List<RecommendedCard> listOfCards = [
   RecommendedCard(),
   RecommendedCard(),
   RecommendedCard(),
-  RecommendedCard(),
-  RecommendedCard(),
-  RecommendedCard(),
+  // RecommendedCard(),
+  // RecommendedCard(),
+  // RecommendedCard(),
 ];
 
 class RecommendedListCard extends StatelessWidget {
-  const RecommendedListCard();
+  final bool useHorizontal;
+  const RecommendedListCard({required this.useHorizontal});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    // return !this.useHorizontal
+    //     ? Column(
+    //         children: listOfCards,
+    //       )
+    return Wrap(
+      runSpacing: 20,
+      spacing: 20,
       children: listOfCards,
     );
   }

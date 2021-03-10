@@ -21,6 +21,9 @@ class LeftColumnRecommended extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    bool displayedOnTabletOrSmaller = screenWidth < 600;
+
     return Container(
       width: MediaQuery.of(context).size.width,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -31,20 +34,9 @@ class LeftColumnRecommended extends StatelessWidget {
         RecommendedListButtons(),
         SizedBox(height: 20),
         Container(
-            height: MediaQuery.of(context).size.height * 0.3,
-            child: RecommendedListCard()),
+            child:
+                RecommendedListCard(useHorizontal: displayedOnTabletOrSmaller)),
       ]),
     );
   }
 }
-
-// List _buildList(int count) {
-//   List<Widget> listItems = [];
-//   for (int i = 0; i < count; i++) {
-//     listItems.add(new Padding(
-//         padding: new EdgeInsets.all(16.0),
-//         child: new Text('Sliver Item ${i.toString()}',
-//             style: new TextStyle(fontSize: 22.0))));
-//   }
-//   return listItems;
-// }
