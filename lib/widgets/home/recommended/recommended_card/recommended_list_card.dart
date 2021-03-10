@@ -20,10 +20,11 @@ class RecommendedListCard extends StatelessWidget {
     //     ? Column(
     //         children: listOfCards,
     //       )
-    return Wrap(
+    return Center(
+        child: Wrap(
       runSpacing: 20,
       spacing: 20,
       children: listOfCards,
-    );
+    ));
   }
 }
