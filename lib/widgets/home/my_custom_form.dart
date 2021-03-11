@@ -1,4 +1,5 @@
 // Create a Form widget.
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:timeless_app/utils/container_spacer.dart';
@@ -23,6 +24,9 @@ class MyCustomFormState extends State<MyCustomForm> {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    bool displayedOnTabletOrSmaller = screenWidth < 600;
+
     // Build a Form widget using the _formKey created above.
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,7 +97,9 @@ class MyCustomFormState extends State<MyCustomForm> {
         ),
         Center(
           child: Container(
-            width: MediaQuery.of(context).size.width * 0.25,
+            width: kIsWeb
+                ? MediaQuery.of(context).size.width * 0.25
+                : MediaQuery.of(context).size.width * 0.75,
             child: Padding(
               padding:
                   const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),

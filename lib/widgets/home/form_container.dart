@@ -6,11 +6,18 @@ class FormContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    bool displayedOnTabletOrSmaller = screenWidth < 600;
+
     return Container(
       padding: EdgeInsets.all(25),
       margin: EdgeInsets.only(
-          left: MediaQuery.of(context).size.width / 5,
-          right: MediaQuery.of(context).size.width / 5),
+          left: !displayedOnTabletOrSmaller
+              ? MediaQuery.of(context).size.width / 5
+              : 25,
+          right: !displayedOnTabletOrSmaller
+              ? MediaQuery.of(context).size.width / 5
+              : 25),
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [

@@ -8,22 +8,14 @@ class FooterItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        SizedBox(
-          height: 5,
+    return FlatButton(
+      onPressed: () {},
+      child: Center(
+        child: CustomTextNormal(
+          color: Colors.white,
+          text: title,
         ),
-        FlatButton(
-          onPressed: () {},
-          child: CustomTextNormal(
-            color: Colors.white,
-            text: title,
-          ),
-        ),
-        SizedBox(
-          width: 20,
-        ),
-      ],
+      ),
     );
   }
 }

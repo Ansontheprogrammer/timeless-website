@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:timeless_app/utils/custom_section.dart';
 import 'package:timeless_app/utils/custom_text.dart';
+import 'package:timeless_app/utils/small_spacer.dart';
 import 'package:timeless_app/widgets/navigation/footer/footer_item.dart';
 
 class Footer extends StatelessWidget {
@@ -23,13 +24,16 @@ class Footer extends StatelessWidget {
               child: Image.asset('assets/images/logo.png'),
             ),
             Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: [
                 CustomTextHeadline(
                   color: Colors.white,
                   text: 'General',
                 ),
-                const FooterItem('Support'),
+                SmallSpacer(),
+                const FooterItem('About'),
+                const FooterItem('Contact'),
               ],
             ),
             Column(
@@ -39,7 +43,9 @@ class Footer extends StatelessWidget {
                   color: Colors.white,
                   text: 'Contact Us',
                 ),
-                const FooterItem('Contact'),
+                SmallSpacer(),
+                const FooterItem('anson.ervin@ansonervin.com'),
+                const FooterItem('201-207-1177'),
               ],
             )
           ],

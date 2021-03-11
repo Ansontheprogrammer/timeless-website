@@ -41,9 +41,12 @@ class HomeView extends StatelessWidget {
         slivers: [
           SliverToBoxAdapter(
               child: kIsWeb
-                  ? NavigationBar(
-                      openDrawer: _openDrawer,
-                      closeDrawer: _closeDrawer,
+                  ? Positioned(
+                      top: 0,
+                      child: NavigationBar(
+                        openDrawer: _openDrawer,
+                        closeDrawer: _closeDrawer,
+                      ),
                     )
                   : Container()),
           LandingPageContent(),
