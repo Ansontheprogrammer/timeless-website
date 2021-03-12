@@ -54,11 +54,12 @@ class CustomTextCaption extends StatelessWidget {
   final String text;
   final Color? color;
   final FontWeight fontWeight;
-
+  final double? fontSize;
   final TextAlign textAlign;
 
   const CustomTextCaption(
       {required this.text,
+      this.fontSize,
       this.color,
       this.textAlign = TextAlign.start,
       this.fontWeight = FontWeight.normal});
@@ -68,7 +69,10 @@ class CustomTextCaption extends StatelessWidget {
     return Text(
       text,
       textAlign: this.textAlign,
-      style: Theme.of(context).textTheme.caption!.copyWith(color: this.color),
+      style: Theme.of(context)
+          .textTheme
+          .caption!
+          .copyWith(color: this.color, fontSize: this.fontSize),
     );
   }
 }
