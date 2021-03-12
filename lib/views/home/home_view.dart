@@ -1,10 +1,17 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:timeless_app/utils/custom_section.dart';
 import 'package:timeless_app/utils/custom_text.dart';
+import 'package:timeless_app/widgets/home/form_container.dart';
+import 'package:timeless_app/widgets/home/hero/hero_section.dart';
+import 'package:timeless_app/widgets/home/my_custom_form.dart';
+import 'package:timeless_app/widgets/home/recommended/desktop_recommended_section.dart';
+import 'package:timeless_app/widgets/home/recommended/mobile_recommended_section.dart';
 import 'package:timeless_app/widgets/navigation/app/custom_tab_bar.dart';
 import 'package:timeless_app/widgets/home/landing_page_content.dart';
 import 'package:timeless_app/widgets/navigation/drawer/drawer.dart';
+import 'package:timeless_app/widgets/navigation/footer/footer.dart';
 import 'package:timeless_app/widgets/navigation/nav-bar/navigation_bar.dart';
 
 class HomeView extends StatelessWidget {
@@ -21,6 +28,8 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    bool displayedOnTabletOrSmaller = screenWidth < 600;
     return Scaffold(
       appBar: !kIsWeb
           ? AppBar(
@@ -39,17 +48,25 @@ class HomeView extends StatelessWidget {
       backgroundColor: Colors.white,
       body: CustomScrollView(
         slivers: [
+          if (kIsWeb)
+            SliverToBoxAdapter(
+                child: Positioned(
+              top: 0,
+              child: NavigationBar(
+                openDrawer: _openDrawer,
+                closeDrawer: _closeDrawer,
+              ),
+            )),
           SliverToBoxAdapter(
-              child: kIsWeb
-                  ? Positioned(
-                      top: 0,
-                      child: NavigationBar(
-                        openDrawer: _openDrawer,
-                        closeDrawer: _closeDrawer,
-                      ),
-                    )
-                  : Container()),
+            child: HeroSection(),
+          ),
           LandingPageContent(),
+          SliverToBoxAdapter(
+            child: CustomSection(
+                color: Colors.black12,
+                child: FormContainer(child: MyCustomForm())),
+          ),
+          if (kIsWeb) SliverToBoxAdapter(child: Footer()),
           SliverToBoxAdapter(
             child: !kIsWeb ? CustomTabBar() : Container(),
           ),
