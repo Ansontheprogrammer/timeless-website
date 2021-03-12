@@ -29,6 +29,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^2.0.0
   sliver_tools: ^0.1.10+1
+  flutter_slidable: ^0.5.7
 
 dependencies_overrides:
   http: ^0.13.0
