@@ -18,7 +18,6 @@ class _SearchBarState extends State<SearchBar> with TickerProviderStateMixin {
     controller = AnimationController(
         duration: const Duration(milliseconds: 1000), vsync: this);
     animation = CurvedAnimation(parent: controller, curve: Curves.easeIn);
-
     controller.forward();
   }
 

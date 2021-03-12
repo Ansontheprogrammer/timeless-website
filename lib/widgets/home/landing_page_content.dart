@@ -18,16 +18,12 @@ class LandingPageContent extends StatelessWidget {
 
     List<Widget> _buildWebapp() {
       return [
-        HeroSection(),
         CustomSection(
           color: Colors.white,
           child: !displayedOnTabletOrSmaller
               ? DesktopRecommendedSection()
               : MobileRecommendSection(),
         ),
-        CustomSection(
-            color: Colors.black12, child: FormContainer(child: MyCustomForm())),
-        if (kIsWeb) Footer() else Container()
       ];
     }
 

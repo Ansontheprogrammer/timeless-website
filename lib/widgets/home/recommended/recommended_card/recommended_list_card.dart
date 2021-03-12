@@ -16,10 +16,6 @@ class RecommendedListCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return !this.useHorizontal
-    //     ? Column(
-    //         children: listOfCards,
-    //       )
     return Center(
         child: Wrap(
       runSpacing: 20,
