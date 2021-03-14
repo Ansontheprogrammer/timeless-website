@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:timeless_app/views/home/home_view.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 
-void main() {
+void main() async {
+  await DotEnv.load(fileName: ".env");
   runApp(MyApp());
 }
 
@@ -14,7 +16,10 @@ class MyApp extends StatelessWidget {
       title: 'Timeless App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          // scaffoldBackgroundColor: Colors.white,
+          snackBarTheme: SnackBarThemeData(
+              behavior: SnackBarBehavior.floating,
+              backgroundColor: Colors.purple,
+              elevation: 6.0),
           primarySwatch: Colors.purple,
           accentColor: Colors.orange,
           textTheme: TextTheme(
