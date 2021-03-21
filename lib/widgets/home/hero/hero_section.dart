@@ -42,6 +42,7 @@ class HeroSection extends StatelessWidget {
             ),
             ContainerSpacer(),
             Container(
+              color: Colors.transparent,
               width: MediaQuery.of(context).size.width * 0.7,
               child: const SearchBar(),
             )

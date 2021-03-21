@@ -1,9 +1,8 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:timeless_app/utils/custom_section.dart';
-import 'package:timeless_app/widgets/home/form_container.dart';
-import 'package:timeless_app/widgets/home/hero/hero_section.dart';
-import 'package:timeless_app/widgets/home/my_custom_form.dart';
+import 'package:timeless_app/utils/custom_text.dart';
+import 'package:timeless_app/utils/small_spacer.dart';
+import 'package:timeless_app/widgets/home/recommended/category_option_btns/category_list.dart';
 import 'package:timeless_app/widgets/home/recommended/desktop_recommended_section.dart';
 import 'package:timeless_app/widgets/home/recommended/mobile_recommended_section.dart';
 import 'package:timeless_app/widgets/navigation/footer/footer.dart';
@@ -18,6 +17,18 @@ class LandingPageContent extends StatelessWidget {
 
     List<Widget> _buildWebapp() {
       return [
+        CustomSection(
+            child: Column(
+          children: [
+            Center(
+              child: CustomTextCaption(
+                text: 'Categories',
+              ),
+            ),
+            SmallSpacer(),
+            CategoryListButtons()
+          ],
+        )),
         CustomSection(
           color: Colors.white,
           child: !displayedOnTabletOrSmaller

@@ -31,9 +31,6 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    bool displayedOnTabletOrSmaller = screenWidth < 600;
-    // _scrollController.animateTo(_scrollController.position.maxScrollExtent,
-    //     duration: Duration(milliseconds: 200), curve: Curves.easeInOut);
     return Scaffold(
       appBar: !kIsWeb
           ? AppBar(
