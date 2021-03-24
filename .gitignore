@@ -33,6 +33,7 @@ pubspec.lock
 **/android/**/gradle-wrapper.jar
 **/android/.gradle
 **/android/captures/
+**/android/app/google-services.json
 **/android/gradlew
 **/android/gradlew.bat
 **/android/local.properties
@@ -75,4 +76,4 @@ build/
 !/packages/flutter_tools/test/d
 
 # Index.html because of Firebase configuration
-web/index.html
+**/web/index.html
