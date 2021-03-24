@@ -8,6 +8,8 @@ import 'utils/custom_text.dart';
 
 void main() async {
   await DotEnv.load(fileName: ".env");
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(MyApp());
 }
 

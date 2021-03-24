@@ -77,3 +77,6 @@ build/
 
 # Index.html because of Firebase configuration
 **/web/index.html
+
+# Generated Firebase Admin file
+lib/generated_plugin_registrant
