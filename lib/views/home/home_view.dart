@@ -6,8 +6,6 @@ import 'package:timeless_app/utils/custom_text.dart';
 import 'package:timeless_app/widgets/home/form_container.dart';
 import 'package:timeless_app/widgets/home/hero/hero_section.dart';
 import 'package:timeless_app/widgets/home/my_custom_form.dart';
-import 'package:timeless_app/widgets/home/recommended/desktop_recommended_section.dart';
-import 'package:timeless_app/widgets/home/recommended/mobile_recommended_section.dart';
 import 'package:timeless_app/widgets/navigation/app/custom_tab_bar.dart';
 import 'package:timeless_app/widgets/home/landing_page_content.dart';
 import 'package:timeless_app/widgets/navigation/drawer/drawer.dart';

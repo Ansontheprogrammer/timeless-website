@@ -59,14 +59,14 @@ class MyCustomFormState extends State<MyCustomForm> {
           decoration: InputDecoration(
             filled: true,
             fillColor: Colors.white,
-            hintText: 'Business',
+            hintText: 'Type of Business',
             border: new OutlineInputBorder(
               borderRadius: const BorderRadius.all(
                 const Radius.circular(2.5),
               ),
             ),
           ),
-          validator: validator(title: 'Business'),
+          validator: validator(title: 'Type of Business'),
         ),
         SmallSpacer(),
         TextFormField(
