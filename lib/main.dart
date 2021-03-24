@@ -13,6 +13,12 @@ void main() async {
   runApp(MyApp());
 }
 
+/* When building for web ->
+  To get over build issues with firestore, I needed to downgrade the firestore web sdk 
+  Issue -> https://github.com/FirebaseExtended/flutterfire/issues/4127
+  Resolution ->   <script src="http://www.gstatic.com/firebasejs/7.20.0/firebase-firestore.js"></script>
+*/
+
 class MyApp extends StatelessWidget {
   // Initialize firebase app
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
