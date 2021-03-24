@@ -4,6 +4,8 @@ class Business {
   final String type;
   final String imageURL;
   final String zipcode;
+  final String description;
+
   static String dbCollectionName = 'businesses';
 
   Map<String, dynamic> toJson() => {
@@ -13,11 +15,13 @@ class Business {
         'imageURL': this.imageURL,
         'zipcode': this.zipcode
       };
+
   Business.fromJSON(Map<String, dynamic> parsedJSON)
       : id = parsedJSON['id'] as String,
         name = parsedJSON['name'],
         type = parsedJSON['type'],
         imageURL = parsedJSON['imageURL'],
+        description = parsedJSON['description'],
         zipcode = parsedJSON['zipcode'];
 
   Business(
@@ -25,5 +29,6 @@ class Business {
       required this.name,
       required this.type,
       required this.imageURL,
+      required this.description,
       required this.zipcode});
 }

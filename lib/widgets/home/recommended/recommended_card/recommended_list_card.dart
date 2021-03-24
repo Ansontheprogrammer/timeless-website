@@ -20,10 +20,10 @@ class RecommendedListCard extends StatelessWidget {
           return CircularProgressIndicator();
         }
 
+        // Convert businesses list map from DB to list of Business models
         List<Business> businesses = snapshot.data!.docs
             .map((businessJSON) => Business.fromJSON(businessJSON.data()!))
             .toList();
-        print({snapshot.data!.docs[0].data(), 'snapshot data done'});
 
         if (!snapshot.hasData) {
           Container(
@@ -37,7 +37,9 @@ class RecommendedListCard extends StatelessWidget {
             spacing: 20,
             children: businesses.map((business) {
               return RecommendedCard(
-                  title: business.name, subtitle: business.type);
+                  title: business.name,
+                  subtitle: business.type,
+                  description: business.description);
             }).toList());
       },
     );
