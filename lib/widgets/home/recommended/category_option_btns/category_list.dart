@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:timeless_app/utils/custom_text.dart';
 import 'package:timeless_app/widgets/home/recommended/category_option_btns/category_btn.dart';
-import 'package:timeless_app/widgets/home/recommended/recommended_section.dart';
+import 'package:timeless_app/widgets/home/recommended/nearby_businesses/nearby_section.dart';
 
 List<String> categoryOptionBtns = [
   'Food Services',
