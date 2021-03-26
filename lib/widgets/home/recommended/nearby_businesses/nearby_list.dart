@@ -3,11 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:timeless_app/models/business.dart';
 import 'package:timeless_app/utils/custom_text.dart';
-import 'package:timeless_app/widgets/home/recommended/recommended_card/recommended_card.dart';
+import 'package:timeless_app/widgets/home/recommended/nearby_businesses/nearby_card.dart';
 
-class RecommendedListCard extends StatelessWidget {
+class NearbyBusinessList extends StatelessWidget {
   final bool useHorizontal;
-  const RecommendedListCard({required this.useHorizontal});
+  const NearbyBusinessList({required this.useHorizontal});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class RecommendedListCard extends StatelessWidget {
             runSpacing: 20,
             spacing: 20,
             children: businesses.map((business) {
-              return RecommendedCard(
+              return NearbyBusinessCard(
                   title: business.name,
                   subtitle: business.type,
                   description: business.description);

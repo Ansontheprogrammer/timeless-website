@@ -1,31 +1,36 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:timeless_app/utils/container_spacer.dart';
-import 'package:timeless_app/utils/custom_text.dart';
-import 'package:timeless_app/utils/small_spacer.dart';
-import 'package:timeless_app/widgets/home/recommended/recommended_card/recommended_card.dart';
-import 'package:timeless_app/widgets/home/recommended/recommended_card/recommended_list_card.dart';
+import 'package:timeless_app/widgets/home/recommended/new_businesses/new_business_section.dart';
+import 'package:timeless_app/widgets/home/recommended/nearby_businesses/nearby_section.dart';
 
-class LeftColumnRecommended extends StatelessWidget {
-  const LeftColumnRecommended();
+class RecommendedSection extends StatelessWidget {
+  final bool displayHorizontal;
+  const RecommendedSection({this.displayHorizontal = false});
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    bool displayedOnTabletOrSmaller = screenWidth < 600;
-
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        const CustomTextCaption(
-          text: 'Recommended to you',
-        ),
-        const ContainerSpacer(),
-        SizedBox(height: 20),
-        Container(
-            child:
-                RecommendedListCard(useHorizontal: displayedOnTabletOrSmaller)),
-      ]),
-    );
+    if (!displayHorizontal) {
+      return Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(flex: 4, child: NearbyBusinessSection()),
+          SizedBox(
+            width: 50,
+          ),
+          RecommendedNewBusinesses(),
+        ],
+      );
+    } else {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          NearbyBusinessSection(),
+          SizedBox(
+            height: 50,
+          ),
+          RecommendedNewBusinesses()
+        ],
+      );
+    }
   }
 }

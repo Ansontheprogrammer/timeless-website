@@ -3,9 +3,7 @@ import 'package:timeless_app/utils/custom_section.dart';
 import 'package:timeless_app/utils/custom_text.dart';
 import 'package:timeless_app/utils/small_spacer.dart';
 import 'package:timeless_app/widgets/home/recommended/category_option_btns/category_list.dart';
-import 'package:timeless_app/widgets/home/recommended/desktop_recommended_section.dart';
-import 'package:timeless_app/widgets/home/recommended/mobile_recommended_section.dart';
-import 'package:timeless_app/widgets/navigation/footer/footer.dart';
+import 'package:timeless_app/widgets/home/recommended/recommended_section.dart';
 
 class LandingPageContent extends StatelessWidget {
   const LandingPageContent();
@@ -30,11 +28,10 @@ class LandingPageContent extends StatelessWidget {
           ],
         )),
         CustomSection(
-          color: Colors.white,
-          child: !displayedOnTabletOrSmaller
-              ? DesktopRecommendedSection()
-              : MobileRecommendSection(),
-        ),
+            color: Colors.white,
+            child: RecommendedSection(
+              displayHorizontal: displayedOnTabletOrSmaller ? true : false,
+            )),
       ];
     }
 

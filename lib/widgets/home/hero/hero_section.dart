@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:timeless_app/utils/container_spacer.dart';
 import 'package:timeless_app/utils/custom_text.dart';
 import 'package:timeless_app/widgets/home/hero/hero_container.dart';
-import 'package:timeless_app/widgets/home/search_bar.dart';
+import 'package:timeless_app/widgets/home/hero/search_bar.dart';
 
 class HeroSection extends StatelessWidget {
   const HeroSection({

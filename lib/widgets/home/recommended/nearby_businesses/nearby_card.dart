@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:timeless_app/utils/container_spacer.dart';
 import 'package:timeless_app/utils/custom_text.dart';
 
-class RecommendedCard extends StatelessWidget {
+class NearbyBusinessCard extends StatelessWidget {
   final String title;
   final String subtitle;
   final String description;
-  RecommendedCard(
+  NearbyBusinessCard(
       {this.description = '', required this.subtitle, required this.title});
 
   @override
