@@ -16,19 +16,24 @@ class LandingPageContent extends StatelessWidget {
     List<Widget> _buildWebapp() {
       return [
         CustomSection(
+            color: Colors.black12,
             child: Column(
-          children: [
-            Center(
-              child: CustomTextCaption(
-                text: 'Categories',
-              ),
-            ),
-            SmallSpacer(),
-            CategoryListButtons()
-          ],
-        )),
+              children: [
+                Center(
+                  child: CustomTextCaption(
+                    text: 'Categories',
+                  ),
+                ),
+                SmallSpacer(),
+                Container(
+                    width: !displayedOnTabletOrSmaller
+                        ? MediaQuery.of(context).size.width * 0.65
+                        : MediaQuery.of(context).size.width,
+                    child: CategoryListButtons())
+              ],
+            )),
         CustomSection(
-            color: Colors.white,
+            color: Colors.black.withOpacity(0.05),
             child: RecommendedSection(
               displayHorizontal: displayedOnTabletOrSmaller ? true : false,
             )),

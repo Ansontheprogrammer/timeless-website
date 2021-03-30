@@ -6,8 +6,10 @@ class CustomTextNormal extends StatelessWidget {
   final FontWeight fontWeight;
   final TextAlign textAlign;
   final int maxLines;
+  final double fontSize;
   const CustomTextNormal(
       {required this.text,
+      this.fontSize = 18.0,
       this.color = Colors.black,
       this.textAlign = TextAlign.start,
       this.fontWeight = FontWeight.normal,
@@ -18,10 +20,10 @@ class CustomTextNormal extends StatelessWidget {
     return Text(
       text,
       maxLines: this.maxLines,
-      style: Theme.of(context)
-          .textTheme
-          .bodyText1!
-          .copyWith(color: this.color, fontWeight: this.fontWeight),
+      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+          color: this.color,
+          fontWeight: this.fontWeight,
+          fontSize: this.fontSize),
     );
   }
 }

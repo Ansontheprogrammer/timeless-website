@@ -10,13 +10,17 @@ class NearbyBusinessCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    bool onDesktop = screenWidth > 600;
     return Container(
-      width: MediaQuery.of(context).size.width / 4,
+      width: onDesktop
+          ? MediaQuery.of(context).size.width / 4
+          : MediaQuery.of(context).size.width * 0.4,
       child: Card(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15.0),
+          borderRadius: BorderRadius.circular(7.0),
         ),
-        color: Colors.transparent,
+        color: Colors.white,
         elevation: 0,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,7 +31,9 @@ class NearbyBusinessCard extends StatelessWidget {
               child: FittedBox(
                 fit: BoxFit.fill,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(2.5),
+                      topRight: Radius.circular(2.5)),
                   child: Image.network(
                     'https://images.unsplash.com/photo-1613664161831-35ca95a4b953?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
                     height: 150.0,
@@ -36,43 +42,51 @@ class NearbyBusinessCard extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
-              height: 10,
-            ),
-            CustomTextBtn(
-              text: subtitle,
-              fontWeight: FontWeight.w100,
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            CustomTextNormal(
-              text: title,
-              fontWeight: FontWeight.bold,
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            CustomTextNormal(text: description),
+            Container(
+              padding: EdgeInsets.all(15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 10,
+                  ),
+                  CustomTextBtn(
+                    text: subtitle,
+                    fontWeight: FontWeight.w100,
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  CustomTextNormal(
+                    text: title,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  CustomTextNormal(text: description),
 
-            // ButtonBar(
-            //   alignment: MainAxisAlignment.spaceBetween,
-            //   children: <Widget>[
-            //     FlatButton(
-            //       padding: EdgeInsets.all(0),
-            //       color: Theme.of(context).accentColor,
-            //       child:
-            //           const Text('Edit', style: TextStyle(color: Colors.white)),
-            //       onPressed: () {},
-            //     ),
-            //     FlatButton(
-            //       color: Theme.of(context).primaryColor,
-            //       child: const Text('Delete',
-            //           style: TextStyle(color: Colors.white)),
-            //       onPressed: () {},
-            //     ),
-            //   ],
-            // ),
+                  // ButtonBar(
+                  //   alignment: MainAxisAlignment.spaceBetween,
+                  //   children: <Widget>[
+                  //     FlatButton(
+                  //       padding: EdgeInsets.all(0),
+                  //       color: Theme.of(context).accentColor,
+                  //       child:
+                  //           const Text('Edit', style: TextStyle(color: Colors.white)),
+                  //       onPressed: () {},
+                  //     ),
+                  //     FlatButton(
+                  //       color: Theme.of(context).primaryColor,
+                  //       child: const Text('Delete',
+                  //           style: TextStyle(color: Colors.white)),
+                  //       onPressed: () {},
+                  //     ),
+                  //   ],
+                  // ),
+                ],
+              ),
+            )
           ],
         ),
       ),

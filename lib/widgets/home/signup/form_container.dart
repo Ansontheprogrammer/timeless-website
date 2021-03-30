@@ -12,12 +12,10 @@ class FormContainer extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(25),
       margin: EdgeInsets.only(
-          left: !displayedOnTabletOrSmaller
-              ? MediaQuery.of(context).size.width / 5
-              : 25,
-          right: !displayedOnTabletOrSmaller
-              ? MediaQuery.of(context).size.width / 5
-              : 25),
+          // right: !displayedOnTabletOrSmaller
+          //     ? MediaQuery.of(context).size.width / 5
+          //     : 25),
+          ),
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [

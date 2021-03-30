@@ -24,11 +24,8 @@ class HomeView extends StatelessWidget {
     _scaffoldKey.currentState!.openDrawer();
   }
 
-  final ScrollController _scrollController = ScrollController();
-
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: !kIsWeb
           ? AppBar(
@@ -49,12 +46,9 @@ class HomeView extends StatelessWidget {
         slivers: [
           if (kIsWeb)
             SliverToBoxAdapter(
-                child: Positioned(
-              top: 0,
-              child: NavigationBar(
-                openDrawer: _openDrawer,
-                closeDrawer: _closeDrawer,
-              ),
+                child: NavigationBar(
+              openDrawer: _openDrawer,
+              closeDrawer: _closeDrawer,
             )),
           SliverToBoxAdapter(
             child: HeroSection(),
@@ -62,8 +56,11 @@ class HomeView extends StatelessWidget {
           LandingPageContent(),
           SliverToBoxAdapter(
             child: CustomSection(
-                color: Colors.black12,
-                child: FormContainer(child: MyCustomForm())),
+                color: Colors.black.withOpacity(0.05),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  child: ContactForm(),
+                )),
           ),
           if (kIsWeb) SliverToBoxAdapter(child: Footer()),
           SliverToBoxAdapter(
@@ -72,5 +69,53 @@ class HomeView extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class ContactForm extends StatelessWidget {
+  const ContactForm({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    bool displayedOnTabletOrSmaller = screenWidth < 600;
+
+    if (!displayedOnTabletOrSmaller) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height * 0.5,
+            width: MediaQuery.of(context).size.width * 0.25,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(
+                        'https://images.unsplash.com/photo-1495603889488-42d1d66e5523?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1051&q=80'))),
+          ),
+          FormContainer(child: MyCustomForm()),
+        ],
+      );
+    } else {
+      return Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height * 0.5,
+            width: MediaQuery.of(context).size.width * 0.25,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(
+                        'https://images.unsplash.com/photo-1495603889488-42d1d66e5523?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1051&q=80'))),
+          ),
+          FormContainer(child: MyCustomForm()),
+        ],
+      );
+    }
   }
 }

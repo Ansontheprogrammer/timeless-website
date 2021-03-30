@@ -19,11 +19,14 @@ class CategoryListButtons extends StatefulWidget {
   _CategoryListButtonsState createState() => _CategoryListButtonsState();
 }
 
-class _CategoryListButtonsState extends State<CategoryListButtons> {
-  int limit = 2;
+int limit = 2;
 
+class _CategoryListButtonsState extends State<CategoryListButtons> {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    bool onDesktop = screenWidth > 600;
+    if (limit == 2 && onDesktop) limit = 3;
     return Center(
         child: Wrap(
             direction: Axis.horizontal,
