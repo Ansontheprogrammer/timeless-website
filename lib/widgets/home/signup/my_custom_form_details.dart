@@ -24,9 +24,6 @@ class MyCustomFormState extends State<MyCustomForm> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    bool displayedOnTabletOrSmaller = screenWidth < 600;
-
     // Build a Form widget using the _formKey created above.
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,66 +32,31 @@ class MyCustomFormState extends State<MyCustomForm> {
           child: CustomTextHeadline(
             fontSize: 24,
             fontWeight: FontWeight.bold,
+            color: Colors.white,
             text: 'Want your business added?',
           ),
         ),
         ContainerSpacer(),
-        TextFormField(
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: Colors.white,
-            hintText: 'Name',
-            border: new OutlineInputBorder(
-              borderRadius: const BorderRadius.all(
-                const Radius.circular(2.5),
-              ),
-            ),
-          ),
-          validator: validator(
-            title: 'Name',
-          ),
+        CustomFormField(
+          validator: validator,
+          hintText: 'Name',
         ),
         SmallSpacer(),
-        TextFormField(
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: Colors.white,
-            hintText: 'Type of Business',
-            border: new OutlineInputBorder(
-              borderRadius: const BorderRadius.all(
-                const Radius.circular(2.5),
-              ),
-            ),
-          ),
-          validator: validator(title: 'Type of Business'),
+        CustomFormField(
+          validator: validator,
+          hintText: 'Type of Business',
         ),
         SmallSpacer(),
-        TextFormField(
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              hintText: 'Location',
-              border: new OutlineInputBorder(
-                borderRadius: const BorderRadius.all(
-                  const Radius.circular(2.5),
-                ),
-              ),
-            ),
-            validator: validator(title: 'Location')),
-        SmallSpacer(),
-        TextFormField(
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: Colors.white,
-            hintText: 'Website',
-            border: new OutlineInputBorder(
-              borderRadius: const BorderRadius.all(
-                const Radius.circular(2.5),
-              ),
-            ),
-          ),
-          validator: validator(title: 'Website'),
+        CustomFormField(
+          hintText: 'Location',
+          validator: validator,
         ),
+        SmallSpacer(),
+        CustomFormField(
+          hintText: 'Website',
+          validator: validator,
+        ),
+        SmallSpacer(),
         Center(
           child: Container(
             width: kIsWeb
@@ -107,6 +69,8 @@ class MyCustomFormState extends State<MyCustomForm> {
                 onPressed: () {
                   // Validate returns true if the form is valid, or false
                   // otherwise.
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Submitting Data Now')));
                   if (_formKey.currentState!.validate()) {
                     // If the form is valid, display a Snackbar.
                     ScaffoldMessenger.of(context).showSnackBar(
@@ -122,6 +86,41 @@ class MyCustomFormState extends State<MyCustomForm> {
           ),
         ),
       ],
+    );
+  }
+}
+
+class CustomFormField extends StatelessWidget {
+  final String hintText;
+  const CustomFormField({
+    Key? key,
+    required this.hintText,
+    required this.validator,
+  }) : super(key: key);
+
+  final String? Function(String? value) Function({required String title})
+      validator;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      textAlign: TextAlign.center,
+      decoration: InputDecoration(
+        floatingLabelBehavior: FloatingLabelBehavior.auto,
+        filled: true,
+        fillColor: Colors.white.withOpacity(0.5),
+        hintText: hintText,
+        hintStyle: TextStyle(color: Colors.black38),
+        border: new OutlineInputBorder(
+          borderSide: BorderSide.none,
+          borderRadius: const BorderRadius.all(
+            const Radius.circular(2.5),
+          ),
+        ),
+      ),
+      validator: validator(
+        title: hintText,
+      ),
     );
   }
 }

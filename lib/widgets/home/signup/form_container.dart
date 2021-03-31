@@ -9,30 +9,27 @@ class FormContainer extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     bool displayedOnTabletOrSmaller = screenWidth < 600;
 
-    return Container(
-      padding: EdgeInsets.all(25),
-      margin: EdgeInsets.only(
-          // right: !displayedOnTabletOrSmaller
-          //     ? MediaQuery.of(context).size.width / 5
-          //     : 25),
-          ),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: Offset(0, 3), // changes position of shadow
-          ),
-        ],
-      ),
-      child: Container(
-        child: ConstrainedBox(
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        if (!displayedOnTabletOrSmaller)
+          Container(
+              height: MediaQuery.of(context).size.height * 0.6,
+              width: MediaQuery.of(context).size.height * 0.4,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(1.5)),
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                          'https://images.unsplash.com/photo-1610473068533-b68dbcd23543?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80')))),
+        SizedBox(
+          width: 25,
+        ),
+        ConstrainedBox(
           constraints: BoxConstraints(maxWidth: 400),
           child: child,
         ),
-      ),
+      ],
     );
   }
 }
