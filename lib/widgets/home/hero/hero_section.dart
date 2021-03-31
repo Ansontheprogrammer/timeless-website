@@ -30,10 +30,14 @@ class HeroSection extends StatelessWidget {
                     text: 'Let',
                   ),
                   const CustomTextHeadline(
+                    fontSize: 40.0,
+                    fontWeight: FontWeight.w100,
                     color: Colors.white,
                     text: 'me help you find',
                   ),
                   const CustomTextHeadline(
+                    fontSize: 40.0,
+                    fontWeight: FontWeight.w100,
                     color: Colors.white,
                     text: 'a good local business',
                   ),

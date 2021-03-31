@@ -20,8 +20,20 @@ class LandingPageContent extends StatelessWidget {
             child: Column(
               children: [
                 Center(
-                  child: CustomTextCaption(
+                  child: CustomTextHeadline(
+                    fontSize: 48.0,
                     text: 'Categories',
+                  ),
+                ),
+                SizedBox(height: 20),
+                Center(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: CustomTextLarge(
+                      textAlign: TextAlign.center,
+                      text:
+                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor',
+                    ),
                   ),
                 ),
                 SmallSpacer(),
@@ -33,10 +45,9 @@ class LandingPageContent extends StatelessWidget {
               ],
             )),
         CustomSection(
-            color: Colors.black.withOpacity(0.05),
             child: RecommendedSection(
-              displayHorizontal: displayedOnTabletOrSmaller ? true : false,
-            )),
+          displayHorizontal: displayedOnTabletOrSmaller ? true : false,
+        )),
       ];
     }
 
