@@ -1,23 +1,15 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:timeless_app/utils/custom_section.dart';
 import 'package:timeless_app/utils/custom_text.dart';
-import 'package:timeless_app/widgets/home/signup/contact_form.dart';
-import 'package:timeless_app/widgets/home/signup/form_container.dart';
-import 'package:timeless_app/widgets/home/hero/hero_section.dart';
-import 'package:timeless_app/widgets/home/signup/my_custom_form_details.dart';
 import 'package:timeless_app/widgets/navigation/app/custom_tab_bar.dart';
-import 'package:timeless_app/widgets/home/landing_page_content.dart';
 import 'package:timeless_app/widgets/navigation/drawer/drawer.dart';
 import 'package:timeless_app/widgets/navigation/footer/footer.dart';
 import 'package:timeless_app/widgets/navigation/nav-bar/navigation_bar.dart';
 
-class HomeView extends StatelessWidget {
-  HomeView();
+class Layout extends StatelessWidget {
+  Layout({required this.pageContent});
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
-  static const String route = '/';
 
   void _openDrawer() {
     _scaffoldKey.currentState!.openDrawer();
@@ -27,13 +19,14 @@ class HomeView extends StatelessWidget {
     _scaffoldKey.currentState!.openDrawer();
   }
 
+  final Widget pageContent;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: !kIsWeb
           ? AppBar(
-              title: CustomTextNormal(
-                  text: 'Timeless on an App', color: Colors.white),
+              title:
+                  CustomTextNormal(text: 'ansonervin.com', color: Colors.white),
               backgroundColor: Colors.black87,
             )
           : PreferredSize(
@@ -53,7 +46,10 @@ class HomeView extends StatelessWidget {
                 SizedBox(
                   height: 100,
                 ),
-                LandingPageContent(),
+                ConstrainedBox(
+                    constraints: BoxConstraints(
+                        minHeight: MediaQuery.of(context).size.height * 0.6),
+                    child: pageContent),
                 kIsWeb ? Footer() : Positioned(bottom: 0, child: CustomTabBar())
               ],
             ),
@@ -68,7 +64,6 @@ class HomeView extends StatelessWidget {
             ),
         ],
       ),
-      // bottomNavigationBar: !kIsWeb ? CustomTabBar() : Container(),
     );
   }
 }
