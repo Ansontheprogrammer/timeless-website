@@ -17,6 +17,8 @@ class HomeView extends StatelessWidget {
   HomeView();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
+  static const String route = '/';
+
   void _openDrawer() {
     _scaffoldKey.currentState!.openDrawer();
   }
@@ -43,32 +45,37 @@ class HomeView extends StatelessWidget {
       key: _scaffoldKey,
       drawer: CustomDrawer(),
       backgroundColor: Colors.white,
-      body: CustomScrollView(
-        slivers: [
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 100,
+                ),
+                HeroSection(),
+                CustomSection(
+                    color: Colors.purple.withOpacity(0.5),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      child: ContactForm(),
+                    )),
+                LandingPageContent(),
+                kIsWeb ? Footer() : Positioned(bottom: 0, child: CustomTabBar())
+              ],
+            ),
+          ),
           if (kIsWeb)
-            SliverToBoxAdapter(
-                child: NavigationBar(
-              openDrawer: _openDrawer,
-              closeDrawer: _closeDrawer,
-            )),
-          SliverToBoxAdapter(
-            child: HeroSection(),
-          ),
-          LandingPageContent(),
-          SliverToBoxAdapter(
-            child: CustomSection(
-                color: Colors.purple.withOpacity(0.5),
-                child: Container(
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  child: ContactForm(),
-                )),
-          ),
-          if (kIsWeb) SliverToBoxAdapter(child: Footer()),
-          SliverToBoxAdapter(
-            child: !kIsWeb ? CustomTabBar() : Container(),
-          ),
+            Positioned(
+              top: 0,
+              child: NavigationBar(
+                openDrawer: _openDrawer,
+                closeDrawer: _closeDrawer,
+              ),
+            ),
         ],
       ),
+      // bottomNavigationBar: !kIsWeb ? CustomTabBar() : Container(),
     );
   }
 }

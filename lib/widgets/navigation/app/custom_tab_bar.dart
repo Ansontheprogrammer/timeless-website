@@ -28,7 +28,6 @@ class CustomTabBar extends StatelessWidget {
       selectedFontSize: 14,
       unselectedFontSize: 14,
       onTap: (value) {
-        // Respond to item press.
         print({'value', value});
       },
       items: [

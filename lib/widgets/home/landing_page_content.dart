@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:timeless_app/utils/custom_section.dart';
 import 'package:timeless_app/utils/custom_text.dart';
 import 'package:timeless_app/utils/small_spacer.dart';
+import 'package:timeless_app/widgets/home/hero/hero_section.dart';
 import 'package:timeless_app/widgets/home/recommended/category_option_btns/category_list.dart';
 import 'package:timeless_app/widgets/home/recommended/recommended_section.dart';
+import 'package:timeless_app/widgets/home/signup/contact_form.dart';
 
 class LandingPageContent extends StatelessWidget {
   const LandingPageContent();
@@ -13,8 +15,9 @@ class LandingPageContent extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     bool displayedOnTabletOrSmaller = screenWidth < 600;
 
-    List<Widget> _buildWebapp() {
-      return [
+    return Column(
+      children: [
+        HeroSection(),
         CustomSection(
             color: Colors.black12,
             child: Column(
@@ -49,9 +52,13 @@ class LandingPageContent extends StatelessWidget {
             child: RecommendedSection(
               displayHorizontal: displayedOnTabletOrSmaller ? true : false,
             )),
-      ];
-    }
-
-    return SliverList(delegate: SliverChildListDelegate(_buildWebapp()));
+        CustomSection(
+            color: Colors.purple.withOpacity(0.5),
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.8,
+              child: ContactForm(),
+            )),
+      ],
+    );
   }
 }
