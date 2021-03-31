@@ -20,7 +20,7 @@ class _CategoryBtnState extends State<CategoryBtn> {
     return Container(
       width: onDesktop
           ? MediaQuery.of(context).size.width / 5
-          : MediaQuery.of(context).size.width * 0.4,
+          : MediaQuery.of(context).size.width * 0.5,
       child: RaisedButton(
           onPressed: () {
             setState(() {

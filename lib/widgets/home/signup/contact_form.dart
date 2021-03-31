@@ -17,10 +17,10 @@ class ContactForm extends StatelessWidget {
     return Container(
         margin: EdgeInsets.only(
             right: !displayedOnTabletOrSmaller
-                ? MediaQuery.of(context).size.width / 6
+                ? MediaQuery.of(context).size.width * 0.1
                 : 0,
             left: !displayedOnTabletOrSmaller
-                ? MediaQuery.of(context).size.width / 6
+                ? MediaQuery.of(context).size.width * 0.1
                 : 0),
         child: ClipRect(
           child: BackdropFilter(

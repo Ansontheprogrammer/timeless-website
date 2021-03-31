@@ -45,9 +45,10 @@ class LandingPageContent extends StatelessWidget {
               ],
             )),
         CustomSection(
+            color: Colors.black.withOpacity(0.1),
             child: RecommendedSection(
-          displayHorizontal: displayedOnTabletOrSmaller ? true : false,
-        )),
+              displayHorizontal: displayedOnTabletOrSmaller ? true : false,
+            )),
       ];
     }
 

@@ -7,12 +7,11 @@ class FormContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    bool displayedOnTabletOrSmaller = screenWidth < 600;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        if (!displayedOnTabletOrSmaller)
+        if (screenWidth > 1000)
           Container(
               height: MediaQuery.of(context).size.height * 0.6,
               width: MediaQuery.of(context).size.height * 0.4,
@@ -22,11 +21,12 @@ class FormContainer extends StatelessWidget {
                       fit: BoxFit.cover,
                       image: NetworkImage(
                           'https://images.unsplash.com/photo-1610473068533-b68dbcd23543?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80')))),
-        SizedBox(
-          width: 25,
-        ),
+        if (screenWidth > 1000)
+          SizedBox(
+            width: 25,
+          ),
         ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: 400),
+          constraints: BoxConstraints(maxWidth: 300),
           child: child,
         ),
       ],
