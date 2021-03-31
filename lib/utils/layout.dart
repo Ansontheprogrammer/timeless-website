@@ -43,17 +43,19 @@ class Layout extends StatelessWidget {
           SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(
-                  height: 100,
-                ),
+                if (kIsWeb)
+                  SizedBox(
+                    height: 100,
+                  ),
                 ConstrainedBox(
                     constraints: BoxConstraints(
                         minHeight: MediaQuery.of(context).size.height * 0.6),
                     child: pageContent),
-                kIsWeb ? Footer() : Positioned(bottom: 0, child: CustomTabBar())
+                if (kIsWeb) Footer()
               ],
             ),
           ),
+          // if (!kIsWeb) Positioned(bottom: 0, child: CustomTabBar()),
           if (kIsWeb)
             Positioned(
               top: 0,

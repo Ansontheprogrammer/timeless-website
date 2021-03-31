@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:timeless_app/views/about_view.dart';
+import 'package:timeless_app/views/contact.dart';
+import 'package:timeless_app/views/home_view.dart';
+import 'package:timeless_app/views/search_view.dart';
 
 class CustomTabBar extends StatelessWidget {
   const CustomTabBar();
@@ -7,14 +11,17 @@ class CustomTabBar extends StatelessWidget {
   buildBottomNavBarItem(
       {required BuildContext context,
       required String title,
-      required IconData icon}) {
+      required IconData icon,
+      required routeName}) {
     return BottomNavigationBarItem(
       activeIcon: Icon(
         Icons.home,
         color: Theme.of(context).primaryColor,
       ),
       title: Text(title),
-      icon: Icon(icon),
+      icon: IconButton(
+          onPressed: () => {Navigator.pushReplacementNamed(context, routeName)},
+          icon: Icon(icon)),
     );
   }
 
@@ -32,13 +39,25 @@ class CustomTabBar extends StatelessWidget {
       },
       items: [
         buildBottomNavBarItem(
-            context: context, title: 'Home', icon: Icons.home),
+            context: context,
+            title: 'Home',
+            icon: Icons.home,
+            routeName: HomeView.route),
         buildBottomNavBarItem(
-            context: context, title: 'Search', icon: Icons.search),
+            context: context,
+            title: 'Search',
+            icon: Icons.search,
+            routeName: SearchView.route),
         buildBottomNavBarItem(
-            context: context, title: 'About', icon: Icons.location_on),
+            context: context,
+            title: 'About',
+            icon: Icons.location_on,
+            routeName: AboutView.route),
         buildBottomNavBarItem(
-            context: context, title: 'Contact', icon: Icons.contact_page),
+            context: context,
+            title: 'Contact',
+            icon: Icons.contact_page,
+            routeName: ContactView.route),
       ],
     );
   }

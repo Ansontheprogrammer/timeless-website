@@ -2,6 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:timeless_app/utils/custom_section.dart';
+import 'package:timeless_app/views/about_view.dart';
+import 'package:timeless_app/views/contact.dart';
+import 'package:timeless_app/views/home_view.dart';
+import 'package:timeless_app/views/search_view.dart';
 import 'package:timeless_app/widgets/navigation/nav-bar/nav_item.dart';
 
 class NavigationBar extends StatelessWidget {
@@ -32,10 +36,10 @@ class NavigationBar extends StatelessWidget {
                 ? Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const NavBarItem('Home'),
-                      const NavBarItem('Search'),
-                      const NavBarItem('About'),
-                      const NavBarItem('Contact'),
+                      const NavBarItem('Home', HomeView.route),
+                      const NavBarItem('Search', SearchView.route),
+                      const NavBarItem('About', AboutView.route),
+                      const NavBarItem('Contact', ContactView.route),
                     ],
                   )
                 : IconButton(
