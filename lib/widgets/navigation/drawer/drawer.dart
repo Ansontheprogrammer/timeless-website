@@ -1,7 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:timeless_app/views/about_view.dart';
+import 'package:timeless_app/views/contact.dart';
+import 'package:timeless_app/views/home_view.dart';
+import 'package:timeless_app/views/search_view.dart';
 import 'package:timeless_app/widgets/navigation/drawer/drawer_header.dart';
 import 'package:timeless_app/widgets/navigation/drawer/drawer_item.dart';
+import 'package:timeless_app/widgets/navigation/nav-bar/nav_item.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
@@ -15,15 +20,25 @@ class CustomDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeaderWidget(),
-          DrawerItem(title: 'Home', handler: () => {}),
-          DrawerItem(title: 'About', handler: () => {}),
-          DrawerItem(
-            title: 'Search',
-            handler: () {},
+          NavBarItem(
+            title: 'Home',
+            routeName: HomeView.route,
+            color: Colors.black,
           ),
-          DrawerItem(
+          NavBarItem(
+            title: 'About',
+            routeName: AboutView.route,
+            color: Colors.black,
+          ),
+          NavBarItem(
+            title: 'Search',
+            routeName: SearchView.route,
+            color: Colors.black,
+          ),
+          NavBarItem(
             title: 'Contact',
-            handler: () {},
+            routeName: ContactView.route,
+            color: Colors.black,
           ),
         ],
       ),

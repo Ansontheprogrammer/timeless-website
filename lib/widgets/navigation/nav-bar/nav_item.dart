@@ -4,8 +4,12 @@ import 'package:timeless_app/utils/custom_text.dart';
 
 class NavBarItem extends StatelessWidget {
   final String title;
+  final Color color;
   final String routeName;
-  const NavBarItem(this.title, this.routeName);
+  const NavBarItem(
+      {required this.title,
+      required this.routeName,
+      this.color = Colors.white});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +20,7 @@ class NavBarItem extends StatelessWidget {
             Navigator.pushReplacementNamed(context, routeName);
           },
           child: CustomTextNormal(
-            color: Colors.white,
+            color: this.color,
             text: title,
           ),
         ),

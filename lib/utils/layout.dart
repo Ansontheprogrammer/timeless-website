@@ -92,7 +92,7 @@ class _LayoutState extends State<Layout> {
                 ),
               ),
             ),
-          // if (!kIsWeb) Positioned(bottom: 0, child: CustomTabBar()),
+          // if (kIsWeb) Positioned(bottom: 0, child: CustomTabBar()),
           if (kIsWeb)
             Positioned(
               top: 0,

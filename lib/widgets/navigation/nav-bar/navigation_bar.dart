@@ -37,10 +37,14 @@ class NavigationBar extends StatelessWidget {
                 ? Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const NavBarItem('Home', HomeView.route),
-                      const NavBarItem('Search', SearchView.route),
-                      const NavBarItem('About', AboutView.route),
-                      const NavBarItem('Contact', ContactView.route),
+                      const NavBarItem(
+                          title: 'Home', routeName: HomeView.route),
+                      const NavBarItem(
+                          title: 'Search', routeName: SearchView.route),
+                      const NavBarItem(
+                          title: 'About', routeName: AboutView.route),
+                      const NavBarItem(
+                          title: 'Contact', routeName: ContactView.route),
                     ],
                   )
                 : IconButton(
