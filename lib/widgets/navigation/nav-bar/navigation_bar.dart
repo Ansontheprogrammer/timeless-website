@@ -10,9 +10,10 @@ import 'package:timeless_app/widgets/navigation/nav-bar/nav_item.dart';
 
 class NavigationBar extends StatelessWidget {
   final Function openDrawer;
-  final Function closeDrawer;
+  final Function toggleMobileMenu;
 
-  const NavigationBar({required this.openDrawer, required this.closeDrawer});
+  const NavigationBar(
+      {required this.openDrawer, required this.toggleMobileMenu});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +45,10 @@ class NavigationBar extends StatelessWidget {
                   )
                 : IconButton(
                     onPressed: () {
-                      openDrawer();
+                      if (showMobileNav)
+                        return toggleMobileMenu();
+                      else
+                        openDrawer();
                     },
                     icon: Icon(
                       Icons.menu,
