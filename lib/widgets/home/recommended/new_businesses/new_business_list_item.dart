@@ -29,7 +29,7 @@ class NewBusinessListItem extends StatelessWidget {
             ),
           ),
         ),
-        tileColor: Colors.black12,
+        tileColor: Colors.white,
         title: CustomTextLarge(text: this.title),
         subtitle: CustomTextCaption(
           text: this.subtitle,

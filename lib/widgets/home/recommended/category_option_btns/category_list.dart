@@ -29,7 +29,7 @@ class _CategoryListButtonsState extends State<CategoryListButtons> {
     if (limit == 2 && onDesktop) limit = 3;
     return Center(
         child: Wrap(
-            direction: Axis.horizontal,
+            direction: onDesktop ? Axis.horizontal : Axis.vertical,
             runSpacing: 15.0,
             spacing: 15.0,
             children: [
