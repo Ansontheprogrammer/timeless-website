@@ -2,24 +2,40 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:timeless_app/utils/custom_text.dart';
+import 'package:timeless_app/views/about_view.dart';
+import 'package:timeless_app/views/contact.dart';
+import 'package:timeless_app/views/home_view.dart';
+import 'package:timeless_app/views/search_view.dart';
 import 'package:timeless_app/widgets/navigation/app/custom_tab_bar.dart';
 import 'package:timeless_app/widgets/navigation/drawer/drawer.dart';
 import 'package:timeless_app/widgets/navigation/footer/footer.dart';
+import 'package:timeless_app/widgets/navigation/nav-bar/mobile_nav_item.dart';
+import 'package:timeless_app/widgets/navigation/nav-bar/nav_item.dart';
 import 'package:timeless_app/widgets/navigation/nav-bar/navigation_bar.dart';
 
-class Layout extends StatelessWidget {
+class Layout extends StatefulWidget {
   Layout({required this.pageContent});
+  final Widget pageContent;
+
+  @override
+  _LayoutState createState() => _LayoutState();
+}
+
+class _LayoutState extends State<Layout> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   void _openDrawer() {
     _scaffoldKey.currentState!.openDrawer();
   }
 
-  void _closeDrawer() {
-    _scaffoldKey.currentState!.openDrawer();
+  bool displayMobileMenu = false;
+
+  toggleMobileMenu() {
+    setState(() {
+      displayMobileMenu = !displayMobileMenu;
+    });
   }
 
-  final Widget pageContent;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,18 +66,39 @@ class Layout extends StatelessWidget {
                 ConstrainedBox(
                     constraints: BoxConstraints(
                         minHeight: MediaQuery.of(context).size.height * 0.6),
-                    child: pageContent),
+                    child: widget.pageContent),
                 if (kIsWeb) Footer()
               ],
             ),
           ),
+          if (kIsWeb && displayMobileMenu)
+            Container(
+              color: Colors.black.withOpacity(0.95),
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: Align(
+                alignment: Alignment.center,
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.5,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      MobileNavItem('Home', HomeView.route),
+                      MobileNavItem('Search', SearchView.route),
+                      MobileNavItem('About', AboutView.route),
+                      MobileNavItem('Contact', ContactView.route),
+                    ],
+                  ),
+                ),
+              ),
+            ),
           // if (!kIsWeb) Positioned(bottom: 0, child: CustomTabBar()),
           if (kIsWeb)
             Positioned(
               top: 0,
               child: NavigationBar(
+                toggleMobileMenu: toggleMobileMenu,
                 openDrawer: _openDrawer,
-                closeDrawer: _closeDrawer,
               ),
             ),
         ],

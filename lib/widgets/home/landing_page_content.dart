@@ -31,7 +31,9 @@ class LandingPageContent extends StatelessWidget {
                 SizedBox(height: 20),
                 Center(
                   child: Container(
-                    width: MediaQuery.of(context).size.width * 0.5,
+                    width: !displayedOnTabletOrSmaller
+                        ? MediaQuery.of(context).size.width * 0.5
+                        : MediaQuery.of(context).size.width * 0.8,
                     child: CustomTextLarge(
                       textAlign: TextAlign.center,
                       text:
