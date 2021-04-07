@@ -10,6 +10,8 @@ class AboutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    bool displayedOnTabletOrSmaller = screenWidth < 600;
     return Layout(
         pageContent: Column(
       children: [
@@ -22,7 +24,9 @@ class AboutView extends StatelessWidget {
             children: [
               Container(
                 padding: EdgeInsets.all(25.0),
-                width: MediaQuery.of(context).size.width * 0.5,
+                width: !displayedOnTabletOrSmaller
+                    ? MediaQuery.of(context).size.width * 0.5
+                    : MediaQuery.of(context).size.width,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -76,14 +80,15 @@ class AboutView extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width * 0.5,
-                child: Image.network(
-                  'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=749&q=80',
-                  fit: BoxFit.cover,
-                ),
-              )
+              if (!displayedOnTabletOrSmaller)
+                Container(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  child: Image.network(
+                    'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=749&q=80',
+                    fit: BoxFit.cover,
+                  ),
+                )
             ],
           ),
         )
