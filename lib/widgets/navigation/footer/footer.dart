@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:timeless_app/utils/custom_section.dart';
 import 'package:timeless_app/utils/custom_text.dart';
 import 'package:timeless_app/utils/small_spacer.dart';
-import 'package:timeless_app/views/about_view.dart';
+import 'package:timeless_app/views/about.dart';
 import 'package:timeless_app/views/contact.dart';
 import 'package:timeless_app/widgets/navigation/footer/footer_item.dart';
 import 'package:timeless_app/widgets/navigation/footer/footer_nav_item.dart';

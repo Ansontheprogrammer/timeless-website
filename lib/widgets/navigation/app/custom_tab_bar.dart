@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:timeless_app/views/about_view.dart';
+import 'package:timeless_app/views/about.dart';
 import 'package:timeless_app/views/contact.dart';
-import 'package:timeless_app/views/home_view.dart';
-import 'package:timeless_app/views/search_view.dart';
+import 'package:timeless_app/views/home.dart';
+import 'package:timeless_app/views/search.dart';
 
 class CustomTabBar extends StatelessWidget {
   const CustomTabBar();

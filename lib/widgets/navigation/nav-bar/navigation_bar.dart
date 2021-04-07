@@ -2,10 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:timeless_app/utils/custom_section.dart';
-import 'package:timeless_app/views/about_view.dart';
+import 'package:timeless_app/views/about.dart';
 import 'package:timeless_app/views/contact.dart';
-import 'package:timeless_app/views/home_view.dart';
-import 'package:timeless_app/views/search_view.dart';
+import 'package:timeless_app/views/home.dart';
+import 'package:timeless_app/views/search.dart';
 import 'package:timeless_app/widgets/navigation/nav-bar/nav_item.dart';
 
 class NavigationBar extends StatelessWidget {
