@@ -2,15 +2,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:timeless_app/utils/custom_text.dart';
-import 'package:timeless_app/views/about_view.dart';
+import 'package:timeless_app/views/about.dart';
 import 'package:timeless_app/views/contact.dart';
-import 'package:timeless_app/views/home_view.dart';
-import 'package:timeless_app/views/search_view.dart';
-import 'package:timeless_app/widgets/navigation/app/custom_tab_bar.dart';
+import 'package:timeless_app/views/home.dart';
+import 'package:timeless_app/views/search.dart';
 import 'package:timeless_app/widgets/navigation/drawer/drawer.dart';
 import 'package:timeless_app/widgets/navigation/footer/footer.dart';
 import 'package:timeless_app/widgets/navigation/nav-bar/mobile_nav_item.dart';
-import 'package:timeless_app/widgets/navigation/nav-bar/nav_item.dart';
 import 'package:timeless_app/widgets/navigation/nav-bar/navigation_bar.dart';
 
 class Layout extends StatefulWidget {
