@@ -19,6 +19,7 @@ class CustomTextNormal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
+      textAlign: this.textAlign,
       maxLines: this.maxLines,
       style: Theme.of(context).textTheme.bodyText1!.copyWith(
           color: this.color,
@@ -33,12 +34,14 @@ class CustomTextLarge extends StatelessWidget {
   final Color? color;
   final TextAlign textAlign;
   final FontWeight fontWeight;
+  final double? fontSize;
 
   const CustomTextLarge(
       {required this.text,
       this.color,
       this.textAlign = TextAlign.start,
-      this.fontWeight = FontWeight.normal});
+      this.fontWeight = FontWeight.normal,
+      this.fontSize});
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +49,7 @@ class CustomTextLarge extends StatelessWidget {
       text,
       textAlign: this.textAlign,
       style: Theme.of(context).textTheme.bodyText2!.copyWith(
-            color: this.color,
-          ),
+          color: this.color, fontWeight: this.fontWeight, fontSize: fontSize),
     );
   }
 }

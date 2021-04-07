@@ -1,11 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:timeless_app/views/about_view.dart';
+import 'package:timeless_app/views/about.dart';
 import 'package:timeless_app/views/contact.dart';
-import 'package:timeless_app/views/home_view.dart';
+import 'package:timeless_app/views/home.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
-import 'package:timeless_app/views/search_view.dart';
+import 'package:timeless_app/views/search.dart';
 
 import 'utils/custom_text.dart';
 
