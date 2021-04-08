@@ -19,7 +19,8 @@ class NavBarItem extends StatelessWidget {
           onPressed: () {
             Navigator.pushReplacementNamed(context, routeName);
           },
-          child: CustomTextNormal(
+          child: CustomTextHeadline(
+            fontSize: 18.0,
             color: this.color,
             text: title,
           ),

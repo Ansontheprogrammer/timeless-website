@@ -76,7 +76,7 @@ build/
 !/packages/flutter_tools/test/d
 
 # Index.html because of Firebase configuration
-**/web/index.html
+web/index.html
 .script
 # Generated Firebase Admin file
 lib/generated_plugin_registrant

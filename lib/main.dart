@@ -4,13 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:timeless_app/views/about.dart';
 import 'package:timeless_app/views/contact.dart';
 import 'package:timeless_app/views/home.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 import 'package:timeless_app/views/search.dart';
 
 import 'utils/custom_text.dart';
 
 void main() async {
-  await DotEnv.load(fileName: ".env");
   WidgetsFlutterBinding.ensureInitialized();
 
   runApp(MyApp());
@@ -69,12 +67,12 @@ class MainApp extends StatelessWidget {
           primarySwatch: Colors.purple,
           accentColor: Colors.orange,
           textTheme: TextTheme(
-              bodyText2: GoogleFonts.lato(fontSize: 22.0),
-              bodyText1: GoogleFonts.lato(fontSize: 18.0),
-              caption:
-                  GoogleFonts.lato(fontSize: 24.0, fontWeight: FontWeight.w900),
-              button: GoogleFonts.lato(fontSize: 14.0),
-              headline1: GoogleFonts.ubuntu(
+              bodyText2: GoogleFonts.quicksand(fontSize: 22.0),
+              bodyText1: GoogleFonts.quicksand(fontSize: 18.0),
+              caption: GoogleFonts.quicksand(
+                  fontSize: 24.0, fontWeight: FontWeight.w900),
+              button: GoogleFonts.quicksand(fontSize: 14.0),
+              headline1: GoogleFonts.jura(
                 fontSize: 48.0,
                 fontWeight: FontWeight.w100,
               ))),

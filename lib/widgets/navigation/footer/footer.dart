@@ -25,10 +25,26 @@ class Footer extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  SizedBox(
-                    height: 50,
-                    width: 50,
-                    child: Image.asset('assets/images/logo.png'),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 50,
+                        width: 50,
+                        child: Image.asset('assets/images/logo.png'),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.25,
+                        child: CustomTextNormal(
+                          color: Colors.white,
+                          text:
+                              """AnsonErvin Inc. is a software development company. We provide startups and small businesses with an affordable option for various software products.""",
+                        ),
+                      )
+                    ],
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,

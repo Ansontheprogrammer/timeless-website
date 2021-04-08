@@ -89,7 +89,7 @@ class CustomTextBtn extends StatelessWidget {
 
   const CustomTextBtn(
       {required this.text,
-      this.color,
+      this.color = Colors.white,
       this.textAlign = TextAlign.start,
       this.fontWeight = FontWeight.normal});
 
