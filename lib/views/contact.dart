@@ -46,10 +46,10 @@ class ContactView extends StatelessWidget {
                           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et do magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '),
                 ),
                 SizedBox(
-                  height: 15,
+                  height: 25,
                 ),
                 ConstrainedBox(
-                  constraints: BoxConstraints(maxWidth: 300),
+                  constraints: BoxConstraints(maxWidth: 400),
                   child: MyCustomForm(),
                 ),
               ],
