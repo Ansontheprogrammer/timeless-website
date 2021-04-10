@@ -6,6 +6,10 @@ class FirestoreService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final String _businessCollectionName = 'businesses';
 
+  /// This will query businesses using different field names based on [QuerySearch]
+  ///
+  /// Currently only works in same case scenarios.
+  /// For ex. 'Sam' -> "Sam's barbershop"
   Stream<QuerySnapshot> businessQuery({required QuerySearch query}) {
     return _firestore
         .collection(_businessCollectionName)

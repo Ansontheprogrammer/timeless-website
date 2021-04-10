@@ -86,7 +86,6 @@ class _SearchBarState extends State<SearchBar> with TickerProviderStateMixin {
                   });
                 },
                 onChanged: (text) async {
-                  print("First text field: $text");
                   query.changeSearch(
                       QuerySearch(fieldName: 'description', search: text));
                 },
