@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
+import 'package:timeless_app/models/query.dart';
+import 'package:timeless_app/providers/search_provider.dart';
 
 class SearchBar extends StatefulWidget {
   final String hint;
@@ -37,6 +40,7 @@ class _SearchBarState extends State<SearchBar> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    SearchProvider query = Provider.of<SearchProvider>(context, listen: false);
     InputDecoration _withBorder = InputDecoration(
         contentPadding: EdgeInsets.only(left: 20.0, right: 20.0),
         fillColor: Colors.white,
@@ -70,9 +74,9 @@ class _SearchBarState extends State<SearchBar> with TickerProviderStateMixin {
                     _loading = true;
                   });
 
-                  // SnackBar errorSnackBar = SnackBar(
-                  //     content: Text(
-                  //         'Sorry we were not able to complete your search'));
+                  SnackBar errorSnackBar = SnackBar(
+                      content: Text(
+                          'Sorry we were not able to complete your search'));
 
                   SnackBar snackBar =
                       SnackBar(content: Text('Search successful'));
@@ -81,8 +85,10 @@ class _SearchBarState extends State<SearchBar> with TickerProviderStateMixin {
                     // _ = response.body;
                   });
                 },
-                onChanged: (text) {
+                onChanged: (text) async {
                   print("First text field: $text");
+                  query.changeSearch(
+                      QuerySearch(fieldName: 'description', search: text));
                 },
                 decoration: widget.noBorder ? _withoutBorder : _withBorder)
             : Container(

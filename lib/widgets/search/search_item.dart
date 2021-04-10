@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:timeless_app/models/business.dart';
 import 'package:timeless_app/utils/custom_text.dart';
 
 class SearchItem extends StatelessWidget {
+  final Business business;
   const SearchItem({
     Key? key,
+    required this.business,
   }) : super(key: key);
 
   @override
@@ -12,15 +15,15 @@ class SearchItem extends StatelessWidget {
     return Card(
       elevation: 3,
       child: Container(
-        padding: EdgeInsets.all(20.0),
-        width: 125,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(2.5),
         ),
+        padding: EdgeInsets.all(20.0),
+        width: 125,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomTextNormal(text: 'Salons'),
+            CustomTextNormal(text: business.name),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -31,7 +34,7 @@ class SearchItem extends StatelessWidget {
                 SizedBox(
                   width: 10,
                 ),
-                CustomTextCaption(fontSize: 10.0, text: 'USA'),
+                CustomTextCaption(fontSize: 10.0, text: business.zipcode),
               ],
             )
           ],
