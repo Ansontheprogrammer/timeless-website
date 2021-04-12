@@ -37,7 +37,7 @@ class NearbyBusinessList extends StatelessWidget {
             spacing: 20,
             children: businesses.map((business) {
               return NearbyBusinessCard(
-                  title: business.name,
+                  title: business.getBusinessName(),
                   subtitle: business.type,
                   description: business.description);
             }).toList());

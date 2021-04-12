@@ -43,6 +43,7 @@ class NearbyBusinessCard extends StatelessWidget {
               ),
             ),
             Container(
+              constraints: BoxConstraints(minHeight: 175),
               padding: EdgeInsets.all(15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

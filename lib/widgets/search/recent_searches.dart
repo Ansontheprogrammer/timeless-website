@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:timeless_app/domain/firestore.dart';
+import 'package:timeless_app/domain/firestore_service.dart';
 import 'package:timeless_app/models/business.dart';
 import 'package:timeless_app/models/query.dart';
 import 'package:timeless_app/providers/search_provider.dart';
@@ -27,7 +27,7 @@ class RecentSearches extends StatelessWidget {
           height: 20,
         ),
         StreamBuilder(
-          stream: FirestoreService().businessQuery(
+          stream: FirestoreService().queryBusinesses(
               query:
                   QuerySearch(fieldName: 'name', search: currentSearch.search)),
           builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -37,7 +37,6 @@ class RecentSearches extends StatelessWidget {
             List<Business> foundBusinesses = snapshot.data!.docs
                 .map((snap) => Business.fromJSON(snap.data()!))
                 .toList();
-            print(foundBusinesses);
             return Row(
                 children: foundBusinesses
                     .map((business) => SearchItem(business: business))

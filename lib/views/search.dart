@@ -1,17 +1,13 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-import 'package:timeless_app/domain/firestore.dart';
-import 'package:timeless_app/models/business.dart';
-import 'package:timeless_app/models/query.dart';
+
 import 'package:timeless_app/providers/search_provider.dart';
 import 'package:timeless_app/utils/custom_section.dart';
 import 'package:timeless_app/utils/custom_text.dart';
 import 'package:timeless_app/utils/layout.dart';
 import 'package:timeless_app/widgets/home/hero/search_bar.dart';
 import 'package:timeless_app/widgets/search/recent_searches.dart';
-import 'package:timeless_app/widgets/search/search_item.dart';
 
 class SearchView extends StatelessWidget {
   SearchView();

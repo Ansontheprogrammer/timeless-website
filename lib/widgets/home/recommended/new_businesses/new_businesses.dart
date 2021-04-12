@@ -39,7 +39,7 @@ class NewBusinessList extends StatelessWidget {
             spacing: 20,
             children: businesses.map((business) {
               return NewBusinessListItem(
-                  title: business.name,
+                  title: business.getBusinessName(),
                   subtitle: business.type,
                   description: business.description);
             }).toList());

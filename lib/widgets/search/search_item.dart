@@ -23,7 +23,7 @@ class SearchItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomTextNormal(text: business.name),
+            CustomTextNormal(text: business.getBusinessName()),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
