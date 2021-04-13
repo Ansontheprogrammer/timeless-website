@@ -1,12 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:timeless_app/views/about.dart';
-import 'package:timeless_app/views/contact.dart';
-import 'package:timeless_app/views/home.dart';
-import 'package:timeless_app/views/search.dart';
-
-import 'utils/custom_text.dart';
+import 'package:timeless_app/ui/shared/custom_text.dart';
+import 'package:timeless_app/ui/views/about.dart';
+import 'package:timeless_app/ui/views/contact.dart';
+import 'package:timeless_app/ui/views/home.dart';
+import 'package:timeless_app/ui/views/search.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
