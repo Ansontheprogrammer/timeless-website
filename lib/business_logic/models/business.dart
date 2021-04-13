@@ -8,7 +8,7 @@ class Business implements FirestoreDoc {
   }
 
   final String id;
-  final String name;
+  String name;
   final String type;
   // final String imageURL;
   final String zipcode;
@@ -46,6 +46,8 @@ class Business implements FirestoreDoc {
       required this.zipcode});
 
   Future<void> create(Business business) async {
+    // Convert business name to lowercase for storage.
+    business.name = business.name.toLowerCase();
     try {
       await FirestoreService().create(business);
     } catch (FirebaseException) {

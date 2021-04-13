@@ -51,6 +51,7 @@ class SearchView extends StatelessWidget {
                                     width:
                                         MediaQuery.of(context).size.width * 0.4,
                                     child: SearchBar(
+                                      hint: 'Search by name',
                                       noBorder: true,
                                     )),
                                 Container(
@@ -61,7 +62,7 @@ class SearchView extends StatelessWidget {
                                     width:
                                         MediaQuery.of(context).size.width * 0.4,
                                     child: SearchBar(
-                                      hint: 'Location',
+                                      hint: 'Search by Location',
                                       icon: Icons.location_pin,
                                       noBorder: true,
                                     )),

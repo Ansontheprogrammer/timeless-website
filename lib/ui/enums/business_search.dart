@@ -1,0 +1,1 @@
+enum BusinessSearch { Name, Location }
