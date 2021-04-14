@@ -3,13 +3,16 @@ import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:timeless_app/business_logic/models/query.dart';
 import 'package:timeless_app/business_logic/view_models/search_view_model.dart';
+import 'package:timeless_app/enums/business_search.dart';
 
 class SearchBar extends StatefulWidget {
   final String hint;
+  final BusinessSearchTypes type;
   final IconData icon;
   final bool noBorder;
   const SearchBar(
       {this.noBorder = false,
+      required this.type,
       this.hint = 'Enter a search term',
       this.icon = Icons.search});
 
@@ -88,7 +91,7 @@ class _SearchBarState extends State<SearchBar> with TickerProviderStateMixin {
                 },
                 onChanged: (text) async {
                   query.changeSearch(
-                      QuerySearch(fieldName: 'description', search: text));
+                      QuerySearch(fieldName: widget.type, search: text));
                 },
                 decoration: widget.noBorder ? _withoutBorder : _withBorder)
             : Container(

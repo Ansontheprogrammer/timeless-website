@@ -96,7 +96,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                     website: _websiteController.text,
                   );
                   try {
-                    await business.create(business);
+                    await Business.create(business);
                   } catch (FirebaseException) {
                     print("Error in custom form");
                   }

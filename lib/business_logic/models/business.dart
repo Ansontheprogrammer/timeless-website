@@ -45,7 +45,7 @@ class Business implements FirestoreDoc {
       required this.description,
       required this.zipcode});
 
-  Future<void> create(Business business) async {
+  static Future<void> create(Business business) async {
     // Convert business name to lowercase for storage.
     business.name = business.name.toLowerCase();
     try {

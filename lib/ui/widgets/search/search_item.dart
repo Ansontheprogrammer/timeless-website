@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:timeless_app/business_logic/models/business.dart';
-import 'package:timeless_app/ui/enums/business_search.dart';
+import 'package:timeless_app/enums/business_search.dart';
 import 'package:timeless_app/ui/shared/custom_text.dart';
 
 class SearchItem extends StatelessWidget {
-  final Business business;
-  final BusinessSearch searchType;
+  final String text;
+  final BusinessSearchTypes searchType;
   const SearchItem({
     Key? key,
-    required this.business,
+    required this.text,
     required this.searchType,
   }) : super(key: key);
 
@@ -26,8 +26,8 @@ class SearchItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            searchType == BusinessSearch.Name
-                ? CustomTextNormal(text: business.getBusinessName())
+            searchType == BusinessSearchTypes.Name
+                ? CustomTextNormal(text: text)
                 : Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -38,7 +38,7 @@ class SearchItem extends StatelessWidget {
                       SizedBox(
                         width: 10,
                       ),
-                      CustomTextCaption(fontSize: 10.0, text: business.zipcode),
+                      CustomTextCaption(fontSize: 10.0, text: text),
                     ],
                   )
           ],

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:timeless_app/enums/business_search.dart';
 import 'package:timeless_app/ui/shared/custom_text.dart';
 import 'package:timeless_app/ui/shared/container_spacer.dart';
 import 'package:timeless_app/ui/widgets/home/hero/search_bar.dart';
@@ -49,7 +50,9 @@ class HeroSection extends StatelessWidget {
             Container(
               color: Colors.transparent,
               width: MediaQuery.of(context).size.width * 0.7,
-              child: const SearchBar(),
+              child: const SearchBar(
+                type: BusinessSearchTypes.Description,
+              ),
             )
           ],
         ),

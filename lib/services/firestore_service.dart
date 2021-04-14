@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:enum_to_string/enum_to_string.dart';
 import 'package:timeless_app/business_logic/models/query.dart';
 import 'package:timeless_app/business_logic/utils/firestore_doc.dart';
 
@@ -13,9 +14,10 @@ class FirestoreService {
   /// For ex. 'Sam' -> "sam's barbershop"
   Stream<QuerySnapshot> queryBusinesses({required QuerySearch query}) {
     String searchConvertedToLowercase = query.search.toLowerCase();
+
     return _firestore
         .collection(_businessCollectionName)
-        .where(query.fieldName,
+        .where(EnumToString.convertToString(query.fieldName).toLowerCase(),
             isGreaterThanOrEqualTo: searchConvertedToLowercase)
         .where(query.fieldName, isLessThan: searchConvertedToLowercase + 'z')
         .snapshots();

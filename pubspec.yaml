@@ -34,6 +34,7 @@ dependencies:
   cloud_firestore: ^1.0.2
   provider: ^5.0.0
   uuid: ^3.0.4
+  enum_to_string: ^2.0.1
 
 dependencies_overrides:
   http: ^0.13.0
