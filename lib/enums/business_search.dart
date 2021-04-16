@@ -1,1 +1,1 @@
-enum BusinessSearchTypes { Name, Location, Description }
+enum BusinessSearchTypes { Name, Zipcode, Description }

@@ -1,47 +1,63 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:timeless_app/business_logic/models/business.dart';
+import 'package:provider/provider.dart';
+import 'package:timeless_app/business_logic/models/query.dart';
+import 'package:timeless_app/business_logic/view_models/search_view_model.dart';
 import 'package:timeless_app/enums/business_search.dart';
 import 'package:timeless_app/ui/shared/custom_text.dart';
 
 class SearchItem extends StatelessWidget {
-  final String text;
-  final BusinessSearchTypes searchType;
+  final QuerySearch querySearch;
   const SearchItem({
     Key? key,
-    required this.text,
-    required this.searchType,
+    required this.querySearch,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 3,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(2.5),
-        ),
-        padding: EdgeInsets.all(20.0),
-        width: 200,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            searchType == BusinessSearchTypes.Name
-                ? CustomTextNormal(text: text)
-                : Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Icon(
-                        Icons.location_pin,
-                        size: 10.0,
+    SearchViewModel model = Provider.of<SearchViewModel>(context);
+
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+          primary: Colors.transparent,
+          onPrimary: Colors.transparent,
+          shadowColor: Colors.transparent),
+      onPressed: () {
+        model.changeActiveSearch(querySearch);
+      },
+      child: Card(
+        elevation: 3,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(2.5),
+          ),
+          padding: EdgeInsets.all(20.0),
+          width: 300,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Icon(
+                    querySearch.fieldName == BusinessSearchTypes.Name
+                        ? Icons.account_box
+                        : Icons.location_pin,
+                    color: Colors.black,
+                    size: 20.0,
+                  ),
+                  CustomTextNormal(
+                      text: querySearch.search, color: Colors.black),
+                  IconButton(
+                      icon: Icon(
+                        Icons.clear,
+                        color: Colors.black,
                       ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      CustomTextCaption(fontSize: 10.0, text: text),
-                    ],
-                  )
-          ],
+                      onPressed: () => model.removeSearch(querySearch))
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

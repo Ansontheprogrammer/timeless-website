@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
@@ -7,6 +8,7 @@ import 'package:timeless_app/ui/shared/custom_section.dart';
 import 'package:timeless_app/ui/shared/custom_text.dart';
 import 'package:timeless_app/ui/shared/layout.dart';
 import 'package:timeless_app/ui/widgets/home/hero/search_bar.dart';
+import 'package:timeless_app/ui/widgets/search/businesses_found_in_query.dart';
 import 'package:timeless_app/ui/widgets/search/recent_searches.dart';
 import 'package:timeless_app/ui/widgets/search/search_item.dart';
 
@@ -71,8 +73,7 @@ class SearchView extends StatelessWidget {
                                                     .width *
                                                 0.4,
                                             child: SearchBar(
-                                              type:
-                                                  BusinessSearchTypes.Location,
+                                              type: BusinessSearchTypes.Zipcode,
                                               hint: 'Search by Location',
                                               icon: Icons.location_pin,
                                               noBorder: true,
@@ -81,7 +82,18 @@ class SearchView extends StatelessWidget {
                                     ),
                                   ),
                                   ElevatedButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        if (model.nameSearch.isNotEmpty) {
+                                          model.saveSearch(
+                                              BusinessSearchTypes.Name);
+                                        } else {
+                                          model.saveSearch(
+                                              BusinessSearchTypes.Zipcode);
+                                        }
+                                        if (kDebugMode)
+                                          print(
+                                              '${model.recentSearches} are the new recent searches');
+                                      },
                                       child: CustomTextBtn(
                                         color: Colors.white,
                                         text: 'Save search',
@@ -110,13 +122,22 @@ class SearchView extends StatelessWidget {
                                             MediaQuery.of(context).size.width *
                                                 0.8,
                                         child: SearchBar(
-                                          type: BusinessSearchTypes.Location,
+                                          type: BusinessSearchTypes.Zipcode,
                                           hint: 'Search by Location',
                                           icon: Icons.location_pin,
                                         )),
                                     ElevatedButton(
                                         onPressed: () {
-                                          // model.saveSearch(search)
+                                          if (model.nameSearch.isNotEmpty) {
+                                            model.saveSearch(
+                                                BusinessSearchTypes.Name);
+                                          } else {
+                                            model.saveSearch(
+                                                BusinessSearchTypes.Zipcode);
+                                          }
+                                          if (kDebugMode)
+                                            print(
+                                                '${model.recentSearches} are the new recent searches');
                                         },
                                         child: CustomTextBtn(
                                           color: Colors.white,
@@ -139,12 +160,12 @@ class SearchView extends StatelessWidget {
                           alignment: WrapAlignment.center,
                           children: model.recentSearches
                               .map((search) => SearchItem(
-                                  searchType: search.fieldName,
-                                  text: search.search))
+                                    querySearch: search,
+                                  ))
                               .toList())
                     ],
                   )),
-                  RecentSearches(),
+                  SearchedBusinessesSection(),
                 ],
               );
             })));
