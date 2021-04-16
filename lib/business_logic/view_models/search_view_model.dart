@@ -4,11 +4,11 @@ import 'package:timeless_app/enums/business_search.dart';
 
 /// Used for providing query searches in the search view
 class SearchViewModel extends ChangeNotifier {
-  QuerySearch _search =
+  QuerySearch _activeSearch =
       QuerySearch(fieldName: BusinessSearchTypes.Name, search: '');
 
-  QuerySearch get search {
-    return _search;
+  QuerySearch get activeSearch {
+    return _activeSearch;
   }
 
   List<QuerySearch> _recentSearches = [];
@@ -26,29 +26,43 @@ class SearchViewModel extends ChangeNotifier {
     return _locationSearch;
   }
 
-  saveSearch(QuerySearch search) {
-    _recentSearches.add(search);
-    _nameSearch = '';
-    _locationSearch = '';
+  saveSearch(BusinessSearchTypes type) {
+    print({nameSearch, 'type', type, 'saving search'});
+    if (type == BusinessSearchTypes.Name) {
+      _recentSearches.add(
+          QuerySearch(fieldName: BusinessSearchTypes.Name, search: nameSearch));
+      _nameSearch = '';
+    } else {
+      _recentSearches.add(QuerySearch(
+          fieldName: BusinessSearchTypes.Zipcode, search: locationSearch));
+      _locationSearch = '';
+    }
 
     notifyListeners();
   }
 
-  removeSearch(QuerySearch search) {
+  dynamic removeSearch(QuerySearch search) {
     _recentSearches.remove(search);
     notifyListeners();
   }
 
   void changeSearch(QuerySearch searchQuery) {
+    _activeSearch = searchQuery;
     switch (searchQuery.fieldName) {
       case BusinessSearchTypes.Name:
         _nameSearch = searchQuery.search;
         break;
-      case BusinessSearchTypes.Location:
+      case BusinessSearchTypes.Zipcode:
         _locationSearch = searchQuery.search;
         break;
       case BusinessSearchTypes.Description:
         break;
     }
+    notifyListeners();
+  }
+
+  changeActiveSearch(QuerySearch newSearch) {
+    _activeSearch = newSearch;
+    notifyListeners();
   }
 }
