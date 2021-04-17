@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +26,7 @@ class _SearchBarState extends State<SearchBar> with TickerProviderStateMixin {
   late AnimationController controller;
   late Animation<double> animation;
   bool _loading = false;
-  String _searchResult = '';
+  Timer? _debounce;
 
   @override
   void initState() {
@@ -37,6 +39,7 @@ class _SearchBarState extends State<SearchBar> with TickerProviderStateMixin {
 
   @override
   void dispose() {
+    _debounce?.cancel();
     controller.dispose();
     super.dispose();
   }
@@ -90,8 +93,12 @@ class _SearchBarState extends State<SearchBar> with TickerProviderStateMixin {
                   });
                 },
                 onChanged: (text) async {
-                  query.changeSearch(
-                      QuerySearch(fieldName: widget.type, search: text));
+                  /// Setting a debounce to ensure that is waits 1 second after the user finishing editing to change the search query.
+                  if (_debounce?.isActive ?? false) _debounce!.cancel();
+                  _debounce = Timer(const Duration(milliseconds: 1000), () {
+                    query.changeSearch(
+                        QuerySearch(fieldName: widget.type, search: text));
+                  });
                 },
                 decoration: widget.noBorder ? _withoutBorder : _withBorder)
             : Container(
