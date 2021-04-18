@@ -1,6 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:timeless_app/ui/shared/custom_color.dart';
 import 'package:timeless_app/ui/shared/custom_text.dart';
 import 'package:timeless_app/ui/views/about.dart';
 import 'package:timeless_app/ui/views/contact.dart';
@@ -9,6 +12,16 @@ import 'package:timeless_app/ui/views/search.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  if (!kIsWeb) {
+    await FlutterStatusbarcolor.setStatusBarColor(
+      CustomColor.getColorHexCode('#F8F8F8'),
+    );
+    if (useWhiteForeground(Colors.white)) {
+      FlutterStatusbarcolor.setStatusBarWhiteForeground(true);
+    } else {
+      FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
+    }
+  }
 
   runApp(MyApp());
 }
