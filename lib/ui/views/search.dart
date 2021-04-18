@@ -108,6 +108,7 @@ class SearchView extends StatelessWidget {
                                             MediaQuery.of(context).size.width *
                                                 0.8,
                                         child: SearchBar(
+                                          noBorder: kIsWeb ? false : true,
                                           type: BusinessSearchTypes.Name,
                                           hint: 'Search by Name',
                                         )),
@@ -122,6 +123,7 @@ class SearchView extends StatelessWidget {
                                             MediaQuery.of(context).size.width *
                                                 0.8,
                                         child: SearchBar(
+                                          noBorder: kIsWeb ? false : true,
                                           type: BusinessSearchTypes.Zipcode,
                                           hint: 'Search by Location',
                                           icon: Icons.location_pin,

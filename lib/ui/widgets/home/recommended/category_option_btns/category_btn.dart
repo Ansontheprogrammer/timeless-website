@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:timeless_app/ui/shared/custom_text.dart';
 
@@ -20,7 +21,9 @@ class _CategoryBtnState extends State<CategoryBtn> {
     return Container(
       width: onDesktop
           ? MediaQuery.of(context).size.width / 5
-          : MediaQuery.of(context).size.width * 0.5,
+          : kIsWeb
+              ? MediaQuery.of(context).size.width * 0.5
+              : MediaQuery.of(context).size.width * 0.9,
       child: RaisedButton(
           onPressed: () {
             setState(() {

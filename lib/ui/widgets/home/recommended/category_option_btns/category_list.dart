@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:timeless_app/ui/shared/custom_text.dart';
 import 'package:timeless_app/ui/widgets/home/recommended/category_option_btns/category_btn.dart';
 
+import '../../landing_page_content.dart';
+
 List<String> categoryOptionBtns = [
   'Food Services',
   'Arts, Entertainment',
@@ -26,7 +28,7 @@ class _CategoryListButtonsState extends State<CategoryListButtons> {
     double screenWidth = MediaQuery.of(context).size.width;
     bool onDesktop = screenWidth > 600;
     if (limit == 2 && onDesktop) limit = 3;
-    return Center(
+    return CenterWidgetOnWeb(
         child: Wrap(
             direction: onDesktop ? Axis.horizontal : Axis.vertical,
             runSpacing: 15.0,

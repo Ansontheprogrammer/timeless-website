@@ -76,22 +76,6 @@ class _SearchBarState extends State<SearchBar> with TickerProviderStateMixin {
         child: !_loading
             ? TextField(
                 textInputAction: TextInputAction.done,
-                onSubmitted: (String text) async {
-                  setState(() {
-                    _loading = true;
-                  });
-
-                  SnackBar errorSnackBar = SnackBar(
-                      content: Text(
-                          'Sorry we were not able to complete your search'));
-
-                  SnackBar snackBar =
-                      SnackBar(content: Text('Search successful'));
-                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                  setState(() {
-                    // _ = response.body;
-                  });
-                },
                 onChanged: (text) async {
                   /// Setting a debounce to ensure that is waits 1 second after the user finishing editing to change the search query.
                   if (_debounce?.isActive ?? false) _debounce!.cancel();
