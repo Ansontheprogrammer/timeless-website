@@ -1,18 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:timeless_app/business_logic/view_models/category_view_model.dart';
 import 'package:timeless_app/ui/shared/custom_text.dart';
+import 'package:timeless_app/ui/shared/data/categoryBtns.dart';
 import 'package:timeless_app/ui/widgets/home/recommended/category_option_btns/category_btn.dart';
 
 import '../../landing_page_content.dart';
-
-List<String> categoryOptionBtns = [
-  'Food Services',
-  'Entertainment',
-  'Finance',
-  'Healthcare',
-  'Insurance',
-  'Recreation'
-];
 
 // TODO: Combine these two widgets and make them adaptive
 class CategoryListButtons extends StatefulWidget {
@@ -22,13 +16,15 @@ class CategoryListButtons extends StatefulWidget {
   _CategoryListButtonsState createState() => _CategoryListButtonsState();
 }
 
-int limit = 2;
-
 class _CategoryListButtonsState extends State<CategoryListButtons> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     bool onDesktop = screenWidth > 600;
+
+    CategoryViewModel model = Provider.of<CategoryViewModel>(context);
+    int limit = model.limit;
+
     if (limit == 2 && onDesktop) limit = 3;
     Wrap adaptiveListWrap = Wrap(
         direction: onDesktop || !kIsWeb ? Axis.horizontal : Axis.vertical,
@@ -37,27 +33,17 @@ class _CategoryListButtonsState extends State<CategoryListButtons> {
         children: [
           ...categoryOptionBtns
               .sublist(0, limit)
-              .map((option) => CategoryBtn(
-                    title: option,
+              .map((option) => CategoryBtnUI(
+                    button: option,
                   ))
               .toList(),
           Center(
             child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Colors.white)),
                     primary: limit != categoryOptionBtns.length
                         ? Theme.of(context).primaryColor
                         : Colors.grey),
-                onPressed: () {
-                  setState(() {
-                    limit += 2;
-                    if (limit >= categoryOptionBtns.length) {
-                      limit = categoryOptionBtns.length;
-                    }
-                  });
-                },
+                onPressed: model.increaseLimit,
                 child: CustomTextBtn(
                     text: limit != categoryOptionBtns.length
                         ? 'Show More Categories'
@@ -72,8 +58,8 @@ class _CategoryListButtonsState extends State<CategoryListButtons> {
               .sublist(0, limit)
               .map((option) => Container(
                     margin: EdgeInsets.only(left: 10, right: 10),
-                    child: CategoryBtn(
-                      title: option,
+                    child: CategoryBtnUI(
+                      button: option,
                     ),
                   ))
               .toList(),
@@ -86,14 +72,7 @@ class _CategoryListButtonsState extends State<CategoryListButtons> {
                     primary: limit != categoryOptionBtns.length
                         ? Theme.of(context).primaryColor
                         : Colors.grey),
-                onPressed: () {
-                  setState(() {
-                    limit += 2;
-                    if (limit >= categoryOptionBtns.length) {
-                      limit = categoryOptionBtns.length;
-                    }
-                  });
-                },
+                onPressed: model.increaseLimit,
                 child: CustomTextBtn(
                     text: limit != categoryOptionBtns.length
                         ? 'Show More Categories'
