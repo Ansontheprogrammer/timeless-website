@@ -7,6 +7,7 @@ import 'package:timeless_app/ui/views/about.dart';
 import 'package:timeless_app/ui/views/contact.dart';
 import 'package:timeless_app/ui/views/home.dart';
 import 'package:timeless_app/ui/views/search.dart';
+import 'package:timeless_app/ui/widgets/navigation/app/circular_nav.dart';
 import 'package:timeless_app/ui/widgets/navigation/drawer/drawer.dart';
 import 'package:timeless_app/ui/widgets/navigation/footer/footer.dart';
 import 'package:timeless_app/ui/widgets/navigation/nav-bar/mobile_nav_item.dart';
@@ -28,10 +29,18 @@ class _LayoutState extends State<Layout> {
   }
 
   bool displayMobileMenu = false;
+  bool appMenuOpened = false;
 
   toggleMobileMenu() {
     setState(() {
       displayMobileMenu = !displayMobileMenu;
+    });
+  }
+
+  toggleAppMenu() {
+    print({appMenuOpened, 'appMenuOpened'});
+    setState(() {
+      appMenuOpened = !appMenuOpened;
     });
   }
 
@@ -41,7 +50,7 @@ class _LayoutState extends State<Layout> {
       key: _scaffoldKey,
       drawer: CustomDrawer(),
       backgroundColor:
-          kIsWeb ? Colors.white : CustomColor.getColorHexCode('#F8F8F8'),
+          kIsWeb ? Colors.white : CustomColor.getColorHexCode('#F2F2F2'),
       body: Container(
         child: SafeArea(
           child: Stack(
@@ -84,6 +93,11 @@ class _LayoutState extends State<Layout> {
                   ),
                 ),
               // if (kIsWeb) Positioned(bottom: 0, child: CustomTabBar()),
+              if (!kIsWeb)
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(height: 200, width: 400, child: NavMenu()),
+                ),
               if (kIsWeb)
                 Positioned(
                   top: 0,

@@ -14,7 +14,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (!kIsWeb) {
     await FlutterStatusbarcolor.setStatusBarColor(
-      CustomColor.getColorHexCode('#F8F8F8'),
+      CustomColor.getColorHexCode('#F2F2F2'),
     );
     if (useWhiteForeground(Colors.white)) {
       FlutterStatusbarcolor.setStatusBarWhiteForeground(true);
