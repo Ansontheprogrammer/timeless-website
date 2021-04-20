@@ -36,6 +36,7 @@ dependencies:
   uuid: ^3.0.4
   enum_to_string: ^2.0.1
   flutter_statusbarcolor: ^0.2.3
+  circular_menu: ^1.1.2
 
 dependencies_overrides:
   http: ^0.13.0
