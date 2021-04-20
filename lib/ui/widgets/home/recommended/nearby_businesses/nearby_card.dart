@@ -66,25 +66,6 @@ class NearbyBusinessCard extends StatelessWidget {
                     height: 5,
                   ),
                   CustomTextNormal(text: description),
-
-                  // ButtonBar(
-                  //   alignment: MainAxisAlignment.spaceBetween,
-                  //   children: <Widget>[
-                  //     FlatButton(
-                  //       padding: EdgeInsets.all(0),
-                  //       color: Theme.of(context).accentColor,
-                  //       child:
-                  //           const Text('Edit', style: TextStyle(color: Colors.white)),
-                  //       onPressed: () {},
-                  //     ),
-                  //     FlatButton(
-                  //       color: Theme.of(context).primaryColor,
-                  //       child: const Text('Delete',
-                  //           style: TextStyle(color: Colors.white)),
-                  //       onPressed: () {},
-                  //     ),
-                  //   ],
-                  // ),
                 ],
               ),
             )

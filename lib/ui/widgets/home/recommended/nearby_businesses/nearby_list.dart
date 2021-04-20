@@ -20,27 +20,26 @@ class NearbyBusinessList extends StatelessWidget {
           return CircularProgressIndicator();
         }
 
-        // Convert businesses list map from DB to list of Business models
-        List<Business> businesses = snapshot.data!.docs
-            .map((businessJSON) => Business.fromJSON(businessJSON.data()!))
-            .toList();
-
-        if (!snapshot.hasData) {
+        if (snapshot.data!.docs.isEmpty) {
           Container(
             child: CustomTextNormal(
                 text: "Sorry we don't have any businesses in our system yet"),
           );
         }
 
-        return Wrap(
-            runSpacing: 20,
-            spacing: 20,
-            children: businesses.map((business) {
-              return NearbyBusinessCard(
-                  title: business.getBusinessName(),
-                  subtitle: business.type,
-                  description: business.description);
-            }).toList());
+        // Convert businesses list map from DB to list of Business models
+        List<Business> businesses = snapshot.data!.docs
+            .map((businessJSON) => Business.fromJSON(businessJSON.data()!))
+            .toList();
+
+        return Wrap(runSpacing: 20, spacing: 20, children: [
+          ...businesses.map((business) {
+            return NearbyBusinessCard(
+                title: business.getBusinessName(),
+                subtitle: business.type,
+                description: business.description);
+          }).toList()
+        ]);
       },
     );
   }

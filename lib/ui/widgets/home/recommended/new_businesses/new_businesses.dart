@@ -21,17 +21,17 @@ class NewBusinessList extends StatelessWidget {
           return CircularProgressIndicator();
         }
 
-        // Convert businesses list map from DB to list of Business models
-        List<Business> businesses = snapshot.data!.docs
-            .map((businessJSON) => Business.fromJSON(businessJSON.data()!))
-            .toList();
-
-        if (!snapshot.hasData) {
+        if (snapshot.data!.docs.isEmpty) {
           Container(
             child: CustomTextNormal(
                 text: "Sorry we don't have any businesses in our system yet"),
           );
         }
+
+        // Convert businesses list map from DB to list of Business models
+        List<Business> businesses = snapshot.data!.docs
+            .map((businessJSON) => Business.fromJSON(businessJSON.data()!))
+            .toList();
 
         return Wrap(
             runSpacing: 20,

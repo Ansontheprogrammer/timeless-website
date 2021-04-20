@@ -69,8 +69,8 @@ class AdaptiveCategoryBtnContents extends StatelessWidget {
         ),
       ),
       CustomTextNormal(
-        fontSize: 14.0,
-        color: !active ? Colors.grey : Theme.of(context).primaryColor,
+        fontWeight: FontWeight.bold,
+        color: !active ? Colors.grey.shade800 : Theme.of(context).primaryColor,
         text: this.button.title,
       ),
     ]);
