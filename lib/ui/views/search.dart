@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:timeless_app/business_logic/view_models/search_view_model.dart';
-import 'package:timeless_app/enums/business_search.dart';
+import 'package:timeless_app/business_logic/enums/business_search.dart';
+import 'package:timeless_app/services/locator.dart';
 import 'package:timeless_app/ui/shared/custom_section.dart';
 import 'package:timeless_app/ui/shared/custom_text.dart';
 import 'package:timeless_app/ui/shared/layout.dart';
@@ -22,7 +23,7 @@ class SearchView extends StatelessWidget {
     bool displayedOnTabletOrSmaller = screenWidth < 800;
     return Layout(
         pageContent: ListenableProvider(
-            create: (_) => SearchViewModel(),
+            create: (_) => locator<SearchViewModel>(),
             child: Consumer<SearchViewModel>(builder: (context, model, child) {
               return Column(
                 children: [

@@ -5,8 +5,9 @@ import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:timeless_app/business_logic/models/query.dart';
 import 'package:timeless_app/business_logic/view_models/search_view_model.dart';
-import 'package:timeless_app/enums/business_search.dart';
+import 'package:timeless_app/business_logic/enums/business_search.dart';
 
+/// This widget requires for there to be a provider of a SearchViewModel factory
 class SearchBar extends StatefulWidget {
   final String hint;
   final BusinessSearchTypes type;

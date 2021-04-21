@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:timeless_app/enums/business_search.dart';
+import 'package:timeless_app/business_logic/enums/business_search.dart';
 import 'package:timeless_app/ui/shared/container_spacer.dart';
 import 'package:timeless_app/ui/shared/custom_color.dart';
 import 'package:timeless_app/ui/shared/custom_section.dart';
