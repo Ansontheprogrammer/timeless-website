@@ -1,4 +1,4 @@
-import 'package:timeless_app/enums/business_search.dart';
+import 'package:timeless_app/business_logic/enums/business_search.dart';
 
 class QuerySearch {
   final BusinessSearchTypes fieldName;

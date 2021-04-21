@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:timeless_app/business_logic/enums/business_search.dart';
 import 'package:timeless_app/business_logic/models/query.dart';
-import 'package:timeless_app/enums/business_search.dart';
 
 /// Used for providing query searches in the search view
 class SearchViewModel extends ChangeNotifier {
