@@ -24,7 +24,7 @@ class NavMenu extends StatelessWidget {
       },
       // menu item appearance properties
       icon: icon,
-      color: routeName == HomeView.route ? Colors.blue : Colors.purple,
+      color: routeName == HomeView.route ? Colors.blue : Colors.purpleAccent,
       // elevation: 4.0,
       iconColor: Colors.white,
       iconSize: 30.0,
@@ -58,7 +58,7 @@ class NavMenu extends StatelessWidget {
           //callback
         },
         // toggle button appearance properties
-        toggleButtonColor: Colors.pink,
+        toggleButtonColor: Theme.of(context).primaryColor,
         toggleButtonBoxShadow: [
           BoxShadow(
             color: Colors.red,
