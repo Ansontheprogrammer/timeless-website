@@ -3,7 +3,7 @@ import 'package:timeless_app/business_logic/models/category_btn.dart';
 import 'package:timeless_app/ui/shared/data/categoryBtns.dart';
 
 /// Used for providing query searches in the search view
-class CategoryViewModel extends ChangeNotifier {
+class CategoryProvider extends ChangeNotifier {
   int _limit = 2;
   int get limit {
     return _limit;
