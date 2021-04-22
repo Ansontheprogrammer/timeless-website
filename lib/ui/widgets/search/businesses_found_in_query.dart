@@ -40,8 +40,6 @@ class BusinessesFoundInQuery extends StatelessWidget {
         List<Business> foundBusinessesWithFilter = foundBusinesses;
         if (activeCategories != null && activeCategories!.isNotEmpty) {
           foundBusinessesWithFilter = foundBusinesses.where((business) {
-            print(business.type);
-            print({activeCategories![0].title, 'TITLE'});
             return this
                 .activeCategories!
                 .where((category) => category.title == business.type)
