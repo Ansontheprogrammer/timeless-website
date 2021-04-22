@@ -14,7 +14,7 @@ class AdaptiveCategoryBtnContents extends StatelessWidget {
   final bool active;
   final CategoryBtn button;
 
-  toggleButtonActiveState(CategoryViewModel model) {
+  toggleButtonActiveState(CategoryProvider model) {
     if (active)
       model.removeActiveCategoryBtn(button);
     else
@@ -23,8 +23,8 @@ class AdaptiveCategoryBtnContents extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CategoryViewModel model =
-        Provider.of<CategoryViewModel>(context, listen: false);
+    CategoryProvider model =
+        Provider.of<CategoryProvider>(context, listen: false);
     Color iconColor = !active ? Theme.of(context).primaryColor : Colors.white;
 
     RaisedButton categoryListTile = RaisedButton(

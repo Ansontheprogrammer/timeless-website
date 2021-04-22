@@ -6,6 +6,7 @@ import 'package:timeless_app/business_logic/models/category_btn.dart';
 import 'package:timeless_app/business_logic/models/query.dart';
 import 'package:timeless_app/business_logic/view_models/category_view_model.dart';
 import 'package:timeless_app/business_logic/view_models/search_view_model.dart';
+import 'package:timeless_app/ui/widgets/home/recommended/nearby_businesses/nearby_section.dart';
 import 'package:timeless_app/ui/widgets/home/recommended/new_businesses/new_business_section.dart';
 import 'package:timeless_app/ui/widgets/search/businesses_found_in_query.dart';
 
@@ -16,18 +17,11 @@ class RecommendedSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    QuerySearch activeSearch =
-        Provider.of<SearchViewModel>(context).activeSearch;
-    List<CategoryBtn> activeCategoryBtns =
-        Provider.of<CategoryViewModel>(context).activeCategoryBtns;
-
-    Widget businessesFoundWidget = BusinessesFoundInQuery(
-        activeCategorys: activeCategoryBtns, currentSearch: activeSearch);
     if (!displayHorizontal) {
       return Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(flex: 4, child: businessesFoundWidget),
+          Expanded(flex: 4, child: NearbyBusinessSection()),
           SizedBox(
             width: 50,
           ),
@@ -38,7 +32,7 @@ class RecommendedSection extends StatelessWidget {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          businessesFoundWidget,
+          NearbyBusinessSection(),
           SizedBox(
             height: 50,
           ),

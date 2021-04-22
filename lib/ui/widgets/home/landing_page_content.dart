@@ -65,7 +65,7 @@ class LandingPageContent extends StatelessWidget {
                 Container(
                   child: const SearchBar(
                     noBorder: true,
-                    type: BusinessSearchTypes.Description,
+                    type: BusinessSearchTypes.Name,
                   ),
                 ),
               ],

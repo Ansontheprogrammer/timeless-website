@@ -16,8 +16,8 @@ class HomeView extends StatelessWidget {
     return MultiProvider(providers: [
       ListenableProvider<SearchViewModel>(
           create: (_) => locator<SearchViewModel>()),
-      ListenableProvider<CategoryViewModel>(
-          create: (_) => locator<CategoryViewModel>())
+      ListenableProvider<CategoryProvider>(
+          create: (_) => locator<CategoryProvider>())
     ], child: Layout(pageContent: LandingPageContent()));
   }
 }
