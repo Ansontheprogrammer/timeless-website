@@ -49,13 +49,6 @@ class BusinessesFoundInQuery extends StatelessWidget {
           }).toList();
         }
 
-        print({
-          'found businesses',
-          foundBusinesses,
-          'found businesses with filter',
-          foundBusinessesWithFilter
-        });
-
         List<Business> businessListToUse = activeCategories == null
             ? foundBusinesses
             : foundBusinessesWithFilter;
