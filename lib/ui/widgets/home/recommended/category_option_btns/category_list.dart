@@ -22,7 +22,7 @@ class _CategoryListButtonsState extends State<CategoryListButtons> {
     double screenWidth = MediaQuery.of(context).size.width;
     bool onDesktop = screenWidth > 600;
 
-    CategoryViewModel model = Provider.of<CategoryViewModel>(context);
+    CategoryProvider model = Provider.of<CategoryProvider>(context);
     int limit = model.limit;
 
     if (limit == 2 && onDesktop) limit = 3;

@@ -11,7 +11,7 @@ class CategoryBtnUI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CategoryViewModel model = Provider.of<CategoryViewModel>(context);
+    CategoryProvider model = Provider.of<CategoryProvider>(context);
     bool _active = model.activeCategoryBtns.contains(button);
     double screenWidth = MediaQuery.of(context).size.width;
     bool onDesktop = screenWidth > 600;
