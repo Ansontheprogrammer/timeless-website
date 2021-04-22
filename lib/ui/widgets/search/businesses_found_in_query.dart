@@ -61,7 +61,7 @@ class BusinessesFoundInQuery extends StatelessWidget {
             : foundBusinessesWithFilter;
 
         return Wrap(
-            alignment: WrapAlignment.center,
+            alignment: WrapAlignment.spaceBetween,
             runSpacing: 20,
             spacing: 20,
             children: businessListToUse.map((business) {
