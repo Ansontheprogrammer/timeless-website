@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:timeless_app/business_logic/view_models/category_view_model.dart';
+import 'package:timeless_app/business_logic/providers/category_provider.dart';
 import 'package:timeless_app/ui/shared/custom_text.dart';
 import 'package:timeless_app/ui/shared/data/categoryBtns.dart';
 import 'package:timeless_app/ui/widgets/home/recommended/category_option_btns/category_btn.dart';

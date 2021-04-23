@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:timeless_app/business_logic/enums/business_search.dart';
 import 'package:timeless_app/business_logic/models/category_btn.dart';
 import 'package:timeless_app/business_logic/models/query.dart';
-import 'package:timeless_app/business_logic/view_models/category_view_model.dart';
+import 'package:timeless_app/business_logic/providers/category_provider.dart';
 import 'package:timeless_app/business_logic/view_models/search_view_model.dart';
 import 'package:timeless_app/ui/widgets/home/recommended/nearby_businesses/nearby_section.dart';
 import 'package:timeless_app/ui/widgets/home/recommended/new_businesses/new_business_section.dart';
