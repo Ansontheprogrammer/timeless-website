@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:timeless_app/business_logic/models/category_btn.dart';
 import 'package:timeless_app/business_logic/models/query.dart';
-import 'package:timeless_app/business_logic/view_models/category_view_model.dart';
+import 'package:timeless_app/business_logic/providers/category_provider.dart';
 import 'package:timeless_app/business_logic/view_models/search_view_model.dart';
 import 'package:timeless_app/ui/shared/container_spacer.dart';
 import 'package:timeless_app/ui/shared/custom_text.dart';

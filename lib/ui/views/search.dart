@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
+import 'package:timeless_app/business_logic/providers/save_search_provider.dart';
 import 'package:timeless_app/business_logic/view_models/search_view_model.dart';
 import 'package:timeless_app/business_logic/enums/business_search.dart';
 import 'package:timeless_app/services/locator.dart';
@@ -9,10 +10,15 @@ import 'package:timeless_app/ui/shared/custom_section.dart';
 import 'package:timeless_app/ui/shared/custom_text.dart';
 import 'package:timeless_app/ui/shared/layout.dart';
 import 'package:timeless_app/ui/widgets/home/hero/search_bar.dart';
-import 'package:timeless_app/ui/widgets/search/businesses_found_in_query.dart';
 import 'package:timeless_app/ui/widgets/search/recent_searches.dart';
+import 'package:timeless_app/ui/widgets/search/save_search_button.dart';
 import 'package:timeless_app/ui/widgets/search/search_item.dart';
 
+/// Creates the search view for advanced searches and saving recent searches
+///
+/// View uses both the factory [SearchViewModel] and the [SaveSearchProvider] singleton
+/// The searches will be saved from screen to screen because the [SaveSearchProvider] is a singleton
+/// The search bars will be reset because the [SearchViewModel] is a factory
 class SearchView extends StatelessWidget {
   SearchView();
   static const String route = '/search';
@@ -22,9 +28,16 @@ class SearchView extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     bool displayedOnTabletOrSmaller = screenWidth < 800;
     return Layout(
-        pageContent: ListenableProvider(
-            create: (_) => locator<SearchViewModel>(),
+        pageContent: MultiProvider(
+            providers: [
+          ListenableProvider<SearchViewModel>(
+              create: (_) => locator<SearchViewModel>()),
+          ListenableProvider<SaveSearchProvider>(
+              create: (_) => locator<SaveSearchProvider>())
+        ],
             child: Consumer<SearchViewModel>(builder: (context, model, child) {
+              SaveSearchProvider saveSearchProvider =
+                  Provider.of<SaveSearchProvider>(context);
               return Column(
                 children: [
                   CustomSection(
@@ -82,23 +95,9 @@ class SearchView extends StatelessWidget {
                                       ],
                                     ),
                                   ),
-                                  ElevatedButton(
-                                      onPressed: () {
-                                        if (model.nameSearch.isNotEmpty) {
-                                          model.saveSearch(
-                                              BusinessSearchTypes.Name);
-                                        } else {
-                                          model.saveSearch(
-                                              BusinessSearchTypes.Zipcode);
-                                        }
-                                        if (kDebugMode)
-                                          print(
-                                              '${model.recentSearches} are the new recent searches');
-                                      },
-                                      child: CustomTextBtn(
-                                        color: Colors.white,
-                                        text: 'Save search',
-                                      )),
+                                  SaveSearchButton(
+                                      model: model,
+                                      saveSearchProvider: saveSearchProvider),
                                 ],
                               )
                             : Center(
@@ -129,23 +128,9 @@ class SearchView extends StatelessWidget {
                                           hint: 'Search by Location',
                                           icon: Icons.location_pin,
                                         )),
-                                    ElevatedButton(
-                                        onPressed: () {
-                                          if (model.nameSearch.isNotEmpty) {
-                                            model.saveSearch(
-                                                BusinessSearchTypes.Name);
-                                          } else {
-                                            model.saveSearch(
-                                                BusinessSearchTypes.Zipcode);
-                                          }
-                                          if (kDebugMode)
-                                            print(
-                                                '${model.recentSearches} are the new recent searches');
-                                        },
-                                        child: CustomTextBtn(
-                                          color: Colors.white,
-                                          text: 'Save search',
-                                        )),
+                                    SaveSearchButton(
+                                        model: model,
+                                        saveSearchProvider: saveSearchProvider),
                                   ],
                                 ),
                               ),
@@ -155,13 +140,13 @@ class SearchView extends StatelessWidget {
                   CustomSection(
                       child: Column(
                     children: [
-                      if (model.recentSearches.length == 0)
+                      if (saveSearchProvider.recentSearches.length == 0)
                         CustomTextNormal(
                             text:
                                 'Looks like you have not searched anything yet'),
                       Wrap(
                           alignment: WrapAlignment.center,
-                          children: model.recentSearches
+                          children: saveSearchProvider.recentSearches
                               .map((search) => SearchItem(
                                     querySearch: search,
                                   ))

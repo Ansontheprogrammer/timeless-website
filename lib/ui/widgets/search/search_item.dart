@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:timeless_app/business_logic/models/query.dart';
+import 'package:timeless_app/business_logic/providers/save_search_provider.dart';
 import 'package:timeless_app/business_logic/view_models/search_view_model.dart';
 import 'package:timeless_app/business_logic/enums/business_search.dart';
 import 'package:timeless_app/ui/shared/custom_text.dart';
@@ -16,7 +17,8 @@ class SearchItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SearchViewModel model = Provider.of<SearchViewModel>(context);
-
+    SaveSearchProvider saveSearchProvider =
+        Provider.of<SaveSearchProvider>(context);
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
           primary: Colors.transparent,
@@ -53,7 +55,8 @@ class SearchItem extends StatelessWidget {
                         Icons.clear,
                         color: Colors.black,
                       ),
-                      onPressed: () => model.removeSearch(querySearch))
+                      onPressed: () =>
+                          saveSearchProvider.removeSearch(querySearch))
                 ],
               )
             ],
