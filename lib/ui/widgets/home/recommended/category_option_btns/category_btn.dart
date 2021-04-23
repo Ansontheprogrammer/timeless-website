@@ -5,6 +5,9 @@ import 'package:timeless_app/business_logic/models/category_btn.dart';
 import 'package:timeless_app/business_logic/providers/category_provider.dart';
 import 'package:timeless_app/ui/widgets/home/recommended/category_option_btns/adaptive_category_btn_contents.dart';
 
+/// Creates a category button and passes it's state to the [AdaptiveCategoryBtnContents] widget
+///
+/// Dynamically sets the width of the buttons based on display
 class CategoryBtnUI extends StatelessWidget {
   final CategoryBtn button;
   CategoryBtnUI({required this.button});

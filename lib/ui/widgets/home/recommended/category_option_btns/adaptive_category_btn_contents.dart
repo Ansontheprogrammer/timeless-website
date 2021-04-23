@@ -6,6 +6,7 @@ import 'package:timeless_app/business_logic/models/category_btn.dart';
 import 'package:timeless_app/business_logic/providers/category_provider.dart';
 import 'package:timeless_app/ui/shared/custom_text.dart';
 
+/// Creates buttons that will be list tiles in the web view and columns in the mobile app view
 class AdaptiveCategoryBtnContents extends StatelessWidget {
   const AdaptiveCategoryBtnContents(
       {Key? key, required this.active, required this.button})

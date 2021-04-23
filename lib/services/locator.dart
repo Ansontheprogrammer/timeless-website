@@ -8,5 +8,5 @@ GetIt locator = GetIt.instance;
 void setUpLocator() {
   locator.registerFactory(() => CategoryProvider());
   locator.registerFactory(() => SearchViewModel());
-  locator.registerSingleton(() => SaveSearchProvider());
+  locator.registerLazySingleton(() => SaveSearchProvider());
 }

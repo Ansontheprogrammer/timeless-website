@@ -23,11 +23,13 @@ class SaveSearchButton extends StatelessWidget {
             saveSearchProvider.saveSearch(QuerySearch(
                 fieldName: BusinessSearchTypes.Name, search: model.nameSearch));
             model.clearSearch(BusinessSearchTypes.Name);
-          } else {
+          } else if (model.locationSearch.isNotEmpty) {
             saveSearchProvider.saveSearch(QuerySearch(
                 fieldName: BusinessSearchTypes.Zipcode,
                 search: model.locationSearch));
             model.clearSearch(BusinessSearchTypes.Zipcode);
+          } else {
+            return;
           }
           if (kDebugMode)
             print(

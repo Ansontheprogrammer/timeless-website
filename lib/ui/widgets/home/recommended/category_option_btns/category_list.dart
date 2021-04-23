@@ -9,6 +9,9 @@ import 'package:timeless_app/ui/widgets/home/recommended/category_option_btns/ca
 import '../../landing_page_content.dart';
 
 // TODO: Combine these two widgets and make them adaptive
+/// Creates a list of category buttons that will either be given a [Wrap] or [ListView]
+///
+/// For mobile we use a [ListView] and for desktop [Wrap]
 class CategoryListButtons extends StatefulWidget {
   CategoryListButtons();
 

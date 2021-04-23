@@ -24,7 +24,9 @@ class NavMenu extends StatelessWidget {
       },
       // menu item appearance properties
       icon: icon,
-      color: routeName == HomeView.route ? Colors.blue : Colors.purpleAccent,
+      color: ModalRoute.of(context)!.settings.name == routeName
+          ? Colors.blue
+          : Colors.purpleAccent,
       // elevation: 4.0,
       iconColor: Colors.white,
       iconSize: 30.0,
@@ -36,12 +38,8 @@ class NavMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircularMenu(
-        // menu alignment
-        alignment: Alignment.bottomCenter,
         // menu radius
         radius: 100,
-        // widget in the background holds actual page content
-        // global key to control the animation anywhere in the code.
         key: GlobalKey<CircularMenuState>(),
         // animation duration
         animationDuration: Duration(milliseconds: 500),
@@ -53,11 +51,6 @@ class NavMenu extends StatelessWidget {
         startingAngleInRadian: 1.1 * pi,
         // last item angle
         endingAngleInRadian: 1.9 * pi,
-        // toggle button callback
-        toggleButtonOnPressed: () {
-          //callback
-        },
-        // toggle button appearance properties
         toggleButtonColor: Theme.of(context).primaryColor,
         toggleButtonBoxShadow: [
           BoxShadow(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:timeless_app/ui/shared/custom_text.dart';
 
+/// Creates a [Card] display for the businesses
 class NearbyBusinessCard extends StatelessWidget {
   final String title;
   final String subtitle;

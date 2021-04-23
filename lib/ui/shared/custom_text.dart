@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+/// Creates a [Text] widget used commonly used through the app
+///
+/// This widget inherits most of it's stying from the [Theme] using it's textTheme.bodyText1 property
 class CustomTextNormal extends StatelessWidget {
   final String text;
   final Color color;
@@ -29,6 +32,9 @@ class CustomTextNormal extends StatelessWidget {
   }
 }
 
+/// Creates a [Text] widget used for view headers
+///
+/// This widget inherits most of it's stying from the [Theme] using it's textTheme.bodyText2 property
 class CustomTextLarge extends StatelessWidget {
   final String text;
   final Color? color;
@@ -54,6 +60,9 @@ class CustomTextLarge extends StatelessWidget {
   }
 }
 
+/// Creates a [Text] widget used for small text
+///
+/// This widget inherits most of it's stying from the [Theme] using it's textTheme.caption property
 class CustomTextCaption extends StatelessWidget {
   final String text;
   final Color? color;
@@ -81,6 +90,9 @@ class CustomTextCaption extends StatelessWidget {
   }
 }
 
+/// Creates a [Text] widget used for button text
+///
+/// This widget inherits most of it's stying from the [Theme] using it's textTheme.button property
 class CustomTextBtn extends StatelessWidget {
   final String text;
   final Color? color;
@@ -103,6 +115,9 @@ class CustomTextBtn extends StatelessWidget {
   }
 }
 
+/// Creates a [Text] widget used for headings throughout the app
+///
+/// This widget inherits most of it's stying from the [Theme] using it's textTheme.headline property
 class CustomTextHeadline extends StatelessWidget {
   final String text;
   final Color color;
