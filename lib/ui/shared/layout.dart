@@ -2,17 +2,33 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:timeless_app/ui/shared/custom_color.dart';
-import 'package:timeless_app/ui/shared/custom_text.dart';
 import 'package:timeless_app/ui/views/about.dart';
 import 'package:timeless_app/ui/views/contact.dart';
 import 'package:timeless_app/ui/views/home.dart';
 import 'package:timeless_app/ui/views/search.dart';
+import 'package:timeless_app/ui/widgets/layout/scrollable_page_content.dart';
 import 'package:timeless_app/ui/widgets/navigation/app/circular_nav.dart';
 import 'package:timeless_app/ui/widgets/navigation/drawer/drawer.dart';
-import 'package:timeless_app/ui/widgets/navigation/footer/footer.dart';
 import 'package:timeless_app/ui/widgets/navigation/nav-bar/mobile_nav_item.dart';
 import 'package:timeless_app/ui/widgets/navigation/nav-bar/navigation_bar.dart';
 
+/// Creates a consistent layout used by all views. This will dynamically show the platforms respective menus.
+///
+///
+/// The layout creates a [Stack] within a [SafeArea] widget
+/// The [Stack] enables us to create the respective menus functionality :
+///
+/// A sticky nav bar on desktop.
+///
+/// A floating menu button on the mobile app view.
+///
+/// Different navigation displays:
+///
+/// On the mobile web view we want to show the full screen menu
+///
+/// On the mobile app view we want to show the circular app menu
+///
+/// On desktop view we want to show the a navigation menu
 class Layout extends StatefulWidget {
   Layout({required this.pageContent});
   final Widget pageContent;
@@ -38,7 +54,6 @@ class _LayoutState extends State<Layout> {
   }
 
   toggleAppMenu() {
-    print({appMenuOpened, 'appMenuOpened'});
     setState(() {
       appMenuOpened = !appMenuOpened;
     });
@@ -51,63 +66,45 @@ class _LayoutState extends State<Layout> {
       drawer: CustomDrawer(),
       backgroundColor:
           kIsWeb ? Colors.white : CustomColor.getColorHexCode('#F2F2F2'),
-      body: Container(
-        child: SafeArea(
-          child: Stack(
-            children: [
-              SingleChildScrollView(
-                child: Column(
-                  children: [
-                    if (kIsWeb)
-                      SizedBox(
-                        height: 100,
-                      ),
-                    ConstrainedBox(
-                        constraints: BoxConstraints(
-                            minHeight:
-                                MediaQuery.of(context).size.height * 0.6),
-                        child: widget.pageContent),
-                    if (kIsWeb) Footer()
-                  ],
-                ),
-              ),
-              if (kIsWeb && displayMobileMenu)
-                Container(
-                  color: Colors.black.withOpacity(0.95),
-                  height: MediaQuery.of(context).size.height,
-                  width: MediaQuery.of(context).size.width,
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: Container(
-                      height: MediaQuery.of(context).size.height * 0.5,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          MobileNavItem('Home', HomeView.route),
-                          MobileNavItem('Search', SearchView.route),
-                          MobileNavItem('About', AboutView.route),
-                          MobileNavItem('Contact', ContactView.route),
-                        ],
-                      ),
+      body: SafeArea(
+        child: Stack(
+          children: [
+            ScrollablePageContent(widget: widget),
+            if (kIsWeb && displayMobileMenu)
+              Container(
+                color: Colors.black.withOpacity(0.95),
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.5,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        MobileNavItem('Home', HomeView.route),
+                        MobileNavItem('Search', SearchView.route),
+                        MobileNavItem('About', AboutView.route),
+                        MobileNavItem('Contact', ContactView.route),
+                      ],
                     ),
                   ),
                 ),
-              // if (kIsWeb) Positioned(bottom: 0, child: CustomTabBar()),
-              if (!kIsWeb)
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Container(height: 200, width: 400, child: NavMenu()),
+              ),
+            if (!kIsWeb)
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(height: 200, width: 400, child: NavMenu()),
+              ),
+            if (kIsWeb)
+              Positioned(
+                top: 0,
+                child: NavigationBar(
+                  toggleMobileMenu: toggleMobileMenu,
+                  openDrawer: _openDrawer,
                 ),
-              if (kIsWeb)
-                Positioned(
-                  top: 0,
-                  child: NavigationBar(
-                    toggleMobileMenu: toggleMobileMenu,
-                    openDrawer: _openDrawer,
-                  ),
-                ),
-            ],
-          ),
+              ),
+          ],
         ),
       ),
     );
