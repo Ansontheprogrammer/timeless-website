@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:timeless_app/ui/widgets/home/signup/form_container.dart';
 import 'package:timeless_app/ui/widgets/home/signup/my_custom_form_details.dart';
 
+/// Creates a contact form for the home view.
 class ContactForm extends StatelessWidget {
   const ContactForm({
     Key? key,
