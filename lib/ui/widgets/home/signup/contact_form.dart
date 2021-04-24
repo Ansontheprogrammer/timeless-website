@@ -33,7 +33,7 @@ class ContactForm extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Colors.white.withOpacity(0.2),
                   ),
-                  child: FormContainer(child: MyCustomForm()))),
+                  child: FormContainer(child: ContactFormDetails()))),
         ));
   }
 }

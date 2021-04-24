@@ -1,5 +1,6 @@
 import 'dart:math';
 
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:circular_menu/circular_menu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -9,6 +10,7 @@ import 'package:timeless_app/ui/views/contact.dart';
 import 'package:timeless_app/ui/views/home.dart';
 import 'package:timeless_app/ui/views/search.dart';
 
+/// Creates a circular nav menu for the mobile app platform
 class NavMenu extends StatelessWidget {
   const NavMenu() : super();
 

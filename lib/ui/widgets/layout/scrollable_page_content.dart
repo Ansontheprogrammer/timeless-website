@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:timeless_app/ui/shared/layout.dart';
 import 'package:timeless_app/ui/widgets/navigation/footer/footer.dart';
 
-/// Creates a SingleChildScrollView that will display the footer on web
+/// Creates a [SingleChildScrollView] that will display the footer on web
 ///
 /// Will also push the the footer to the bottom of the view to prevent UI issues.
 class ScrollablePageContent extends StatelessWidget {

@@ -7,7 +7,7 @@ import 'package:timeless_app/business_logic/models/query.dart';
 import 'package:timeless_app/business_logic/view_models/search_view_model.dart';
 import 'package:timeless_app/business_logic/enums/business_search.dart';
 
-/// This widget requires for there to be a provider of a SearchViewModel factory
+/// This widget requires for there to be a provider of a [SearchViewModel]
 class SearchBar extends StatefulWidget {
   final String hint;
   final BusinessSearchTypes type;
@@ -81,7 +81,7 @@ class _SearchBarState extends State<SearchBar> with TickerProviderStateMixin {
                   /// Setting a debounce to ensure that is waits 1 second after the user finishing editing to change the search query.
                   if (_debounce?.isActive ?? false) _debounce!.cancel();
                   _debounce = Timer(const Duration(milliseconds: 1000), () {
-                    query.changeSearch(
+                    query.changeSearchFieldValues(
                         QuerySearch(fieldName: widget.type, search: text));
                   });
                 },

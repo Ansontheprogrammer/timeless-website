@@ -27,7 +27,7 @@ class LandingPageContent extends StatelessWidget {
         CustomSection(
             color: kIsWeb
                 ? Colors.black12
-                : CustomColor.getColorHexCode('#F2F2F2'),
+                : CustomColor.mobileAppPrimaryBackgroundColor,
             child: CenterColumnOnWeb(
               children: [
                 CenterWidgetOnWeb(
@@ -74,7 +74,7 @@ class LandingPageContent extends StatelessWidget {
         CustomSection(
             color: kIsWeb
                 ? Colors.black.withOpacity(0.1)
-                : CustomColor.getColorHexCode('#F2F2F2'),
+                : CustomColor.mobileAppPrimaryBackgroundColor,
             child: RecommendedSection(
               displayHorizontal: displayedOnTabletOrSmaller ? true : false,
             )),

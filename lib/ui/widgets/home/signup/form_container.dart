@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:timeless_app/ui/widgets/home/signup/my_custom_form_details.dart';
 
+/// Creates a form container around a [ContactFormDetails] widget that will display a contact form image on desktop.
+///
+/// If the MediaQuery.of(context).size.width is > 1000 it will display the an image to the left of the contact form details and a [SizedBox] with width.
+/// The [ContactFormDetails] size is limited using a [ContrainedBox] to a max width of 300.
 class FormContainer extends StatelessWidget {
-  final Widget child;
+  final ContactFormDetails child;
   const FormContainer({required this.child});
 
   @override

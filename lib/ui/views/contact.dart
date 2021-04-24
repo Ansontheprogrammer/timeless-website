@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:timeless_app/ui/shared/custom_section.dart';
+import 'package:timeless_app/business_logic/models/business.dart';
 import 'package:timeless_app/ui/shared/custom_text.dart';
 import 'package:timeless_app/ui/shared/layout.dart';
-import 'package:timeless_app/ui/widgets/home/signup/contact_form.dart';
-import 'package:timeless_app/ui/widgets/home/signup/form_container.dart';
 import 'package:timeless_app/ui/widgets/home/signup/my_custom_form_details.dart';
 
+/// Creates a view to process new businesses that want to join the app.
+///
+/// Uses the [Business] model to create new businesses if the contact form is filled out correctly.
 class ContactView extends StatelessWidget {
   ContactView();
   static const String route = '/contact';
@@ -50,7 +51,7 @@ class ContactView extends StatelessWidget {
                 ),
                 ConstrainedBox(
                   constraints: BoxConstraints(maxWidth: 400),
-                  child: MyCustomForm(),
+                  child: ContactFormDetails(),
                 ),
               ],
             )),

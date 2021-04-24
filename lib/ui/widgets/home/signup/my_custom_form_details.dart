@@ -8,15 +8,14 @@ import 'package:timeless_app/ui/shared/custom_text.dart';
 import 'package:timeless_app/ui/shared/small_spacer.dart';
 import 'package:uuid/uuid.dart';
 
-class MyCustomForm extends StatefulWidget {
+class ContactFormDetails extends StatefulWidget {
   @override
-  MyCustomFormState createState() {
-    return MyCustomFormState();
+  ContactFormDetailsState createState() {
+    return ContactFormDetailsState();
   }
 }
 
-class MyCustomFormState extends State<MyCustomForm> {
-  final _formKey = GlobalKey<FormState>();
+class ContactFormDetailsState extends State<ContactFormDetails> {
   String? Function(String? value) Function({required String title}) validator =
       ({required String title}) {
     return (value) => '';
@@ -96,7 +95,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                     website: _websiteController.text,
                   );
                   try {
-                    await Business.create(business);
+                    await Business.storeInDB(business);
                   } catch (FirebaseException) {
                     print("Error in custom form");
                   }
