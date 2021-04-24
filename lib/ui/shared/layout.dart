@@ -8,15 +8,14 @@ import 'package:timeless_app/ui/views/home.dart';
 import 'package:timeless_app/ui/views/search.dart';
 import 'package:timeless_app/ui/widgets/layout/scrollable_page_content.dart';
 import 'package:timeless_app/ui/widgets/navigation/app/circular_nav.dart';
-import 'package:timeless_app/ui/widgets/navigation/drawer/drawer.dart';
 import 'package:timeless_app/ui/widgets/navigation/nav-bar/mobile_nav_item.dart';
 import 'package:timeless_app/ui/widgets/navigation/nav-bar/navigation_bar.dart';
 
 /// Creates a consistent layout used by all views. This will dynamically show the platforms respective menus.
 ///
 ///
-/// The layout creates a [Stack] within a [SafeArea] widget
-/// The [Stack] enables us to create the respective menus functionality :
+/// The layout builds the view by creating a [Stack] within a [SafeArea].
+/// The [Stack] enables us to create the respective menu functionality :
 ///
 /// A sticky nav bar on desktop.
 ///
@@ -24,11 +23,11 @@ import 'package:timeless_app/ui/widgets/navigation/nav-bar/navigation_bar.dart';
 ///
 /// Different navigation displays:
 ///
-/// On the mobile web view we want to show the full screen menu
+/// On the mobile web we want to show the full screen menu
 ///
-/// On the mobile app view we want to show the circular app menu
+/// On the mobile app we want to show the circular app menu
 ///
-/// On desktop view we want to show the a navigation menu
+/// On desktop we want to show a sticky navigation menu
 class Layout extends StatefulWidget {
   Layout({required this.pageContent});
   final Widget pageContent;
@@ -38,12 +37,6 @@ class Layout extends StatefulWidget {
 }
 
 class _LayoutState extends State<Layout> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
-  void _openDrawer() {
-    _scaffoldKey.currentState!.openDrawer();
-  }
-
   bool displayMobileMenu = false;
   bool appMenuOpened = false;
 
@@ -62,10 +55,8 @@ class _LayoutState extends State<Layout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
-      drawer: CustomDrawer(),
       backgroundColor:
-          kIsWeb ? Colors.white : CustomColor.getColorHexCode('#F2F2F2'),
+          kIsWeb ? Colors.white : CustomColor.mobileAppPrimaryBackgroundColor,
       body: SafeArea(
         child: Stack(
           children: [
@@ -101,7 +92,6 @@ class _LayoutState extends State<Layout> {
                 top: 0,
                 child: NavigationBar(
                   toggleMobileMenu: toggleMobileMenu,
-                  openDrawer: _openDrawer,
                 ),
               ),
           ],
