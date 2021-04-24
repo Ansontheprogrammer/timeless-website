@@ -16,7 +16,7 @@ void main() async {
   setUpLocator();
   if (!kIsWeb) {
     await FlutterStatusbarcolor.setStatusBarColor(
-      CustomColor.getColorHexCode('#F2F2F2'),
+      CustomColor.mobileAppPrimaryBackgroundColor,
     );
     if (useWhiteForeground(Colors.white)) {
       FlutterStatusbarcolor.setStatusBarWhiteForeground(true);

@@ -4,6 +4,7 @@ import 'package:timeless_app/ui/shared/custom_text.dart';
 import 'package:timeless_app/ui/shared/layout.dart';
 import 'package:timeless_app/ui/views/contact.dart';
 
+/// Creates a view that presents information about the app.
 class AboutView extends StatelessWidget {
   AboutView();
   static const String route = '/about';
