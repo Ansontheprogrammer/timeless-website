@@ -8,7 +8,7 @@ import 'package:timeless_app/business_logic/providers/category_provider.dart';
 import 'package:timeless_app/business_logic/view_models/search_view_model.dart';
 import 'package:timeless_app/ui/shared/container_spacer.dart';
 import 'package:timeless_app/ui/shared/custom_text.dart';
-import 'package:timeless_app/ui/widgets/search/businesses_found_in_query.dart';
+import 'package:timeless_app/ui/shared/businesses_found_in_query.dart';
 
 class NearbyBusinessSection extends StatelessWidget {
   const NearbyBusinessSection();

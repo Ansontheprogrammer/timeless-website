@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
+/// Wraps a child [Column] with a [Container] that has a image background for the Hero Section
 class HeroContainer extends StatelessWidget {
-  final Widget child;
+  final Column child;
   final Color color;
   const HeroContainer({required this.child, this.color = Colors.transparent});
 
@@ -11,6 +12,7 @@ class HeroContainer extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.70,
       padding: EdgeInsets.only(
         left: 25,
+        bottom: 100,
       ),
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(

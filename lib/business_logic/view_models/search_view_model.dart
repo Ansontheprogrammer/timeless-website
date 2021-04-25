@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:timeless_app/business_logic/enums/business_search.dart';
 import 'package:timeless_app/business_logic/models/query.dart';
-import 'package:timeless_app/ui/widgets/search/businesses_found_in_query.dart';
+import 'package:timeless_app/ui/shared/businesses_found_in_query.dart';
 
 /// Creates a view model for the search screen to perform advanced searches.
 ///
