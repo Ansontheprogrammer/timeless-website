@@ -9,6 +9,7 @@ import 'package:timeless_app/ui/shared/custom_color.dart';
 import 'package:timeless_app/ui/shared/custom_text.dart';
 import 'package:timeless_app/ui/views/about.dart';
 import 'package:timeless_app/ui/views/contact.dart';
+import 'package:timeless_app/ui/views/detail.dart';
 import 'package:timeless_app/ui/views/home.dart';
 import 'package:timeless_app/ui/views/search.dart';
 
@@ -75,6 +76,10 @@ class MainApp extends StatelessWidget {
       title: 'Timeless App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+          appBarTheme: AppBarTheme(
+              backgroundColor: Colors.transparent,
+              shadowColor: Colors.transparent,
+              iconTheme: IconThemeData(color: Colors.black)),
           snackBarTheme: SnackBarThemeData(
               behavior: SnackBarBehavior.floating,
               backgroundColor: Colors.purple,
@@ -96,7 +101,8 @@ class MainApp extends StatelessWidget {
         HomeView.route: (context) => HomeView(),
         SearchView.route: (context) => SearchView(),
         ContactView.route: (context) => ContactView(),
-        AboutView.route: (context) => AboutView()
+        AboutView.route: (context) => AboutView(),
+        DetailView.route: (context) => DetailView(),
       },
     );
   }

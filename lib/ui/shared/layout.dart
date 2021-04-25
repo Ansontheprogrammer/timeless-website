@@ -2,8 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:timeless_app/ui/shared/custom_color.dart';
+import 'package:timeless_app/ui/shared/custom_text.dart';
 import 'package:timeless_app/ui/views/about.dart';
 import 'package:timeless_app/ui/views/contact.dart';
+import 'package:timeless_app/ui/views/detail.dart';
 import 'package:timeless_app/ui/views/home.dart';
 import 'package:timeless_app/ui/views/search.dart';
 import 'package:timeless_app/ui/widgets/layout/scrollable_page_content.dart';
@@ -55,6 +57,20 @@ class _LayoutState extends State<Layout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      /// We want to show an app bar if on the mobile app platform and on detail screen
+      appBar:
+          !kIsWeb && ModalRoute.of(context)!.settings.name == DetailView.route
+              ? AppBar(
+                  automaticallyImplyLeading: true,
+                  title: CustomTextNormal(
+                    text: 'Business Detail',
+                  ),
+                )
+              : PreferredSize(
+                  child: SizedBox(
+                    height: 10,
+                  ),
+                  preferredSize: Size(0, 0)),
       backgroundColor:
           kIsWeb ? Colors.white : CustomColor.mobileAppPrimaryBackgroundColor,
       body: SafeArea(
