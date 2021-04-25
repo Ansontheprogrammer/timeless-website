@@ -32,7 +32,7 @@ class LandingPageContent extends StatelessWidget {
               children: [
                 CenterWidgetOnWeb(
                   child: CustomTextHeadline(
-                    fontSize: 48.0,
+                    fontSize: kIsWeb ? 48.0 : null,
                     fontWeight: kIsWeb ? FontWeight.normal : FontWeight.bold,
                     text: 'Categories',
                   ),

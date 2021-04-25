@@ -6,8 +6,7 @@ import 'package:timeless_app/business_logic/models/category_btn.dart';
 import 'package:timeless_app/business_logic/models/query.dart';
 import 'package:timeless_app/services/firestore_service.dart';
 import 'package:timeless_app/ui/shared/custom_text.dart';
-import 'package:timeless_app/ui/widgets/home/recommended/nearby_businesses/nearby_card.dart';
-import 'package:timeless_app/ui/widgets/home/recommended/new_businesses/new_business_list_item.dart';
+import 'business_list_item.dart';
 
 class BusinessesFoundInQuery extends StatelessWidget {
   const BusinessesFoundInQuery({
@@ -20,6 +19,7 @@ class BusinessesFoundInQuery extends StatelessWidget {
   final QuerySearch currentSearch;
   final BusinessListDisplayType displayType;
   final List<CategoryBtn>? activeCategories;
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
@@ -55,20 +55,12 @@ class BusinessesFoundInQuery extends StatelessWidget {
             alignment: WrapAlignment.spaceBetween,
             runSpacing: 20,
             spacing: 20,
-            children: businessListToUse.map((business) {
-              if (displayType == BusinessListDisplayType.ListTile) {
-                return NewBusinessListItem(
-                  title: business.getBusinessName(),
-                  subtitle: business.type,
-                  description: business.description,
-                );
-              } else {
-                return NearbyBusinessCard(
-                    description: business.description,
-                    subtitle: business.type,
-                    title: business.getBusinessName());
-              }
-            }).toList());
+            children: businessListToUse
+                .map((business) => BusinessItem(
+                      business: business,
+                      displayType: displayType,
+                    ))
+                .toList());
       },
     );
   }

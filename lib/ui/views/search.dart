@@ -46,7 +46,10 @@ class SearchView extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        CustomTextHeadline(text: 'Business Search'),
+                        CustomTextHeadline(
+                            fontWeight:
+                                kIsWeb ? FontWeight.normal : FontWeight.bold,
+                            text: 'Business Search'),
                         SizedBox(
                           height: 30,
                         ),
