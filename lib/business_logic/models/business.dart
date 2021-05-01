@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:timeless_app/business_logic/utils/firestore_doc.dart';
 import 'package:timeless_app/services/firestore_service.dart';
 
@@ -13,7 +15,7 @@ class Business implements FirestoreDoc {
   final String id;
   String name;
   final String type;
-  final String? imageURL;
+  String? imageURL;
   final String zipcode;
   final String description;
   final String website;
@@ -47,16 +49,6 @@ class Business implements FirestoreDoc {
       this.imageURL,
       required this.description,
       required this.zipcode});
-
-  static Future<void> storeInDB(Business business) async {
-    /// Convert business name to lowercase for storage.
-    business.name = business.name.toLowerCase();
-    try {
-      await FirestoreService().create(business);
-    } catch (FirebaseException) {
-      print("Error in business model");
-    }
-  }
 
   /// Creates a string with the first character capitalized.
   String getBusinessName() {

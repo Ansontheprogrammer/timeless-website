@@ -6,7 +6,7 @@ import 'package:timeless_app/business_logic/providers/save_search_provider.dart'
 import 'package:timeless_app/business_logic/view_models/search_view_model.dart';
 import 'package:timeless_app/business_logic/enums/business_search.dart';
 import 'package:timeless_app/services/locator.dart';
-import 'package:timeless_app/ui/constants.dart';
+import 'package:timeless_app/ui/shared/constants.dart';
 import 'package:timeless_app/ui/shared/utils/custom_section.dart';
 import 'package:timeless_app/ui/shared/utils/custom_text.dart';
 import 'package:timeless_app/ui/shared/utils/layout.dart';

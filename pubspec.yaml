@@ -37,6 +37,8 @@ dependencies:
   flutter_statusbarcolor: ^0.2.3
   circular_menu: ^1.1.2
   get_it: ^6.1.1
+  firebase_storage: ^8.0.5
+  image_picker: ^0.7.4
 
 dependencies_overrides:
   http: ^0.13.0
