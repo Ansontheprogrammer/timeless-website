@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 /// Used to create a [Column] with it's crossAxisAlignment property set to [CrossAxisAlignment.center] if built on web.
