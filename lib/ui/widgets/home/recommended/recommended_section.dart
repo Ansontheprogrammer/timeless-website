@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:timeless_app/ui/widgets/home/recommended/nearby_businesses/nearby_section.dart';
 import 'package:timeless_app/ui/widgets/home/recommended/new_businesses/new_business_section.dart';
 
+/// Used to create the recommended section on the home view
 class RecommendedSection extends StatelessWidget {
   final bool displayHorizontal;
   const RecommendedSection({this.displayHorizontal = false});

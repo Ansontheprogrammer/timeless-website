@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:timeless_app/business_logic/models/business.dart';
-import 'package:timeless_app/ui/shared/custom_text.dart';
+import 'package:timeless_app/ui/shared/utils/custom_text.dart';
 import 'package:timeless_app/ui/shared/detail_screen_arguments.dart';
-import 'package:timeless_app/ui/shared/layout.dart';
+import 'package:timeless_app/ui/shared/utils/layout.dart';
 import 'package:timeless_app/ui/views/contact.dart';
 
 import '../constants.dart';
 
-/// Creates a view that presents information about the app.
+/// Creates a view that contains all a [Business]'s details.
 class DetailView extends StatelessWidget {
   DetailView({Key? key}) : super(key: key);
   static const String route = '/detail';

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:timeless_app/ui/shared/layout.dart';
+import 'package:timeless_app/ui/shared/utils/layout.dart';
 import 'package:timeless_app/ui/widgets/navigation/footer/footer.dart';
 
 /// Creates a [SingleChildScrollView] that will display the footer on web

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:timeless_app/business_logic/models/category_btn.dart';
 import 'package:timeless_app/business_logic/providers/category_provider.dart';
-import 'package:timeless_app/ui/shared/custom_text.dart';
+import 'package:timeless_app/ui/shared/utils/custom_text.dart';
 
 /// Creates buttons that will be list tiles in the web view and columns in the mobile app view
 class AdaptiveCategoryBtnContents extends StatelessWidget {
@@ -54,7 +54,7 @@ class AdaptiveCategoryBtnContents extends StatelessWidget {
             ? BorderRadius.zero
             : BorderRadius.circular(MediaQuery.of(context).size.width / 2),
         child: RaisedButton(
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           onPressed: () => toggleButtonActiveState(model),
           splashColor: Theme.of(context).accentColor,
           color: this.active ? Theme.of(context).primaryColor : Colors.white,

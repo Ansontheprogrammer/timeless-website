@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:timeless_app/business_logic/models/query.dart';
 import 'package:timeless_app/business_logic/view_models/search_view_model.dart';
-import 'package:timeless_app/ui/shared/custom_section.dart';
+import 'package:timeless_app/ui/constants.dart';
+import 'package:timeless_app/ui/shared/utils/custom_section.dart';
 
 import '../../shared/businesses_found_in_query.dart';
 
@@ -18,7 +19,7 @@ class SearchedBusinessesSection extends StatelessWidget {
         Provider.of<SearchViewModel>(context).activeSearch;
 
     return CustomSection(
-        color: Colors.black12,
+        color: Constants.blackLargeOpacity,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

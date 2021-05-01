@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 
 /// Creates a [SizedBox] with a medium height. Used within a container for consistent spacing
-class ContainerSpacer extends StatelessWidget {
-  const ContainerSpacer();
+class MediumSpacer extends StatelessWidget {
+  const MediumSpacer();
 
   @override
   Widget build(BuildContext context) {

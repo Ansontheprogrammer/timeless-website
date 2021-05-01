@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:timeless_app/ui/shared/custom_section.dart';
-import 'package:timeless_app/ui/shared/custom_text.dart';
-import 'package:timeless_app/ui/shared/small_spacer.dart';
+import 'package:timeless_app/ui/shared/utils/custom_section.dart';
+import 'package:timeless_app/ui/shared/utils/custom_text.dart';
+import 'package:timeless_app/ui/shared/utils/small_spacer.dart';
 import 'package:timeless_app/ui/views/about.dart';
 import 'package:timeless_app/ui/views/contact.dart';
 import 'package:timeless_app/ui/widgets/navigation/footer/footer_item.dart';

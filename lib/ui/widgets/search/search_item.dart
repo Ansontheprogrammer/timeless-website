@@ -5,7 +5,7 @@ import 'package:timeless_app/business_logic/models/query.dart';
 import 'package:timeless_app/business_logic/providers/save_search_provider.dart';
 import 'package:timeless_app/business_logic/view_models/search_view_model.dart';
 import 'package:timeless_app/business_logic/enums/business_search.dart';
-import 'package:timeless_app/ui/shared/custom_text.dart';
+import 'package:timeless_app/ui/shared/utils/custom_text.dart';
 
 class SearchItem extends StatelessWidget {
   final QuerySearch querySearch;
@@ -56,7 +56,7 @@ class SearchItem extends StatelessWidget {
                         color: Colors.black,
                       ),
                       onPressed: () =>
-                          saveSearchProvider.removeSearch(querySearch))
+                          saveSearchProvider.removeSavedSearch(querySearch))
                 ],
               )
             ],

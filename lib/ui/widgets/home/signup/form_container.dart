@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:timeless_app/ui/widgets/home/signup/my_custom_form_details.dart';
+import 'package:timeless_app/ui/widgets/home/signup/custom_form_details.dart';
 
 /// Creates a form container around a [ContactFormDetails] widget that will display a contact form image on desktop.
 ///

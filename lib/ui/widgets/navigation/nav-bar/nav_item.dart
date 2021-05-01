@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:timeless_app/ui/shared/custom_text.dart';
+import 'package:timeless_app/ui/shared/utils/custom_text.dart';
 
 class NavBarItem extends StatelessWidget {
   final String title;

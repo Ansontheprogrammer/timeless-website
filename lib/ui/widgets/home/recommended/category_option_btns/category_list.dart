@@ -2,11 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:timeless_app/business_logic/providers/category_provider.dart';
-import 'package:timeless_app/ui/shared/custom_text.dart';
-import 'package:timeless_app/ui/shared/data/categoryBtns.dart';
+import 'package:timeless_app/ui/shared/adaptive/adaptive_center.dart';
+import 'package:timeless_app/ui/shared/utils/custom_text.dart';
+import 'package:timeless_app/ui/shared/data/category_btns.data.dart';
 import 'package:timeless_app/ui/widgets/home/recommended/category_option_btns/category_btn.dart';
-
-import '../../landing_page_content.dart';
 
 // TODO: Combine these two widgets and make them adaptive
 /// Creates a list of category buttons that will either be given a [Wrap] or [ListView]
@@ -83,6 +82,6 @@ class _CategoryListButtonsState extends State<CategoryListButtons> {
                     color: Colors.white)),
           )
         ]));
-    return CenterWidgetOnWeb(child: kIsWeb ? adaptiveListWrap : adaptiveList);
+    return AdaptiveCenter(child: kIsWeb ? adaptiveListWrap : adaptiveList);
   }
 }

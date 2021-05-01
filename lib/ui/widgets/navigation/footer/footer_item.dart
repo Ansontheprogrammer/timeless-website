@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:timeless_app/ui/shared/custom_text.dart';
+import 'package:timeless_app/ui/shared/utils/custom_text.dart';
 
 class FooterItem extends StatelessWidget {
   final String title;

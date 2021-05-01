@@ -8,12 +8,14 @@ class SaveSearchProvider extends ChangeNotifier {
     return _recentSearches;
   }
 
-  void saveSearch(QuerySearch querySearch) {
+  void saveSearch(QuerySearch querySearch, SearchViewModel model,
+      BusinessSearchTypes searchType) {
     _recentSearches.add(querySearch);
+    model.clearSearch(searchType);
     notifyListeners();
   }
 
-  void removeSearch(QuerySearch search) {
+  void removeSavedSearch(QuerySearch search) {
     _recentSearches.remove(search);
     notifyListeners();
   }

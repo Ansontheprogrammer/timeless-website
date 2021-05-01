@@ -4,8 +4,8 @@ import 'package:timeless_app/business_logic/models/category_btn.dart';
 import 'package:timeless_app/business_logic/models/query.dart';
 import 'package:timeless_app/business_logic/providers/category_provider.dart';
 import 'package:timeless_app/business_logic/view_models/search_view_model.dart';
-import 'package:timeless_app/ui/shared/container_spacer.dart';
-import 'package:timeless_app/ui/shared/custom_text.dart';
+import 'package:timeless_app/ui/shared/utils/medium_spacer.dart';
+import 'package:timeless_app/ui/shared/utils/custom_text.dart';
 import 'package:timeless_app/ui/shared/businesses_found_in_query.dart';
 
 class RecommendedNewBusinesses extends StatelessWidget {
@@ -30,12 +30,12 @@ class RecommendedNewBusinesses extends StatelessWidget {
                 CustomTextCaption(
                   text: 'New',
                 ),
-                ContainerSpacer(),
+                MediumSpacer(),
                 CustomTextNormal(
                   text:
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
                 ),
-                ContainerSpacer(),
+                MediumSpacer(),
                 BusinessesFoundInQuery(
                   currentSearch: currentSearch,
                   activeCategories: activeCategories,
@@ -51,12 +51,12 @@ class RecommendedNewBusinesses extends StatelessWidget {
           CustomTextCaption(
             text: 'New',
           ),
-          ContainerSpacer(),
+          MediumSpacer(),
           CustomTextNormal(
             text:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
           ),
-          ContainerSpacer(),
+          MediumSpacer(),
           BusinessesFoundInQuery(
               currentSearch: currentSearch, activeCategories: activeCategories)
         ],

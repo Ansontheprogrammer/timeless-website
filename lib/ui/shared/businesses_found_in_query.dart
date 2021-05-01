@@ -5,7 +5,7 @@ import 'package:timeless_app/business_logic/models/business.dart';
 import 'package:timeless_app/business_logic/models/category_btn.dart';
 import 'package:timeless_app/business_logic/models/query.dart';
 import 'package:timeless_app/services/firestore_service.dart';
-import 'package:timeless_app/ui/shared/custom_text.dart';
+import 'package:timeless_app/ui/shared/utils/custom_text.dart';
 import 'business_list_item.dart';
 
 class BusinessesFoundInQuery extends StatelessWidget {

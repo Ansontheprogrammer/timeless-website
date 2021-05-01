@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:timeless_app/services/locator.dart';
-import 'package:timeless_app/ui/shared/custom_color.dart';
+import 'package:timeless_app/ui/shared/utils/custom_color.dart';;
 import 'package:timeless_app/ui/shared/custom_text.dart';
 import 'package:timeless_app/ui/views/about.dart';
 import 'package:timeless_app/ui/views/contact.dart';
@@ -88,7 +88,7 @@ class MainApp extends StatelessWidget {
           accentColor: Colors.orange,
           textTheme: TextTheme(
               bodyText2: GoogleFonts.quicksand(fontSize: 22.0),
-              bodyText1: GoogleFonts.quicksand(fontSize: 18.0),
+              bodyText1: GoogleFonts.quicksand(fontSize: 16.0),
               caption: GoogleFonts.quicksand(
                   fontSize: 24.0, fontWeight: FontWeight.w900),
               button: GoogleFonts.quicksand(fontSize: 14.0),

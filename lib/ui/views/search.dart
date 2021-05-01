@@ -6,9 +6,10 @@ import 'package:timeless_app/business_logic/providers/save_search_provider.dart'
 import 'package:timeless_app/business_logic/view_models/search_view_model.dart';
 import 'package:timeless_app/business_logic/enums/business_search.dart';
 import 'package:timeless_app/services/locator.dart';
-import 'package:timeless_app/ui/shared/custom_section.dart';
-import 'package:timeless_app/ui/shared/custom_text.dart';
-import 'package:timeless_app/ui/shared/layout.dart';
+import 'package:timeless_app/ui/constants.dart';
+import 'package:timeless_app/ui/shared/utils/custom_section.dart';
+import 'package:timeless_app/ui/shared/utils/custom_text.dart';
+import 'package:timeless_app/ui/shared/utils/layout.dart';
 import 'package:timeless_app/ui/widgets/home/hero/search_bar.dart';
 import 'package:timeless_app/ui/widgets/search/recent_searches.dart';
 import 'package:timeless_app/ui/widgets/search/save_search_button.dart';
@@ -65,7 +66,7 @@ class SearchView extends StatelessWidget {
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(2.5),
                                       border: Border.all(
-                                        color: Colors.black12,
+                                        color: Constants.blackLargeOpacity,
                                       ),
                                     ),
                                     child: Row(

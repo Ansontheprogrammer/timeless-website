@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:timeless_app/business_logic/models/category_btn.dart';
-import 'package:timeless_app/ui/shared/data/categoryBtns.dart';
+import 'package:timeless_app/ui/shared/data/category_btns.data.dart';
 
 /// Used for providing query searches in the search view
 class CategoryProvider extends ChangeNotifier {

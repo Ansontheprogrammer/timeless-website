@@ -2,10 +2,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:timeless_app/business_logic/models/business.dart';
-import 'package:timeless_app/ui/shared/custom_text.dart';
-import 'package:timeless_app/ui/shared/layout.dart';
-import 'package:timeless_app/ui/widgets/home/landing_page_content.dart';
-import 'package:timeless_app/ui/widgets/home/signup/my_custom_form_details.dart';
+import 'package:timeless_app/ui/shared/adaptive/adaptive_center.dart';
+import 'package:timeless_app/ui/shared/adaptive/adaptive_column.dart';
+import 'package:timeless_app/ui/shared/utils/custom_text.dart';
+import 'package:timeless_app/ui/shared/utils/layout.dart';
+import 'package:timeless_app/ui/widgets/home/signup/custom_form_details.dart';
 
 /// Creates a view to process new businesses that want to join the app.
 ///
@@ -30,7 +31,7 @@ class ContactView extends StatelessWidget {
                       Colors.black.withOpacity(0.2), BlendMode.dstATop),
                 )),
             padding: EdgeInsets.all(25.0),
-            child: CenterColumnOnWeb(
+            child: AdaptiveColumn(
               children: [
                 CustomTextHeadline(
                   fontSize: 72.0,
@@ -41,7 +42,7 @@ class ContactView extends StatelessWidget {
                 SizedBox(
                   height: 32.0,
                 ),
-                CenterWidgetOnWeb(
+                AdaptiveCenter(
                   child: Container(
                     width: kIsWeb
                         ? MediaQuery.of(context).size.width * 0.6

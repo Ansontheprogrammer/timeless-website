@@ -3,9 +3,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:timeless_app/business_logic/models/business.dart';
-import 'package:timeless_app/ui/shared/container_spacer.dart';
-import 'package:timeless_app/ui/shared/custom_text.dart';
-import 'package:timeless_app/ui/shared/small_spacer.dart';
+import 'package:timeless_app/ui/shared/custom_form_field.dart';
+import 'package:timeless_app/ui/shared/utils/custom_text.dart';
+import 'package:timeless_app/ui/shared/utils/small_spacer.dart';
 import 'package:uuid/uuid.dart';
 
 class ContactFormDetails extends StatefulWidget {
@@ -40,31 +40,26 @@ class ContactFormDetailsState extends State<ContactFormDetails> {
             text: 'Want your business added?',
           ),
         ),
-        ContainerSpacer(),
         CustomFormField(
           controller: _nameController,
           // validator: validator,
           hintText: 'Name',
         ),
-        SmallSpacer(),
         CustomFormField(
           controller: _typeController,
           // validator: validator,
           hintText: 'Type of Business',
         ),
-        SmallSpacer(),
         CustomFormField(
           controller: _locationController,
           hintText: 'Location',
           // validator: validator,
         ),
-        SmallSpacer(),
         CustomFormField(
           controller: _websiteController,
           hintText: 'Website',
           // validator: validator,
         ),
-        SmallSpacer(),
         CustomFormField(
           controller: _descriptionController,
           hintText: 'Description',
@@ -113,45 +108,6 @@ class ContactFormDetailsState extends State<ContactFormDetails> {
           ),
         ),
       ],
-    );
-  }
-}
-
-class CustomFormField extends StatelessWidget {
-  final String hintText;
-  final TextEditingController controller;
-  const CustomFormField({
-    Key? key,
-    required this.controller,
-    required this.hintText,
-    // required this.validator,
-  }) : super(key: key);
-
-  // final String? Function(String? value) Function({required String title})
-  //     validator;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      textAlign: TextAlign.center,
-      controller: this.controller,
-      decoration: InputDecoration(
-        labelText: hintText,
-        floatingLabelBehavior: FloatingLabelBehavior.auto,
-        filled: true,
-        fillColor: Colors.white.withOpacity(0.5),
-        hintText: hintText,
-        hintStyle: TextStyle(color: Colors.black38),
-        border: new OutlineInputBorder(
-          borderSide: BorderSide.none,
-          borderRadius: const BorderRadius.all(
-            const Radius.circular(2.5),
-          ),
-        ),
-      ),
-      // validator: validator(
-      //   title: hintText,
-      // ),
     );
   }
 }

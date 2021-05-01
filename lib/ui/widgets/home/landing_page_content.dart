@@ -1,16 +1,18 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:timeless_app/business_logic/enums/business_search.dart';
-import 'package:timeless_app/ui/shared/container_spacer.dart';
-import 'package:timeless_app/ui/shared/custom_color.dart';
-import 'package:timeless_app/ui/shared/custom_section.dart';
-import 'package:timeless_app/ui/shared/custom_text.dart';
-import 'package:timeless_app/ui/shared/small_spacer.dart';
+import 'package:timeless_app/ui/constants.dart';
+import 'package:timeless_app/ui/shared/adaptive/adaptive_center.dart';
+import 'package:timeless_app/ui/shared/utils/custom_color.dart';
+import 'package:timeless_app/ui/shared/utils/custom_section.dart';
+import 'package:timeless_app/ui/shared/utils/custom_text.dart';
+import 'package:timeless_app/ui/shared/utils/small_spacer.dart';
 import 'package:timeless_app/ui/widgets/home/hero/hero_section.dart';
 import 'package:timeless_app/ui/widgets/home/recommended/category_option_btns/category_list.dart';
 import 'package:timeless_app/ui/widgets/home/recommended/recommended_section.dart';
 import 'package:timeless_app/ui/widgets/home/signup/contact_form.dart';
 
+import '../../shared/adaptive/adaptive_column.dart';
 import 'hero/search_bar.dart';
 
 class LandingPageContent extends StatelessWidget {
@@ -26,11 +28,11 @@ class LandingPageContent extends StatelessWidget {
         if (kIsWeb) HeroSection(),
         CustomSection(
             color: kIsWeb
-                ? Colors.black12
+                ? Constants.blackLargeOpacity
                 : CustomColor.mobileAppPrimaryBackgroundColor,
-            child: CenterColumnOnWeb(
+            child: AdaptiveColumn(
               children: [
-                CenterWidgetOnWeb(
+                AdaptiveCenter(
                   child: CustomTextHeadline(
                     fontSize: kIsWeb ? 48.0 : null,
                     fontWeight: kIsWeb ? FontWeight.normal : FontWeight.bold,
@@ -38,7 +40,7 @@ class LandingPageContent extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20),
-                CenterWidgetOnWeb(
+                AdaptiveCenter(
                   child: Container(
                     width: !displayedOnTabletOrSmaller
                         ? MediaQuery.of(context).size.width * 0.5
@@ -60,7 +62,7 @@ class LandingPageContent extends StatelessWidget {
             )),
         if (!kIsWeb)
           CustomSection(
-            child: CenterColumnOnWeb(
+            child: AdaptiveColumn(
               children: [
                 Container(
                   child: const SearchBar(
@@ -86,39 +88,5 @@ class LandingPageContent extends StatelessWidget {
             )),
       ],
     );
-  }
-}
-
-class CenterColumnOnWeb extends StatelessWidget {
-  final List<Widget> children;
-  const CenterColumnOnWeb({
-    Key? key,
-    required this.children,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment:
-          kIsWeb ? CrossAxisAlignment.center : CrossAxisAlignment.start,
-      children: this.children,
-    );
-  }
-}
-
-class CenterWidgetOnWeb extends StatelessWidget {
-  final Widget child;
-  const CenterWidgetOnWeb({
-    Key? key,
-    required this.child,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    if (kIsWeb)
-      return Center(child: child);
-    else {
-      return child;
-    }
   }
 }
