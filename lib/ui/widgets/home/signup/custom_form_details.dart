@@ -1,10 +1,11 @@
 // Create a Form widget.
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:timeless_app/business_logic/models/business.dart';
-import 'package:timeless_app/business_logic/providers/category_provider.dart';
 import 'package:timeless_app/business_logic/providers/contact_form_provider.dart';
 import 'package:timeless_app/ui/shared/custom_form_field.dart';
 import 'package:timeless_app/ui/shared/utils/custom_text.dart';
@@ -44,11 +45,15 @@ class ContactFormDetailsState extends State<ContactFormDetails> {
                   await provider.getImage();
                 },
                 child: CircleAvatar(
-                  backgroundColor: Colors.grey[300],
-                  backgroundImage: provider.avatar == null
-                      ? null
-                      : FileImage(provider.avatar),
-                ),
+                    backgroundColor: Colors.grey[300],
+                    child: ClipOval(
+                      child: provider.avatar == ''
+                          ? Container()
+                          // File is not available, so the path of the PickedFile will point to a network resource instead:
+                          : kIsWeb
+                              ? Image.network(provider.avatar)
+                              : Image.file(File(provider.avatar)),
+                    )),
               ),
             ),
             CustomFormField(
@@ -101,8 +106,7 @@ class ContactFormDetailsState extends State<ContactFormDetails> {
                         website: provider.websiteController.text,
                       );
                       try {
-                        await provider.createBusiness(
-                            business, provider.avatar);
+                        await provider.createBusiness(business);
                       } catch (FirebaseException) {
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                             content: Text('There was an error in the upload')));

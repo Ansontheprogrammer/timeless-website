@@ -35,8 +35,8 @@ class FirestoreService {
           .collection(_businessCollectionName)
           .doc(doc.id)
           .set(doc.toJSON());
-    } catch (FirebaseException) {
-      print("Error storing data");
+    } catch (e) {
+      print("Error storing data $e");
     }
   }
 }

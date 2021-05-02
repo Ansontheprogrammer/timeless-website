@@ -1,12 +1,13 @@
 import 'dart:io';
-
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:timeless_app/business_logic/models/business.dart';
 import 'package:timeless_app/services/firestore_service.dart';
 import 'package:timeless_app/services/storage_service.dart';
 import 'package:uuid/uuid.dart';
+import "package:universal_html/html.dart" as html;
 
 /// Used for providing query searches in the search view
 class ContactFormProvider extends ChangeNotifier {
@@ -28,34 +29,42 @@ class ContactFormProvider extends ChangeNotifier {
 
   ImagePicker _picker = ImagePicker();
 
-  File _avatar = (null as File);
-  File get avatar => _avatar;
+  String _avatar = '';
+  String get avatar => _avatar;
 
-  setAvatarImage(File image) {
+  setAvatarImage(String image) {
     _avatar = image;
     notifyListeners();
   }
 
-  createBusiness(Business business, File image) async {
+  createBusiness(Business business) async {
     /// Convert business name to lowercase for storage.
     business.name = business.name.toLowerCase();
+
+    /// Use dart:io if we are uploading on mobile app and universal_html if on web
+    dynamic imageToUpload = kIsWeb ? html.File([], avatar) : File(avatar);
+
+    print("About to store business image ...");
     try {
-      String photoURL =
-          await StorageService().storeBusinessAvatar(Uuid().v1(), avatar);
+      String photoURL = await StorageService()
+          .storeBusinessAvatar(Uuid().v1(), imageToUpload);
 
       // set business image for use when pulling business data
       business.imageURL = photoURL;
+      print("Creating business ...");
+
       await FirestoreService().create(business);
-    } catch (FirebaseException) {
-      print("Error in business model");
+    } on FirebaseException catch (e) {
+      print({"Error creating new business", e.message});
     }
   }
 
   getImage() async {
     PickedFile? pickedFile = await _picker.getImage(source: ImageSource.camera);
     if (pickedFile != null) {
-      setAvatarImage(File(pickedFile.path));
+      setAvatarImage(pickedFile.path);
+    } else {
       print({'No image selected.'});
-    } else {}
+    }
   }
 }
