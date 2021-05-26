@@ -17,14 +17,14 @@ To display the images from Firebase storage you will need to install gsutil. Thi
 https://cloud.google.com/storage/docs/gsutil_install
 
 Next you must create a JSON file containing your local server info.
-`[
+```[
     {
       "origin": ["http://localhost:58553/"],
       "responseHeader": ["Content-Type"],
       "method": ["GET", "HEAD", "DELETE"],
       "maxAgeSeconds": 3600
     }
-]`
+]```
 
 Then you can set your CORS using this command (With file 'cors.json' created)
 `gsutil cors set cors.json gs://timeless-app-607e3.appspot.com`
@@ -33,7 +33,7 @@ Then you can set your CORS using this command (With file 'cors.json' created)
 
 This script will be needed in your web/index.html file to use the Firebase services
 
-` <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+``` <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
   <script src="http://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
   <script src="http://www.gstatic.com/firebasejs/7.20.0/firebase-firestore.js"></script>
@@ -57,7 +57,7 @@ This script will be needed in your web/index.html file to use the Firebase servi
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
       // firebase.analytics();
-  </script>`
+  </script>```
 
 ### Null Safety
 Depending on if you've added configurations to run null safety from your IDE you may need to run it from the terminal.
