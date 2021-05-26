@@ -29,7 +29,9 @@ Next you must create a JSON file containing your local server info.
 ```
 
 Then you can set your CORS using this command (With file 'cors.json' created)
-`gsutil cors set cors.json gs://timeless-app-607e3.appspot.com`
+```
+gsutil cors set cors.json gs://timeless-app-607e3.appspot.com
+```
 
 ### Firebase
 
