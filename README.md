@@ -65,4 +65,6 @@ This script will be needed in your web/index.html file to use the Firebase servi
 
 ### Null Safety
 Depending on if you've added configurations to run null safety from your IDE you may need to run it from the terminal.
-```flutter run --no-sound-null-safety```
+```
+flutter run --no-sound-null-safety
+```
