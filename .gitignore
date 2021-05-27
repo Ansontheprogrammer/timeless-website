@@ -78,5 +78,7 @@ build/
 # Index.html because of Firebase configuration
 web/index.html
 .script
+.startup
+cors.json
 # Generated Firebase Admin file
 lib/generated_plugin_registrant
