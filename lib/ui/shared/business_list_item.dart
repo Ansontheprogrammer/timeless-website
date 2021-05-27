@@ -41,7 +41,7 @@ class BusinessItem extends StatelessWidget {
             shadowColor: Colors.transparent,
             primary: Colors.transparent),
         onPressed: () {
-          Navigator.pushNamed(context, DetailView.route,
+          Navigator.pushNamed(context, '${DetailView.route}?id=${business.id}',
               arguments: DetailScreenArguments(business: business));
         },
         child: listItemWidget);
