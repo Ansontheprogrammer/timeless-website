@@ -92,22 +92,25 @@ class AdaptiveDetailItem extends StatelessWidget {
         ),
       );
     } else {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Hero(
-            tag: imageTag,
-            child: Container(
-              decoration: BoxDecoration(
-                  image: DecorationImage(image: NetworkImage(imageUrl))),
-              height: MediaQuery.of(context).size.height * 0.5,
-              width: MediaQuery.of(context).size.width * 0.5,
+      return SingleChildScrollView(
+        child: Column(
+          children: [
+            Hero(
+              tag: imageTag,
+              child: Container(
+                decoration: BoxDecoration(
+                    image: DecorationImage(image: NetworkImage(imageUrl))),
+                height: MediaQuery.of(context).size.height * 0.6,
+                width: MediaQuery.of(context).size.width * 1,
+              ),
             ),
-          ),
-          SizedBox(width: 25),
-          name,
-          description
-        ],
+            SizedBox(height: 25),
+            name,
+            SizedBox(height: 25),
+            description,
+            SizedBox(height: 25),
+          ],
+        ),
       );
     }
   }
