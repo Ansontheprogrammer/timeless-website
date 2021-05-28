@@ -41,7 +41,7 @@ class AdaptiveDetailItem extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                color: Colors.black12,
+                color: Colors.white10,
                 constraints: BoxConstraints(
                     minHeight: MediaQuery.of(context).size.height * 0.6),
                 child: Stack(
