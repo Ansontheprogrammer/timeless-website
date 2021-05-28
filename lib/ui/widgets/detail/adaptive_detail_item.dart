@@ -110,7 +110,8 @@ class AdaptiveDetailItem extends StatelessWidget {
                   text: business.website,
                 )
               ],
-            )
+            ),
+            SizedBox(height: 25),
           ],
         ),
       );
