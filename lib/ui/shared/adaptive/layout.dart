@@ -56,6 +56,9 @@ class _LayoutState extends State<Layout> {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    bool displayedOnTabletOrSmaller = screenWidth < 600;
+
     return Scaffold(
       /// We want to show an app bar if on the mobile app platform and on detail screen
       appBar: !kIsWeb &&
@@ -78,7 +81,7 @@ class _LayoutState extends State<Layout> {
         child: Stack(
           children: [
             ScrollablePageContent(widget: widget),
-            if (kIsWeb && displayMobileMenu)
+            if (kIsWeb && displayMobileMenu && displayedOnTabletOrSmaller)
               Container(
                 color: Colors.black.withOpacity(0.95),
                 height: MediaQuery.of(context).size.height,

@@ -4,7 +4,7 @@ import 'package:timeless_app/business_logic/models/business.dart';
 import 'package:timeless_app/services/firestore_service.dart';
 import 'package:timeless_app/ui/shared/utils/custom_text.dart';
 import 'package:timeless_app/ui/shared/detail_screen_arguments.dart';
-import 'package:timeless_app/ui/shared/utils/layout.dart';
+import 'package:timeless_app/ui/shared/adaptive/layout.dart';
 import 'package:timeless_app/ui/widgets/detail/adaptive_detail_item.dart';
 
 import '../shared/constants.dart';

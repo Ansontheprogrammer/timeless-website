@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:timeless_app/ui/shared/utils/layout.dart';
+import 'package:timeless_app/ui/shared/adaptive/layout.dart';
 import 'package:timeless_app/ui/widgets/navigation/footer/footer.dart';
 
 /// Creates a [SingleChildScrollView] that will display the footer on web
@@ -21,7 +21,7 @@ class ScrollablePageContent extends StatelessWidget {
         children: [
           if (kIsWeb)
             SizedBox(
-              height: 100,
+              height: 90,
             ),
 
           /// Set a minimum page height, mainly used for the webview to push the footer to the bottom of the display height

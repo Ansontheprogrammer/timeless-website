@@ -5,7 +5,7 @@ import 'package:timeless_app/business_logic/providers/category_provider.dart';
 import 'package:timeless_app/business_logic/view_models/search_view_model.dart';
 import 'package:timeless_app/services/locator.dart';
 import 'package:timeless_app/ui/shared/utils/custom_text.dart';
-import 'package:timeless_app/ui/shared/utils/layout.dart';
+import 'package:timeless_app/ui/shared/adaptive/layout.dart';
 import 'package:timeless_app/ui/widgets/home/landing_page_content.dart';
 
 /// Creates a not found view
