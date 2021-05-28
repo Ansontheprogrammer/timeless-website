@@ -24,6 +24,7 @@ class CustomTextNormal extends StatelessWidget {
       text,
       textAlign: this.textAlign,
       maxLines: this.maxLines,
+      overflow: TextOverflow.ellipsis,
       style: Theme.of(context).textTheme.bodyText1!.copyWith(
           color: this.color,
           fontWeight: this.fontWeight,

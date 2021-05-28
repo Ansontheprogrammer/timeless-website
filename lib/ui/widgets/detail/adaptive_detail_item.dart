@@ -68,15 +68,7 @@ class AdaptiveDetailItem extends StatelessWidget {
                     Positioned(
                       bottom: 10,
                       left: 20,
-                      child: Row(
-                        children: [
-                          Icon(Icons.location_pin),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          CustomTextCaption(text: business.zipcode)
-                        ],
-                      ),
+                      child: LocationInfo(business: business),
                     ),
                     Positioned(
                         bottom: 10,
@@ -99,9 +91,10 @@ class AdaptiveDetailItem extends StatelessWidget {
               tag: imageTag,
               child: Container(
                 decoration: BoxDecoration(
-                    image: DecorationImage(image: NetworkImage(imageUrl))),
+                    image: DecorationImage(
+                        image: NetworkImage(imageUrl), fit: BoxFit.cover)),
                 height: MediaQuery.of(context).size.height * 0.6,
-                width: MediaQuery.of(context).size.width * 1,
+                width: MediaQuery.of(context).size.width,
               ),
             ),
             SizedBox(height: 25),
@@ -109,9 +102,40 @@ class AdaptiveDetailItem extends StatelessWidget {
             SizedBox(height: 25),
             description,
             SizedBox(height: 25),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                LocationInfo(business: business),
+                CustomTextCaption(
+                  text: business.website,
+                )
+              ],
+            )
           ],
         ),
       );
     }
+  }
+}
+
+class LocationInfo extends StatelessWidget {
+  const LocationInfo({
+    Key? key,
+    required this.business,
+  }) : super(key: key);
+
+  final Business business;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Icon(Icons.location_pin),
+        SizedBox(
+          width: 10,
+        ),
+        CustomTextCaption(text: business.zipcode)
+      ],
+    );
   }
 }

@@ -58,19 +58,20 @@ class _LayoutState extends State<Layout> {
   Widget build(BuildContext context) {
     return Scaffold(
       /// We want to show an app bar if on the mobile app platform and on detail screen
-      appBar:
-          !kIsWeb && ModalRoute.of(context)!.settings.name == DetailView.route
-              ? AppBar(
-                  automaticallyImplyLeading: true,
-                  title: CustomTextNormal(
-                    text: 'Business Detail',
-                  ),
-                )
-              : PreferredSize(
-                  child: SizedBox(
-                    height: 10,
-                  ),
-                  preferredSize: Size(0, 0)),
+      appBar: !kIsWeb &&
+              ModalRoute.of(context)!.settings.name!.contains(DetailView.route)
+          ? AppBar(
+              automaticallyImplyLeading: true,
+              title: CustomTextNormal(
+                fontWeight: FontWeight.bold,
+                text: 'Business Detail',
+              ),
+            )
+          : PreferredSize(
+              child: SizedBox(
+                height: 10,
+              ),
+              preferredSize: Size(0, 0)),
       backgroundColor:
           kIsWeb ? Colors.white : CustomColor.mobileAppPrimaryBackgroundColor,
       body: SafeArea(

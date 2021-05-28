@@ -52,10 +52,9 @@ class DetailView extends StatelessWidget {
                   )),
               description: Hero(
                 tag: Constants.getBusinessHeroTitle(business.description),
-                child: Container(
-                  child: CustomTextNormal(
-                    text: business.description,
-                  ),
+                child: CustomTextNormal(
+                  maxLines: 1000,
+                  text: business.description,
                 ),
               ),
             );

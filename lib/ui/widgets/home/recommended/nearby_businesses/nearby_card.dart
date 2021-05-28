@@ -26,7 +26,7 @@ class NearbyBusinessCard extends StatelessWidget {
     return Container(
       width: onDesktop
           ? MediaQuery.of(context).size.width / 4
-          : MediaQuery.of(context).size.width * 0.4,
+          : MediaQuery.of(context).size.width,
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(7.0),
@@ -56,24 +56,23 @@ class NearbyBusinessCard extends StatelessWidget {
               ),
             ),
             Container(
-              constraints: BoxConstraints(minHeight: 175),
+              height: MediaQuery.of(context).size.height * 0.3,
               padding: EdgeInsets.all(15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SmallSpacer(),
-                  CustomTextBtn(
-                    color: Colors.black26,
-                    text: subtitle,
-                    fontWeight: FontWeight.w100,
-                  ),
-                  const SmallSpacer(),
                   Hero(
                     tag: Constants.getBusinessHeroTitle(id),
                     child: CustomTextNormal(
                       text: title,
                       fontWeight: FontWeight.bold,
+                      maxLines: 1,
                     ),
+                  ),
+                  CustomTextBtn(
+                    color: Colors.black26,
+                    text: subtitle,
+                    fontWeight: FontWeight.w100,
                   ),
                   const SmallSpacer(),
                   Hero(
