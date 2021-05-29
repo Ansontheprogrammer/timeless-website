@@ -22,9 +22,11 @@ class AdaptiveDetailItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (kIsWeb) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    bool displayedOnTabletOrSmaller = screenWidth < 600;
+    if (kIsWeb && !displayedOnTabletOrSmaller) {
       return Container(
-        color: Colors.black12,
+        color: Colors.grey.shade100,
         child: Row(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,37 +34,32 @@ class AdaptiveDetailItem extends StatelessWidget {
             Hero(
               tag: imageTag,
               child: Container(
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        fit: BoxFit.cover, image: NetworkImage(imageUrl))),
-                width: MediaQuery.of(context).size.width * 0.5,
-                height: MediaQuery.of(context).size.height * 0.6,
-              ),
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          fit: BoxFit.cover, image: NetworkImage(imageUrl))),
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  constraints: BoxConstraints(
+                    minHeight: MediaQuery.of(context).size.height * 0.7,
+                  )),
             ),
             Expanded(
               child: Container(
                 color: Colors.white10,
                 constraints: BoxConstraints(
-                    minHeight: MediaQuery.of(context).size.height * 0.6),
+                    minHeight: MediaQuery.of(context).size.height * 0.7),
                 child: Stack(
                   children: [
                     Container(
                         padding: EdgeInsets.all(20),
                         constraints: BoxConstraints(
                             minHeight:
-                                MediaQuery.of(context).size.height * 0.6),
+                                MediaQuery.of(context).size.height * 0.5),
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              Container(child: name),
                               Container(
-                                  margin: EdgeInsets.only(
-                                      top: MediaQuery.of(context).size.height *
-                                          0.05),
-                                  child: name),
-                              Container(
-                                  margin: EdgeInsets.only(
-                                      top: MediaQuery.of(context).size.height *
-                                          0.1),
+                                  margin: EdgeInsets.only(top: 25, bottom: 50),
                                   child: description),
                             ])),
                     Positioned(
@@ -111,7 +108,7 @@ class AdaptiveDetailItem extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(height: 25),
+            SizedBox(height: 60),
           ],
         ),
       );
