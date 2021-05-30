@@ -11,6 +11,8 @@ import 'package:timeless_app/ui/views/about.dart';
 import 'package:timeless_app/ui/views/contact.dart';
 import 'package:timeless_app/ui/views/detail.dart';
 import 'package:timeless_app/ui/views/home.dart';
+import 'package:timeless_app/ui/views/not_found.dart';
+import 'package:timeless_app/ui/views/routing_data/parameter_string_extension.dart';
 import 'package:timeless_app/ui/views/search.dart';
 
 void main() async {
@@ -97,12 +99,42 @@ class MainApp extends StatelessWidget {
                 fontWeight: FontWeight.w100,
               ))),
       initialRoute: '/',
+      onGenerateRoute: (settings) {
+        if (kDebugMode) print('Generating route ${settings.name}');
+        if (settings.name!.contains(DetailView.route) &&
+            settings.name!.contains('id')) {
+          dynamic routingData =
+              settings.name!.getRoutingData; // Get the routing Data
+          String id = routingData['id']; // Get the id from the data.
+          // Empty ID passed
+          if (id.isEmpty)
+            return MaterialPageRoute(
+              builder: (context) {
+                return NotFound();
+              },
+            );
+
+          return MaterialPageRoute(
+            settings: RouteSettings(name: '${DetailView.route}?id=$id'),
+            builder: (context) {
+              return DetailView(
+                id: id,
+              );
+            },
+          );
+        } else {
+          MaterialPageRoute(
+            builder: (context) {
+              return NotFound();
+            },
+          );
+        }
+      },
       routes: {
         HomeView.route: (context) => HomeView(),
         SearchView.route: (context) => SearchView(),
         ContactView.route: (context) => ContactView(),
         AboutView.route: (context) => AboutView(),
-        DetailView.route: (context) => DetailView(),
       },
     );
   }

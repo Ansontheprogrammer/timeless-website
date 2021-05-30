@@ -56,28 +56,32 @@ class _LayoutState extends State<Layout> {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    bool displayedOnTabletOrSmaller = screenWidth < 600;
+
     return Scaffold(
       /// We want to show an app bar if on the mobile app platform and on detail screen
-      appBar:
-          !kIsWeb && ModalRoute.of(context)!.settings.name == DetailView.route
-              ? AppBar(
-                  automaticallyImplyLeading: true,
-                  title: CustomTextNormal(
-                    text: 'Business Detail',
-                  ),
-                )
-              : PreferredSize(
-                  child: SizedBox(
-                    height: 10,
-                  ),
-                  preferredSize: Size(0, 0)),
+      appBar: !kIsWeb &&
+              ModalRoute.of(context)!.settings.name!.contains(DetailView.route)
+          ? AppBar(
+              automaticallyImplyLeading: true,
+              title: CustomTextNormal(
+                fontWeight: FontWeight.bold,
+                text: 'Business Detail',
+              ),
+            )
+          : PreferredSize(
+              child: SizedBox(
+                height: 10,
+              ),
+              preferredSize: Size(0, 0)),
       backgroundColor:
           kIsWeb ? Colors.white : CustomColor.mobileAppPrimaryBackgroundColor,
       body: SafeArea(
         child: Stack(
           children: [
             ScrollablePageContent(widget: widget),
-            if (kIsWeb && displayMobileMenu)
+            if (kIsWeb && displayMobileMenu && displayedOnTabletOrSmaller)
               Container(
                 color: Colors.black.withOpacity(0.95),
                 height: MediaQuery.of(context).size.height,

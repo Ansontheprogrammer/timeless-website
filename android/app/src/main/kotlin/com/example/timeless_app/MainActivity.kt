@@ -1,4 +1,4 @@
-package com.example.timeless_app
+package com.ansonervininc.timeless_app
 
 import io.flutter.embedding.android.FlutterActivity
 

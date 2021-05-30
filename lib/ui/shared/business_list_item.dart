@@ -20,13 +20,18 @@ class BusinessItem extends StatelessWidget {
     Widget listItemWidget;
     if (displayType == BusinessListDisplayType.ListTile) {
       listItemWidget = NewBusinessListItem(
+        imageURL: business.imageURL ??
+            'https://images.unsplash.com/photo-1613664161831-35ca95a4b953?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
         title: business.getBusinessName(),
         subtitle: business.type,
         description: business.description,
       );
     } else {
       listItemWidget = NearbyBusinessCard(
+        
           id: business.id,
+          imageURL: business.imageURL ??
+              'https://images.unsplash.com/photo-1613664161831-35ca95a4b953?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
           description: business.description,
           subtitle: business.type,
           title: business.getBusinessName());
@@ -37,7 +42,7 @@ class BusinessItem extends StatelessWidget {
             shadowColor: Colors.transparent,
             primary: Colors.transparent),
         onPressed: () {
-          Navigator.pushNamed(context, DetailView.route,
+          Navigator.pushNamed(context, '${DetailView.route}?id=${business.id}',
               arguments: DetailScreenArguments(business: business));
         },
         child: listItemWidget);

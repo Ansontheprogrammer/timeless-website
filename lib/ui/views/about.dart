@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:timeless_app/ui/shared/utils/custom_text.dart';
-import 'package:timeless_app/ui/shared/utils/layout.dart';
+import 'package:timeless_app/ui/shared/adaptive/layout.dart';
 import 'package:timeless_app/ui/views/contact.dart';
 
 /// Creates a view that presents information about the app.

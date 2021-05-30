@@ -5,7 +5,7 @@ import 'package:timeless_app/business_logic/models/business.dart';
 import 'package:timeless_app/ui/shared/adaptive/adaptive_center.dart';
 import 'package:timeless_app/ui/shared/adaptive/adaptive_column.dart';
 import 'package:timeless_app/ui/shared/utils/custom_text.dart';
-import 'package:timeless_app/ui/shared/utils/layout.dart';
+import 'package:timeless_app/ui/shared/adaptive/layout.dart';
 import 'package:timeless_app/ui/widgets/home/signup/custom_form_details.dart';
 
 /// Creates a view to process new businesses that want to join the app.

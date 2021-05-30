@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:timeless_app/business_logic/enums/business_search.dart';
-import 'package:timeless_app/ui/constants.dart';
+import 'package:timeless_app/ui/shared/constants.dart';
 import 'package:timeless_app/ui/shared/adaptive/adaptive_center.dart';
 import 'package:timeless_app/ui/shared/utils/custom_color.dart';
 import 'package:timeless_app/ui/shared/utils/custom_section.dart';

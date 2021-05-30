@@ -24,6 +24,7 @@ class CustomTextNormal extends StatelessWidget {
       text,
       textAlign: this.textAlign,
       maxLines: this.maxLines,
+      overflow: TextOverflow.ellipsis,
       style: Theme.of(context).textTheme.bodyText1!.copyWith(
           color: this.color,
           fontWeight: this.fontWeight,
@@ -123,8 +124,10 @@ class CustomTextHeadline extends StatelessWidget {
   final Color color;
   final FontWeight fontWeight;
   final double? fontSize;
+  final TextAlign align;
   const CustomTextHeadline(
       {required this.text,
+      this.align = TextAlign.start,
       this.color = Colors.black,
       this.fontWeight = FontWeight.normal,
       this.fontSize});
@@ -134,6 +137,7 @@ class CustomTextHeadline extends StatelessWidget {
     return Container(
         child: Text(
       text,
+      textAlign: this.align,
       style: Theme.of(context).textTheme.headline1!.copyWith(
           color: this.color,
           fontWeight: this.fontWeight,

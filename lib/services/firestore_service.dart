@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/foundation.dart';
+import 'package:timeless_app/business_logic/models/business.dart';
 import 'package:timeless_app/business_logic/models/query.dart';
 import 'package:timeless_app/business_logic/utils/firestore_doc.dart';
 
@@ -26,6 +27,17 @@ class FirestoreService {
         .snapshots();
   }
 
+  Stream<Business> getBusiness({required String id}) {
+    if (kDebugMode) print('Retrieving business... $id');
+
+    return _firestore
+        .collection(_businessCollectionName)
+        .where('id', isEqualTo: id)
+        .snapshots()
+        .asyncMap((event) =>
+            event.docs.map((e) => Business.fromJSON(e.data()!)).toList()[0]);
+  }
+
   /// Create new business
   ///
   /// Will convert business name and description to lowercase, to ensure quering is easier
@@ -35,8 +47,8 @@ class FirestoreService {
           .collection(_businessCollectionName)
           .doc(doc.id)
           .set(doc.toJSON());
-    } catch (FirebaseException) {
-      print("Error storing data");
+    } catch (e) {
+      print("Error storing data $e");
     }
   }
 }
