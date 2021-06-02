@@ -60,7 +60,8 @@ class ContactFormProvider extends ChangeNotifier {
   }
 
   getImage() async {
-    PickedFile? pickedFile = await _picker.getImage(source: ImageSource.camera);
+    PickedFile? pickedFile =
+        await _picker.getImage(source: ImageSource.gallery);
     if (pickedFile != null) {
       setAvatarImage(pickedFile.path);
     } else {
