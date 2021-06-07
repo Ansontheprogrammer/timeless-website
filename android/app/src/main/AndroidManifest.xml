@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ansonervininc.timeless_app">
    <application
-        android:label="timeless_app"
+        android:label="Timeless"
         android:icon="@mipmap/ic_launcher">
         
         <activity
