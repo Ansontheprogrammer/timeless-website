@@ -36,7 +36,7 @@ class ContactView extends StatelessWidget {
                 CustomTextHeadline(
                   fontSize: 72.0,
                   fontWeight: kIsWeb ? FontWeight.normal : FontWeight.bold,
-                  text: 'Contact',
+                  text: 'Add a business?',
                   color: Colors.white,
                 ),
                 SizedBox(
