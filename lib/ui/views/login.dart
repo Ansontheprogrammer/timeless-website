@@ -1,3 +1,6 @@
+import 'package:provider/provider.dart';
+import 'package:timeless_app/services/auth_service.dart';
+import 'package:timeless_app/ui/providers/text_input_provider.dart';
 import 'package:timeless_app/ui/shared/adaptive/layout.dart';
 
 import 'package:flutter/material.dart';
@@ -29,6 +32,7 @@ class _LoginWidgetState extends State<LoginWidget> {
 
   @override
   Widget build(BuildContext context) {
+    TextInputProvider inputProvider = Provider.of<TextInputProvider>(context);
     return Layout(
       pageContent: Container(
         height: MediaQuery.of(context).size.height * 0.985,
@@ -57,6 +61,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                 Column(
                   children: [
                     TextFormField(
+                      onTap: inputProvider.toggleIsFocused,
+                      onEditingComplete: inputProvider.toggleIsFocused,
                       decoration: InputDecoration(
                           fillColor: Colors.blue,
                           labelStyle: TextStyle(color: Colors.white),
@@ -66,6 +72,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                     ),
                     SizedBox(height: 15),
                     TextFormField(
+                      onTap: inputProvider.toggleIsFocused,
+                      onEditingComplete: inputProvider.toggleIsFocused,
                       decoration: InputDecoration(
                           fillColor: Colors.blue,
                           labelStyle: TextStyle(color: Colors.white),
@@ -74,7 +82,17 @@ class _LoginWidgetState extends State<LoginWidget> {
                       controller: passwordTextController,
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        if (inputProvider.isFocused) {
+                          inputProvider.toggleIsFocused();
+                        }
+
+                        await AuthenticationService()
+                            .auth
+                            .signInWithEmailAndPassword(
+                                email: emailTextController.text,
+                                password: passwordTextController.text);
+                      },
                       child: CustomTextBtn(
                         text: "Submit",
                       ),

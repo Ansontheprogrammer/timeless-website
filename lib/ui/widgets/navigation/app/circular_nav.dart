@@ -5,6 +5,8 @@ import 'package:circular_menu/circular_menu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:timeless_app/ui/providers/text_input_provider.dart';
 import 'package:timeless_app/ui/views/about.dart';
 import 'package:timeless_app/ui/views/contact.dart';
 import 'package:timeless_app/ui/views/home.dart';
@@ -39,6 +41,13 @@ class NavMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextInputProvider inputProvider = Provider.of<TextInputProvider>(context);
+    if (kDebugMode) {
+      print('CURRENT ISFOCUSED STATE = ${inputProvider.isFocused}');
+    }
+    if (inputProvider.isFocused) {
+      return Container();
+    }
     return CircularMenu(
         // menu radius
         radius: 100,
