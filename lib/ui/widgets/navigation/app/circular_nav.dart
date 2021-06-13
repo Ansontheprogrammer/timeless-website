@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:timeless_app/ui/views/about.dart';
 import 'package:timeless_app/ui/views/contact.dart';
 import 'package:timeless_app/ui/views/home.dart';
+import 'package:timeless_app/ui/views/login.dart';
 import 'package:timeless_app/ui/views/search.dart';
 
 /// Creates a circular nav menu for the mobile app platform
@@ -29,7 +30,6 @@ class NavMenu extends StatelessWidget {
       color: ModalRoute.of(context)!.settings.name == routeName
           ? Colors.blue
           : Colors.purpleAccent,
-      // elevation: 4.0,
       iconColor: Colors.white,
       iconSize: 30.0,
       margin: 10.0,
@@ -76,6 +76,10 @@ class NavMenu extends StatelessWidget {
           buildNavItem(
               icon: Icons.contact_mail,
               routeName: ContactView.route,
+              context: context),
+          buildNavItem(
+              icon: Icons.account_circle,
+              routeName: LoginWidget.route,
               context: context)
         ]);
   }

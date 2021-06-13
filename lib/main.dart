@@ -13,6 +13,7 @@ import 'package:timeless_app/ui/views/about.dart';
 import 'package:timeless_app/ui/views/contact.dart';
 import 'package:timeless_app/ui/views/detail.dart';
 import 'package:timeless_app/ui/views/home.dart';
+import 'package:timeless_app/ui/views/login.dart';
 import 'package:timeless_app/ui/views/not_found.dart';
 import 'package:timeless_app/ui/views/routing_data/parameter_string_extension.dart';
 import 'package:timeless_app/ui/views/search.dart';
@@ -140,6 +141,7 @@ class MainApp extends StatelessWidget {
             SearchView.route: (context) => SearchView(),
             ContactView.route: (context) => ContactView(),
             AboutView.route: (context) => AboutView(),
+            LoginWidget.route: (context) => LoginWidget()
           },
         );
       },
