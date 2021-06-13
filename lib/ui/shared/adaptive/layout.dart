@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
+import 'package:timeless_app/ui/providers/text_input_provider.dart';
 import 'package:timeless_app/ui/shared/utils/custom_color.dart';
 import 'package:timeless_app/ui/shared/utils/custom_text.dart';
 import 'package:timeless_app/ui/views/about.dart';
@@ -54,11 +56,15 @@ class _LayoutState extends State<Layout> {
     });
   }
 
+  openUpSettingsMenu() {
+    // showDialog(context: context, builder: () {return Container()});
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     bool displayedOnTabletOrSmaller = screenWidth < 600;
-
+    bool isAnInputFocused = Provider.of<TextInputProvider>(context).isFocused;
     return Scaffold(
       /// We want to show an app bar if on the mobile app platform and on detail screen
       appBar: !kIsWeb &&
@@ -102,7 +108,7 @@ class _LayoutState extends State<Layout> {
                   ),
                 ),
               ),
-            if (!kIsWeb)
+            if (!kIsWeb && !isAnInputFocused)
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(height: 200, width: 400, child: NavMenu()),

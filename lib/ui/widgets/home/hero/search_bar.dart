@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:timeless_app/business_logic/models/query.dart';
 import 'package:timeless_app/business_logic/view_models/search_view_model.dart';
 import 'package:timeless_app/business_logic/enums/business_search.dart';
+import 'package:timeless_app/ui/providers/text_input_provider.dart';
 
 /// This widget requires for there to be a provider of a [SearchViewModel]
 class SearchBar extends StatefulWidget {
@@ -49,6 +50,8 @@ class _SearchBarState extends State<SearchBar> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     SearchViewModel query =
         Provider.of<SearchViewModel>(context, listen: false);
+    TextInputProvider inputProvider =
+        Provider.of<TextInputProvider>(context, listen: false);
     InputDecoration _withBorder = InputDecoration(
         contentPadding: EdgeInsets.only(left: 20.0, right: 20.0),
         fillColor: Colors.white,
@@ -77,6 +80,8 @@ class _SearchBarState extends State<SearchBar> with TickerProviderStateMixin {
         child: !_loading
             ? TextField(
                 textInputAction: TextInputAction.done,
+                onTap: inputProvider.toggleIsFocused,
+                onEditingComplete: inputProvider.toggleIsFocused,
                 onChanged: (text) async {
                   /// Setting a debounce to ensure that is waits 1 second after the user finishing editing to change the search query.
                   if (_debounce?.isActive ?? false) _debounce!.cancel();
