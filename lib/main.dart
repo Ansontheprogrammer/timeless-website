@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:timeless_app/services/auth_service.dart';
 import 'package:timeless_app/services/locator.dart';
 import 'package:timeless_app/ui/providers/text_input_provider.dart';
 import 'package:timeless_app/ui/shared/utils/custom_color.dart';
