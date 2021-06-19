@@ -78,8 +78,13 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => TextInputProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<AuthenticationService>(
+            create: (_) => AuthenticationService()),
+        ChangeNotifierProvider<TextInputProvider>(
+            create: (_) => TextInputProvider())
+      ],
       builder: (context, child) {
         return MaterialApp(
           title: 'Timeless',

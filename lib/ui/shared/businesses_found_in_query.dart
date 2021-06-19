@@ -34,7 +34,7 @@ class BusinessesFoundInQuery extends StatelessWidget {
                   'Sorry we were not able to find nearby businesses. Are you sure you are connected to the internet?');
         }
         List<Business> foundBusinesses = snapshot.data!.docs.map((snap) {
-          return Business.fromJSON(snap.data()!);
+          return Business.fromJSON(snap.data());
         }).toList();
 
         List<Business> foundBusinessesWithFilter = foundBusinesses;

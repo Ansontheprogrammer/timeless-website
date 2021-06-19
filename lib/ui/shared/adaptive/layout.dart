@@ -109,9 +109,10 @@ class _LayoutState extends State<Layout> {
                 ),
               ),
             if (!kIsWeb && !isAnInputFocused)
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(height: 200, width: 400, child: NavMenu()),
+              Positioned(
+                bottom: 10,
+                left: -50,
+                child: Container(height: 200, width: 250, child: NavMenu()),
               ),
             if (kIsWeb)
               Positioned(

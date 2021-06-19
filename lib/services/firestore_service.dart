@@ -35,7 +35,7 @@ class FirestoreService {
         .where('id', isEqualTo: id)
         .snapshots()
         .asyncMap((event) =>
-            event.docs.map((e) => Business.fromJSON(e.data()!)).toList()[0]);
+            event.docs.map((e) => Business.fromJSON(e.data())).toList()[0]);
   }
 
   /// Create new business
