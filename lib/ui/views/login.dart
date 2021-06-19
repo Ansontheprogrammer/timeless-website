@@ -4,6 +4,7 @@ import 'package:timeless_app/ui/shared/adaptive/layout.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:timeless_app/ui/shared/utils/custom_text.dart';
+import 'package:timeless_app/ui/views/home.dart';
 
 class LoginWidget extends StatefulWidget {
   LoginWidget() : super();
@@ -78,11 +79,28 @@ class _LoginWidgetState extends State<LoginWidget> {
                     ),
                     ElevatedButton(
                       onPressed: () async {
-                        await AuthenticationService()
-                            .auth
-                            .signInWithEmailAndPassword(
-                                email: emailTextController.text,
-                                password: passwordTextController.text);
+                        try {
+                          await AuthenticationService()
+                              .auth
+                              .signInWithEmailAndPassword(
+                                  email: emailTextController.text,
+                                  password: passwordTextController.text);
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            backgroundColor: Colors.green,
+                            content: CustomTextNormal(
+                              text: 'Login Successful!',
+                            ),
+                          ));
+                          Navigator.pushReplacementNamed(
+                              context, HomeView.route);
+                        } catch (err) {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            backgroundColor: Colors.red,
+                            content: CustomTextNormal(
+                              text: 'Login was incorrect!',
+                            ),
+                          ));
+                        }
                       },
                       child: CustomTextBtn(
                         text: "Submit",
