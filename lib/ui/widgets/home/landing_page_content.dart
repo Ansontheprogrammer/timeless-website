@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:timeless_app/business_logic/enums/business_search.dart';
+import 'package:timeless_app/services/auth_service.dart';
 import 'package:timeless_app/ui/shared/constants.dart';
 import 'package:timeless_app/ui/shared/adaptive/adaptive_center.dart';
 import 'package:timeless_app/ui/shared/utils/custom_color.dart';
@@ -22,7 +24,8 @@ class LandingPageContent extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     bool displayedOnTabletOrSmaller = screenWidth < 600;
-
+    AuthenticationService authenticationService =
+        Provider.of<AuthenticationService>(context);
     return Column(
       children: [
         if (kIsWeb) HeroSection(),
@@ -80,12 +83,13 @@ class LandingPageContent extends StatelessWidget {
             child: RecommendedSection(
               displayHorizontal: displayedOnTabletOrSmaller ? true : false,
             )),
-        CustomSection(
-            color: Colors.purple.withOpacity(0.5),
-            child: Container(
-              width: MediaQuery.of(context).size.width * 0.8,
-              child: ContactForm(),
-            )),
+        if (authenticationService.isUserLoggedIn())
+          CustomSection(
+              color: Colors.purple.withOpacity(0.5),
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.8,
+                child: ContactForm(),
+              ))
       ],
     );
   }

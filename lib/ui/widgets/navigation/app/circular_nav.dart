@@ -5,16 +5,19 @@ import 'package:circular_menu/circular_menu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:timeless_app/services/auth_service.dart';
 import 'package:timeless_app/ui/views/about.dart';
 import 'package:timeless_app/ui/views/contact.dart';
 import 'package:timeless_app/ui/views/home.dart';
+import 'package:timeless_app/ui/views/login.dart';
 import 'package:timeless_app/ui/views/search.dart';
 
 /// Creates a circular nav menu for the mobile app platform
 class NavMenu extends StatelessWidget {
   const NavMenu() : super();
 
-  buildNavItem(
+  CircularMenuItem buildNavItem(
       {required IconData icon,
       required String routeName,
       required BuildContext context}) {
@@ -29,7 +32,6 @@ class NavMenu extends StatelessWidget {
       color: ModalRoute.of(context)!.settings.name == routeName
           ? Colors.blue
           : Colors.purpleAccent,
-      // elevation: 4.0,
       iconColor: Colors.white,
       iconSize: 30.0,
       margin: 10.0,
@@ -39,9 +41,30 @@ class NavMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthenticationService authService =
+        Provider.of<AuthenticationService>(context);
+
+    Map<String, IconData> routesToUseAuthenticated = {
+      HomeView.route: Icons.home,
+      SearchView.route: Icons.search,
+      AboutView.route: Icons.star,
+      ContactView.route: Icons.contact_mail,
+    };
+    Map<String, IconData> routesToUseNotAuthenticated = {
+      HomeView.route: Icons.home,
+      SearchView.route: Icons.search,
+      AboutView.route: Icons.star,
+      LoginWidget.route: Icons.account_circle,
+    };
+    Map<String, IconData> routesToUse;
+    if (authService.isUserLoggedIn()) {
+      routesToUse = routesToUseAuthenticated;
+    } else
+      routesToUse = routesToUseNotAuthenticated;
+
     return CircularMenu(
         // menu radius
-        radius: 100,
+        radius: 125,
         key: GlobalKey<CircularMenuState>(),
         // animation duration
         animationDuration: Duration(milliseconds: 500),
@@ -50,13 +73,13 @@ class NavMenu extends StatelessWidget {
         // animation curve in reverse
         reverseCurve: Curves.fastOutSlowIn,
         // first item angle
-        startingAngleInRadian: 1.1 * pi,
+        startingAngleInRadian: 1.5 * pi,
         // last item angle
-        endingAngleInRadian: 1.9 * pi,
+        endingAngleInRadian: 1.95 * pi,
         toggleButtonColor: Theme.of(context).primaryColor,
         toggleButtonBoxShadow: [
           BoxShadow(
-            color: Colors.red,
+            color: Colors.black,
             blurRadius: 10,
           ),
         ],
@@ -64,19 +87,15 @@ class NavMenu extends StatelessWidget {
         toggleButtonMargin: 10.0,
         toggleButtonPadding: 10.0,
         toggleButtonSize: 40.0,
-        items: [
-          buildNavItem(
-              icon: Icons.home, routeName: HomeView.route, context: context),
-          buildNavItem(
-              icon: Icons.search,
-              routeName: SearchView.route,
-              context: context),
-          buildNavItem(
-              icon: Icons.star, routeName: AboutView.route, context: context),
-          buildNavItem(
-              icon: Icons.contact_mail,
-              routeName: ContactView.route,
-              context: context)
-        ]);
+        items: routesToUse.keys.map((key) {
+          return buildNavItem(
+              icon: routesToUse[key]!, routeName: key, context: context);
+        }).toList());
   }
+}
+
+class NavIconOptions {
+  Icon icon;
+  String routeName;
+  NavIconOptions({required this.icon, required this.routeName});
 }

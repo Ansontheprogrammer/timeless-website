@@ -54,11 +54,14 @@ class _LayoutState extends State<Layout> {
     });
   }
 
+  openUpSettingsMenu() {
+    // showDialog(context: context, builder: () {return Container()});
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     bool displayedOnTabletOrSmaller = screenWidth < 600;
-
     return Scaffold(
       /// We want to show an app bar if on the mobile app platform and on detail screen
       appBar: !kIsWeb &&
@@ -103,9 +106,10 @@ class _LayoutState extends State<Layout> {
                 ),
               ),
             if (!kIsWeb)
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(height: 200, width: 400, child: NavMenu()),
+              Positioned(
+                bottom: 10,
+                left: -75,
+                child: Container(height: 200, width: 250, child: NavMenu()),
               ),
             if (kIsWeb)
               Positioned(

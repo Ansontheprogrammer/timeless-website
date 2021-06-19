@@ -64,20 +64,6 @@ class AboutView extends StatelessWidget {
                     SizedBox(
                       height: 32.0,
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.pushReplacementNamed(
-                                context, ContactView.route);
-                          },
-                          child: CustomTextBtn(
-                            text: 'Get Started',
-                          ),
-                        ),
-                      ],
-                    )
                   ],
                 ),
               ),

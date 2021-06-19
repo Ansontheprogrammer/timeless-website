@@ -49,6 +49,7 @@ class _SearchBarState extends State<SearchBar> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     SearchViewModel query =
         Provider.of<SearchViewModel>(context, listen: false);
+
     InputDecoration _withBorder = InputDecoration(
         contentPadding: EdgeInsets.only(left: 20.0, right: 20.0),
         fillColor: Colors.white,

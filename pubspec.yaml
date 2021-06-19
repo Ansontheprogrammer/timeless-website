@@ -1,4 +1,4 @@
-name: timeless
+name: timeless_app
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -28,7 +28,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   universal_html: ^2.0.8
+  firebase_auth: ^1.4.1
   google_fonts: ^2.0.0
+  cached_network_image: ^3.0.0
   flutter_dotenv: ^4.0.0-nullsafety.0
   firebase_core: ^1.0.2
   cloud_firestore: ^1.0.2
