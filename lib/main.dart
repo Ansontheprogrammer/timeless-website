@@ -7,7 +7,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:timeless_app/services/auth_service.dart';
 import 'package:timeless_app/services/locator.dart';
-import 'package:timeless_app/ui/providers/text_input_provider.dart';
 import 'package:timeless_app/ui/shared/utils/custom_color.dart';
 import 'package:timeless_app/ui/shared/utils/custom_text.dart';
 import 'package:timeless_app/ui/views/about.dart';
@@ -82,8 +81,6 @@ class MainApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<AuthenticationService>(
             create: (_) => AuthenticationService()),
-        ChangeNotifierProvider<TextInputProvider>(
-            create: (_) => TextInputProvider())
       ],
       builder: (context, child) {
         return MaterialApp(

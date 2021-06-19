@@ -7,7 +7,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:timeless_app/services/auth_service.dart';
-import 'package:timeless_app/ui/providers/text_input_provider.dart';
 import 'package:timeless_app/ui/views/about.dart';
 import 'package:timeless_app/ui/views/contact.dart';
 import 'package:timeless_app/ui/views/home.dart';
@@ -42,21 +41,14 @@ class NavMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextInputProvider inputProvider = Provider.of<TextInputProvider>(context);
     AuthenticationService authService =
         Provider.of<AuthenticationService>(context);
-    if (kDebugMode) {
-      print('CURRENT ISFOCUSED STATE = ${inputProvider.isFocused}');
-    }
-    if (inputProvider.isFocused) {
-      return Container();
-    }
+
     Map<String, IconData> routesToUseAuthenticated = {
       HomeView.route: Icons.home,
       SearchView.route: Icons.search,
       AboutView.route: Icons.star,
       ContactView.route: Icons.contact_mail,
-      LoginWidget.route: Icons.account_circle,
     };
     Map<String, IconData> routesToUseNotAuthenticated = {
       HomeView.route: Icons.home,

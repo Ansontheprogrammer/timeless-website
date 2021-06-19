@@ -51,7 +51,7 @@ class ContactView extends StatelessWidget {
                         color: Colors.white,
                         textAlign: kIsWeb ? TextAlign.center : TextAlign.start,
                         text:
-                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et do magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '),
+                            'Use this form to add a new business to the listing'),
                   ),
                 ),
                 SizedBox(

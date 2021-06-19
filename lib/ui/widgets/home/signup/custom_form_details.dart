@@ -34,8 +34,9 @@ class ContactFormDetailsState extends State<ContactFormDetails> {
               fontSize: 24,
               fontWeight: FontWeight.bold,
               color: Colors.white,
-              text: 'Want your business added?',
+              text: 'New Business Form',
             ),
+            SizedBox(height: 10),
             Center(
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
