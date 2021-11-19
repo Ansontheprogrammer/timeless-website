@@ -83,13 +83,13 @@ class LandingPageContent extends StatelessWidget {
             child: RecommendedSection(
               displayHorizontal: displayedOnTabletOrSmaller ? true : false,
             )),
-        if (authenticationService.isUserLoggedIn())
-          CustomSection(
-              color: Colors.purple.withOpacity(0.5),
-              child: Container(
-                width: MediaQuery.of(context).size.width * 0.8,
-                child: ContactForm(),
-              ))
+        // if (authenticationService.isUserLoggedIn())
+        CustomSection(
+            color: Colors.purple.withOpacity(0.5),
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.8,
+              child: ContactForm(),
+            ))
       ],
     );
   }

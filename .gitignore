@@ -38,6 +38,7 @@ pubspec.lock
 **/android/gradlew.bat
 **/android/local.properties
 **/android/**/GeneratedPluginRegistrant.java
+**/android/**/upload-keystore.jks
 
 build/app
 build/
@@ -82,3 +83,5 @@ web/index.html
 cors.json
 # Generated Firebase Admin file
 lib/generated_plugin_registrant
+
+web
