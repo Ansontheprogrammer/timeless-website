@@ -1,6 +1,0 @@
-{
-  "dart.vmAdditionalArgs": [
-    "--no-sound-null-safety"
-  ],
-  "editor.defaultFormatter": "Dart-Code.dart-code"
-}

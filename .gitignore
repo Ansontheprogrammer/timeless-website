@@ -84,4 +84,5 @@ cors.json
 # Generated Firebase Admin file
 lib/generated_plugin_registrant
 
+.vscode
 web
