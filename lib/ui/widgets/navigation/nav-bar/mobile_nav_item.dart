@@ -12,7 +12,7 @@ class MobileNavItem extends StatelessWidget {
     return Expanded(
       child: Column(
         children: [
-          FlatButton(
+          TextButton(
             onPressed: () {
               Navigator.pushReplacementNamed(context, routeName);
             },

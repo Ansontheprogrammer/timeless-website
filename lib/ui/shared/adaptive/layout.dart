@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:timeless_app/ui/shared/utils/custom_color.dart';
 import 'package:timeless_app/ui/shared/utils/custom_text.dart';
 import 'package:timeless_app/ui/views/about.dart';
@@ -11,7 +10,8 @@ import 'package:timeless_app/ui/views/search.dart';
 import 'package:timeless_app/ui/widgets/layout/scrollable_page_content.dart';
 import 'package:timeless_app/ui/widgets/navigation/app/circular_nav.dart';
 import 'package:timeless_app/ui/widgets/navigation/nav-bar/mobile_nav_item.dart';
-import 'package:timeless_app/ui/widgets/navigation/nav-bar/navigation_bar.dart';
+import 'package:timeless_app/ui/widgets/navigation/nav-bar/navigation_bar.dart'
+    as nav;
 
 /// Creates a consistent layout used by all views. This will dynamically show the platforms respective menus.
 ///
@@ -114,7 +114,7 @@ class _LayoutState extends State<Layout> {
             if (kIsWeb)
               Positioned(
                 top: 0,
-                child: NavigationBar(
+                child: nav.NavigationBar(
                   toggleMobileMenu: toggleMobileMenu,
                 ),
               ),

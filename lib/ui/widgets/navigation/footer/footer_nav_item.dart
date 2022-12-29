@@ -9,7 +9,7 @@ class FooterNavItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
+    return TextButton(
       onPressed: () {
         Navigator.pushReplacementNamed(context, routeName);
       },

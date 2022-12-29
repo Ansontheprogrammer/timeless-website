@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:timeless_app/services/auth_service.dart';
 import 'package:timeless_app/services/locator.dart';
+import 'package:timeless_app/ui/shared/utils/custom_color.dart';
 import 'package:timeless_app/ui/shared/utils/custom_text.dart';
 import 'package:timeless_app/ui/views/about.dart';
 import 'package:timeless_app/ui/views/contact.dart';
@@ -15,11 +16,16 @@ import 'package:timeless_app/ui/views/login.dart';
 import 'package:timeless_app/ui/views/not_found.dart';
 import 'package:timeless_app/ui/views/routing_data/parameter_string_extension.dart';
 import 'package:timeless_app/ui/views/search.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setUpLocator();
-
+  kIsWeb
+      ? await Firebase.initializeApp(
+          options: DefaultFirebaseOptions.currentPlatform,
+        )
+      : await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -31,30 +37,10 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   // Initialize firebase app
-  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: _initialization,
-        builder: (context, snapshot) {
-          // Error retrieving Firebase
-          if (snapshot.hasError) {
-            return Container(
-              child: CustomTextNormal(
-                text: "There was an error accessing our app",
-              ),
-            );
-          }
-
-          // Firebase retrieved
-          if (snapshot.connectionState == ConnectionState.done) {
-            return MainApp();
-          }
-
-          // Waiting for Firebase to load
-          return CircularProgressIndicator();
-        });
+    return MainApp();
   }
 }
 
@@ -72,7 +58,7 @@ class MainApp extends StatelessWidget {
       ],
       builder: (context, child) {
         return MaterialApp(
-          title: 'Timeless',
+          title: 'Alison & Family',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
               appBarTheme: AppBarTheme(
@@ -81,9 +67,20 @@ class MainApp extends StatelessWidget {
                   iconTheme: IconThemeData(color: Colors.black)),
               snackBarTheme: SnackBarThemeData(
                   behavior: SnackBarBehavior.floating,
-                  backgroundColor: Colors.purple,
+                  backgroundColor: CustomColor.getColorHexCode('A00498'),
                   elevation: 6.0),
-              primarySwatch: Colors.purple,
+              primarySwatch: MaterialColor(0xFFA00498, {
+                50: CustomColor.getColorHexCode('A00498'),
+                100: CustomColor.getColorHexCode('A00498'),
+                200: CustomColor.getColorHexCode('A00498'),
+                300: CustomColor.getColorHexCode('A00498'),
+                400: CustomColor.getColorHexCode('A00498'),
+                500: CustomColor.getColorHexCode('A00498'),
+                600: CustomColor.getColorHexCode('A00498'),
+                700: CustomColor.getColorHexCode('A00498'),
+                800: CustomColor.getColorHexCode('A00498'),
+                900: CustomColor.getColorHexCode('A00498')
+              }),
               accentColor: Colors.orange,
               textTheme: TextTheme(
                   bodyText2: GoogleFonts.quicksand(fontSize: 22.0),
