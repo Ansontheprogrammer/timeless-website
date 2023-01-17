@@ -24,8 +24,7 @@ class LandingPageContent extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     bool displayedOnTabletOrSmaller = screenWidth < 600;
-    AuthenticationService authenticationService =
-        Provider.of<AuthenticationService>(context);
+
     return Column(
       children: [
         if (kIsWeb) HeroSection(),

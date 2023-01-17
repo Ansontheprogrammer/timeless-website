@@ -21,7 +21,7 @@ class ScrollablePageContent extends StatelessWidget {
         children: [
           if (kIsWeb)
             SizedBox(
-              height: 90,
+              height: MediaQuery.of(context).size.height * 0.1275,
             ),
 
           /// Set a minimum page height, mainly used for the webview to push the footer to the bottom of the display height

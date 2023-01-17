@@ -20,7 +20,7 @@ class NavigationBar extends StatelessWidget {
     return CustomSection(
       color: Colors.black87,
       child: Container(
-        height: 40,
+        height: 20,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.max,
