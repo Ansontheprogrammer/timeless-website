@@ -48,10 +48,10 @@ class LandingPageContent extends StatelessWidget {
                     width: !displayedOnTabletOrSmaller
                         ? MediaQuery.of(context).size.width * 0.5
                         : MediaQuery.of(context).size.width * 0.8,
-                    child: CustomTextLarge(
+                    child: CustomTextNormal(
+                      fontSize: 14,
                       textAlign: kIsWeb ? TextAlign.center : TextAlign.start,
-                      text:
-                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor',
+                      text: 'See businesses based on your preferred categories',
                     ),
                   ),
                 ),

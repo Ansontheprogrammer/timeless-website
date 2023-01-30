@@ -132,6 +132,9 @@ class SearchView extends StatelessWidget {
                                           hint: 'Search by Location',
                                           icon: Icons.location_pin,
                                         )),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
                                     SaveSearchButton(
                                         model: model,
                                         saveSearchProvider: saveSearchProvider),

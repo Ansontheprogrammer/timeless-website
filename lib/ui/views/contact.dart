@@ -42,24 +42,12 @@ class ContactView extends StatelessWidget {
                 SizedBox(
                   height: 32.0,
                 ),
-                AdaptiveCenter(
-                  child: Container(
-                    width: kIsWeb
-                        ? MediaQuery.of(context).size.width * 0.6
-                        : MediaQuery.of(context).size.width,
-                    child: CustomTextNormal(
-                        color: Colors.white,
-                        textAlign: kIsWeb ? TextAlign.center : TextAlign.start,
-                        text:
-                            'Use this form to add a new business to the listing'),
-                  ),
-                ),
                 SizedBox(
                   height: 25,
                 ),
                 ConstrainedBox(
                   constraints: BoxConstraints(maxWidth: 400),
-                  child: ContactFormDetails(),
+                  child: ContactFormDetails(false),
                 ),
               ],
             )),

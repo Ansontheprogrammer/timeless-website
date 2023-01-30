@@ -16,14 +16,20 @@ import 'package:timeless_app/ui/views/login.dart';
 import 'package:timeless_app/ui/views/not_found.dart';
 import 'package:timeless_app/ui/views/routing_data/parameter_string_extension.dart';
 import 'package:timeless_app/ui/views/search.dart';
-import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setUpLocator();
   kIsWeb
       ? await Firebase.initializeApp(
-          options: DefaultFirebaseOptions.currentPlatform,
+          options: const FirebaseOptions(
+              apiKey: "AIzaSyDPzQMH7b8K93mRNdCx8j9UPA4-R0PEHzc",
+              authDomain: "timeless-app-607e3.firebaseapp.com",
+              projectId: "timeless-app-607e3",
+              storageBucket: "timeless-app-607e3.appspot.com",
+              messagingSenderId: "1028118672274",
+              appId: "1:1028118672274:web:6d538f4a04596a9400474b",
+              measurementId: "G-TLSQR5X3QP"),
         )
       : await Firebase.initializeApp();
   runApp(MyApp());
@@ -58,7 +64,7 @@ class MainApp extends StatelessWidget {
       ],
       builder: (context, child) {
         return MaterialApp(
-          title: 'Alison & Family',
+          title: 'Alyson & Family',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
               appBarTheme: AppBarTheme(

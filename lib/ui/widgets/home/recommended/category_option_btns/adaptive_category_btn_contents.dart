@@ -26,15 +26,16 @@ class AdaptiveCategoryBtnContents extends StatelessWidget {
   Widget build(BuildContext context) {
     CategoryProvider model =
         Provider.of<CategoryProvider>(context, listen: false);
+
     Color iconColor = !active ? Theme.of(context).primaryColor : Colors.white;
 
     ElevatedButton categoryListTile = ElevatedButton(
         onPressed: () => toggleButtonActiveState(model),
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.all(20.0),
-          shadowColor: Theme.of(context).accentColor,
-          foregroundColor:
-              this.active ? Theme.of(context).primaryColor : Colors.white,
+          backgroundColor: this.active
+              ? Theme.of(context).primaryColor
+              : Theme.of(context).secondaryHeaderColor,
         ),
         child: ListTile(
           dense: true,
@@ -60,9 +61,9 @@ class AdaptiveCategoryBtnContents extends StatelessWidget {
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.all(20.0),
-            shadowColor: Theme.of(context).accentColor,
-            foregroundColor:
-                this.active ? Theme.of(context).primaryColor : Colors.white,
+            backgroundColor: this.active
+                ? Theme.of(context).primaryColor
+                : Theme.of(context).secondaryHeaderColor,
           ),
           onPressed: () => toggleButtonActiveState(model),
           child: Column(

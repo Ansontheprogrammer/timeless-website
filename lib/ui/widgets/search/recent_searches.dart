@@ -19,15 +19,14 @@ class SearchedBusinessesSection extends StatelessWidget {
         Provider.of<SearchViewModel>(context).activeSearch;
 
     return CustomSection(
-        color: Constants.blackLargeOpacity,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 20,
-            ),
-            BusinessesFoundInQuery(currentSearch: currentSearch)
-          ],
-        ));
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: 20,
+        ),
+        BusinessesFoundInQuery(currentSearch: currentSearch)
+      ],
+    ));
   }
 }

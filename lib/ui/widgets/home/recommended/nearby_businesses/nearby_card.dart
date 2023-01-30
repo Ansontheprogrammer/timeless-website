@@ -56,7 +56,7 @@ class NearbyBusinessCard extends StatelessWidget {
               ),
             ),
             Container(
-              height: MediaQuery.of(context).size.height * 0.3,
+              height: MediaQuery.of(context).size.height * 0.4,
               padding: EdgeInsets.all(15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

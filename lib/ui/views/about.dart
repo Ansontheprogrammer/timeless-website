@@ -42,8 +42,7 @@ class AboutView extends StatelessWidget {
                     CustomTextLarge(
                       fontSize: 36.0,
                       fontWeight: FontWeight.w100,
-                      text:
-                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ',
+                      text: 'Welcome to Alyson & Family listings!',
                     ),
                     SizedBox(
                       height: 32.0,
@@ -51,7 +50,7 @@ class AboutView extends StatelessWidget {
                     CustomTextNormal(
                       fontWeight: FontWeight.w100,
                       text:
-                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et do magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum',
+                          'This platform was created to provide creatives and businesses their own custom listing. Our goal is to bring awareness to the businesses we love & support.',
                     ),
                     SizedBox(
                       height: 32.0,
@@ -59,7 +58,7 @@ class AboutView extends StatelessWidget {
                     CustomTextNormal(
                       fontWeight: FontWeight.w100,
                       text:
-                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et do magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum',
+                          'We are always looking for new potential businesses to promote on our platform. Please sign up today!',
                     ),
                     SizedBox(
                       height: 32.0,
