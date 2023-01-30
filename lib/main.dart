@@ -67,20 +67,9 @@ class MainApp extends StatelessWidget {
                   iconTheme: IconThemeData(color: Colors.black)),
               snackBarTheme: SnackBarThemeData(
                   behavior: SnackBarBehavior.floating,
-                  backgroundColor: CustomColor.getColorHexCode('A00498'),
+                  backgroundColor: Colors.purple,
                   elevation: 6.0),
-              primarySwatch: MaterialColor(0xFFA00498, {
-                50: CustomColor.getColorHexCode('A00498'),
-                100: CustomColor.getColorHexCode('A00498'),
-                200: CustomColor.getColorHexCode('A00498'),
-                300: CustomColor.getColorHexCode('A00498'),
-                400: CustomColor.getColorHexCode('A00498'),
-                500: CustomColor.getColorHexCode('A00498'),
-                600: CustomColor.getColorHexCode('A00498'),
-                700: CustomColor.getColorHexCode('A00498'),
-                800: CustomColor.getColorHexCode('A00498'),
-                900: CustomColor.getColorHexCode('A00498')
-              }),
+              primarySwatch: Colors.purple,
               accentColor: Colors.orange,
               textTheme: TextTheme(
                   bodyText2: GoogleFonts.quicksand(fontSize: 22.0),
